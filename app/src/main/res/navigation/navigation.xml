@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.panoramic.app.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_registerProductFragment"
+            app:destination="@id/registerProductFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_announcementsFragment"
+            app:destination="@id/announcementsFragment" />
+        <argument
+            android:name="modelNumber"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true"/>
+        <argument
+            android:name="serialNumber"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/personal_information"
+        android:name="com.example.panoramic.app.ui.personalinformation.PersonalInformation"
+        android:label="fragment_personal_information"
+        tools:layout="@layout/fragment_personal_information" />
+    <fragment
+        android:id="@+id/awards_guide"
+        android:name="com.example.panoramic.app.ui.awards.AwardsGuide"
+        android:label="fragment_awards_guide"
+        tools:layout="@layout/fragment_awards_guide" />
+    <fragment
+        android:id="@+id/top_seller"
+        android:name="com.example.panoramic.app.ui.topseller.TopSeller"
+        android:label="fragment_top_seller"
+        tools:layout="@layout/fragment_top_seller" />
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.example.panoramic.app.ui.score.ScoreFragment"
+        android:label="ScoreFragment"
+        tools:layout="@layout/fragment_score"/>
+    <fragment
+        android:id="@+id/registerProductFragment"
+        android:name="com.example.panoramic.app.ui.registerproduct.RegisterProductFragment"
+        android:label="fragment_register_product"
+        tools:layout="@layout/fragment_register_product" >
+        <action
+            android:id="@+id/action_registerProductFragment_to_conformationFragment"
+            app:destination="@id/conformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.example.panoramic.app.ui.movies.MoviesFragment"
+        android:label="fragment_movies"
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/action_moviesFragment_to_movieItemFragment"
+            app:destination="@id/movieItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/announcementsFragment"
+        android:name="com.example.panoramic.app.ui.announcements.AnnouncementsFragment"
+        android:label="fragment_announcements"
+        tools:layout="@layout/fragment_announcements" >
+        <action
+            android:id="@+id/action_announcementsFragment_to_announcementItemFragment"
+            app:destination="@id/announcementItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/conformationFragment"
+        android:name="com.example.panoramic.app.ui.registerproduct.ConformationFragment"
+        android:label="ConformationFragment"
+        tools:layout="@layout/fragment_conformation">
+        <action
+            android:id="@+id/action_conformationFragment_to_registerProductFragment"
+            app:destination="@id/registerProductFragment" />
+        <action
+            android:id="@+id/action_conformationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SMSFragment"
+        android:name="com.example.panoramic.app.ui.singup.SMSFragment"
+        android:label="SMSFragment"
+        tools:layout="@layout/fragment_sms">
+        <action
+            android:id="@+id/action_SMSFragment_to_singup1Fragment"
+            app:destination="@id/singup1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singup1Fragment"
+        android:name="com.example.panoramic.app.ui.singup.Singup1Fragment"
+        android:label="Singup1Fragment"
+        tools:layout="@layout/fragment_singup1">
+        <action
+            android:id="@+id/action_singup1Fragment_to_singup2Fragment"
+            app:destination="@id/singup2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singup2Fragment"
+        android:name="com.example.panoramic.app.ui.singup.Singup2Fragment"
+        android:label="Singup2Fragment"
+        tools:layout="@layout/fragment_singup2">
+        <action
+            android:id="@+id/action_singup2Fragment_to_singup3Fragment"
+            app:destination="@id/singup3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singup3Fragment"
+        android:name="com.example.panoramic.app.ui.singup.Singup3Fragment"
+        android:label="Singup3Fragment"
+        tools:layout="@layout/fragment_singup3">
+        <action
+            android:id="@+id/action_singup3Fragment_to_successSingupFragment"
+            app:destination="@id/successSingupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.panoramic.app.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_phoneFragment"
+            app:destination="@id/phoneFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgetpasswordPhoneFragment"
+            app:destination="@id/forgetpasswordPhoneFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.example.panoramic.app.ui.movies.PhoneFragment"
+        android:label="PhoneFragment"
+        tools:layout="@layout/fragment_phone">
+        <action
+            android:id="@+id/action_phoneFragment_to_SMSFragment"
+            app:destination="@id/SMSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetpasswordSMSFragment"
+        android:name="com.example.panoramic.app.ui.forgetpassword.ForgetpasswordSMSFragment"
+        android:label="fragment_forgetpassword_sms"
+        tools:layout="@layout/fragment_forgetpassword_sms" >
+        <action
+            android:id="@+id/action_forgetpasswordSMSFragment_to_newPasswordFragment"
+            app:destination="@id/newPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetpasswordPhoneFragment"
+        android:name="com.example.panoramic.app.ui.movies.ForgetpasswordPhoneFragment"
+        android:label="ForgetpasswordPhoneFragment"
+        tools:layout="@layout/fragment_forgetpassword">
+        <action
+            android:id="@+id/action_forgetpasswordPhoneFragment_to_forgetpasswordSMSFragment"
+            app:destination="@id/forgetpasswordSMSFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.example.panoramic.app.ui.forgetpassword.NewPasswordFragment"
+        android:label="fragment_new_password"
+        tools:layout="@layout/fragment_new_password" >
+        <action
+            android:id="@+id/action_newPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successSingupFragment"
+        android:name="com.example.panoramic.app.ui.singup.SuccessSingupFragment"
+        android:label="fragment_success_singup"
+        tools:layout="@layout/fragment_success_singup" >
+        <action
+            android:id="@+id/action_successSingupFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/announcementItemFragment"
+        android:name="com.example.panoramic.app.ui.announcements.AnnouncementItemFragment"
+        android:label="fragment_announcement_item"
+        tools:layout="@layout/fragment_announcement_item" />
+    <fragment
+        android:id="@+id/movieItemFragment"
+        android:name="com.example.panoramic.app.ui.movies.MovieItemFragment"
+        android:label="fragment_movie_item"
+        tools:layout="@layout/fragment_movie_item" />
+</navigation>
