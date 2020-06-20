@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColorGray"
+        tools:context=".ui.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_pictuer"
+                android:layout_width="47.3dp"
+                android:layout_height="47.3dp"
+                android:layout_marginStart="27.3dp"
+                android:layout_marginTop="18.7dp"
+                android:src="@drawable/home_person_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/welcome_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="22dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:text="@string/welcome_text"
+                android:textColor="@color/textInputColor"
+                android:textSize="11.3sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profile_pictuer"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/home_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="22dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:text="@string/username_home"
+                android:textColor="@color/colorPrimary"
+                android:textSize="17.3sp"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_pictuer"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/your_score"
+                android:transitionName="your_score"
+                android:layout_width="match_parent"
+                android:layout_height="45.3dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="21.3dp"
+                android:layout_marginEnd="18dp"
+                android:background="@drawable/your_score"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_pictuer"
+                tools:ignore="MissingConstraints"
+                tools:targetApi="lollipop">
+
+                <TextView
+                    android:id="@+id/your_score_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:layout_marginEnd="16.7dp"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:lineSpacingExtra="14sp"
+                    android:text="@string/your_score_text"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/coin"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="11dp"
+                    android:contentDescription="coin"
+                    android:src="@drawable/coin" />
+
+                <TextView
+                    android:id="@+id/your_score_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="39dp"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="score"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/click_for_more_info_reward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/click_for_more_info_reward"
+                android:textColor="@color/textInputColor"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/your_score" />
+
+            <View
+                android:id="@+id/line_break_1"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="36.3dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="36.3dp"
+                android:background="@color/textInputColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/click_for_more_info_reward" />
+
+            <FrameLayout
+                android:id="@+id/register_new_product"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_item_frame_height"
+                android:layout_marginTop="@dimen/home_item_frame_marghin_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_break_1">
+
+                <ImageView
+                    android:id="@+id/register_new_product_image"
+                    android:layout_width="@dimen/home_item_frame_image_width_and_height"
+                    android:layout_height="@dimen/home_item_frame_image_width_and_height"
+                    android:layout_gravity="center|end"
+                    android:layout_marginEnd="@dimen/home_item_frame_image_marghin_end"
+                    android:src="@drawable/home_register_new_product_background" />
+
+                <TextView
+                    android:id="@+id/register_new_product_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/home_item_frame_title_marghin_top"
+                    android:layout_marginEnd="@dimen/home_item_frame_title_marghin_end"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="@string/register_new_product_text"
+                    android:textSize="@dimen/home_item_frame_title_text_size" />
+
+                <TextView
+                    android:id="@+id/last_registered_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
+                    android:layout_marginEnd="@dimen/home_item_frame_text_marghin_end"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="@string/last_registered_product" />
+
+                <TextView
+                    android:id="@+id/last_registered_product_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
+                    android:layout_marginEnd="250dp"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="PA-43SA2643" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/line_break_2"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="36.3dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="36.3dp"
+                android:background="@color/textInputColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_new_product" />
+
+            <FrameLayout
+                android:id="@+id/educational_videos"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_item_frame_height"
+                android:layout_marginTop="@dimen/home_item_frame_marghin_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_break_2">
+
+                <ImageView
+                    android:id="@+id/educational_videos_image"
+                    android:layout_width="@dimen/home_item_frame_image_width_and_height"
+                    android:layout_height="@dimen/home_item_frame_image_width_and_height"
+                    android:layout_gravity="center|end"
+                    android:layout_marginEnd="@dimen/home_item_frame_image_marghin_end"
+                    android:src="@drawable/home_educational_videos_background" />
+
+                <TextView
+                    android:id="@+id/educational_videos_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/home_item_frame_title_marghin_top"
+                    android:layout_marginEnd="@dimen/home_item_frame_title_marghin_end"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="@string/educational_videos_title_text"
+                    android:textSize="@dimen/home_item_frame_title_text_size"/>
+
+                <TextView
+                    android:id="@+id/number_of_unseen_videos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    android:layout_marginEnd="@dimen/home_item_frame_text_marghin_end"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="@string/number_of_unseen_videos" />
+
+                <TextView
+                    android:id="@+id/number_of_unseen_videos_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
+                    android:layout_marginEnd="265dp"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="3" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/line_break_3"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="36.3dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="36.3dp"
+                android:background="@color/textInputColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/educational_videos" />
+
+            <FrameLayout
+                android:id="@+id/announcements"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_item_frame_height"
+                android:layout_marginTop="@dimen/home_item_frame_marghin_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_break_3">
+
+                <ImageView
+                    android:id="@+id/announcements_image"
+                    android:layout_width="@dimen/home_item_frame_image_width_and_height"
+                    android:layout_height="@dimen/home_item_frame_image_width_and_height"
+                    android:layout_gravity="center|end"
+                    android:layout_marginEnd="@dimen/home_item_frame_image_marghin_end"
+                    android:src="@drawable/home_announcements_background" />
+
+                <TextView
+                    android:id="@+id/announcements_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/home_item_frame_title_marghin_end"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="@string/announcements_text"
+                    android:textSize="@dimen/home_item_frame_title_text_size"/>
+
+                <TextView
+                    android:id="@+id/unread_notices"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    android:layout_marginEnd="@dimen/home_item_frame_text_marghin_end"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="@string/unread_notices" />
+
+                <TextView
+                    android:id="@+id/unread_notices_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
+                    android:layout_marginEnd="235dp"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:text="5" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/line_break_4"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="36.3dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="36.3dp"
+                android:background="@color/textInputColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/announcements" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Panoramic</string>
+    <string name="logo">LOGO</string>
+    <string name="login_username">نام کاربری</string>
+    <string name="login_password">رمز عبور</string>
+    <string name="login_button">ورود</string>
+    <string name="singup_button">ثبت نام</string>
+    <string name="forget_password">رمز عبور را فراموش کردید ؟</string>
+    <string name="contact_us">تماس با ما</string>
+    <string name="top_seller">برترین فروشندگان</string>
+    <string name="awards_guide">راهنمای جوایز</string>
+    <string name="personal_information">اطلاعات شخصی</string>
+    <string name="welcome_text">صبح به خیر</string>
+    <string name="username_home">نام کاربری</string>
+    <string name="your_score_text">امتیاز شما:</string>
+    <string name="click_for_more_info_reward">جهت اطلاع از جزئیات بیشتر، اینجا را لمس کنید</string>
+    <string name="register_new_product_text">ثبت محصول جدید</string>
+    <string name="last_registered_product">آخرین محصول ثبت شده شما :</string>
+    <string name="educational_videos_title_text">ویدیو های آموزشی</string>
+    <string name="number_of_unseen_videos">تعداد ویدیو های مشاهده نشده :</string>
+    <string name="announcements_text">اطلاعیه ها</string>
+    <string name="unread_notices">اطلاعیه های خوانده نشده :</string>
+    <string name="register_product_Inquiry">استعلام کالا</string>
+    <string name="register_product_rolls_title">شرایط و قوانین :</string>
+    <string name="register_product_barcode_text">بارکد</string>
+    <string name="register_product_barcode_input_hint">سریال دستگاه</string>
+    <string name="register_product_phone_input_text">نام و نام خانوادگی مصرف کننده</string>
+    <string name="register_product_name_input_text">نام و نام خانوادگی مصرف کننده</string>
+    <string name="register_product_title_text">لطفا اطلاعات زیر را کامل کنید :</string>
+    <string name="home_page">خانه</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

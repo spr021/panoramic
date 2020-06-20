@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/singup_navigation"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/SMSFragment">
+
+    <fragment
+        android:id="@+id/SMSFragment"
+        android:name="com.example.panoramic.ui.SMSFragment"
+        android:label="fragment_sms"
+        tools:layout="@layout/fragment_sms" >
+        <action
+            android:id="@+id/action_SMSFragment_to_singup1Fragment"
+            app:destination="@id/singup1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singup1Fragment"
+        android:name="com.example.panoramic.ui.Singup1Fragment"
+        android:label="fragment_singup1"
+        tools:layout="@layout/fragment_singup1" >
+        <action
+            android:id="@+id/action_singup1Fragment_to_singup2Fragment"
+            app:destination="@id/singup2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singup2Fragment"
+        android:name="com.example.panoramic.ui.Singup2Fragment"
+        android:label="fragment_singup2"
+        tools:layout="@layout/fragment_singup2" >
+        <action
+            android:id="@+id/action_singup2Fragment_to_singup3Fragment"
+            app:destination="@id/singup3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singup3Fragment"
+        android:name="com.example.panoramic.ui.Singup3Fragment"
+        android:label="fragment_singup3"
+        tools:layout="@layout/fragment_singup3" />
+</navigation>

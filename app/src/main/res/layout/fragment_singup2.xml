@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".ui.Singup2Fragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/national_id"
+                style="@style/SingupTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="23dp"
+                android:gravity="right"
+                android:hint="کدملی"
+                android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ExtraText">
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/home_adress"
+                style="@style/SingupTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="23dp"
+                app:hintTextAppearance="@style/hintStyle"
+                android:gravity="right"
+                android:hint="آدرس منزل"
+                android:textColorHint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/national_id"
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/home_zip"
+                style="@style/SingupTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                app:hintTextAppearance="@style/hintStyle"
+                android:layout_marginEnd="23dp"
+                android:gravity="right"
+                android:hint="کدپستی منزل"
+                android:textColorHint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_adress"
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/home_phone"
+                style="@style/SingupTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="23dp"
+                app:hintTextAppearance="@style/hintStyle"
+                android:gravity="right"
+                android:hint="شماره تلفن منزل"
+                android:textColorHint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_zip"
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/marital_status"
+                style="@style/ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="16dp"
+                app:hintTextAppearance="@style/hintStyle"
+                android:layout_marginEnd="23dp"
+                android:gravity="right"
+                android:hint="وضعیت تاهل"
+                android:textColorHint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/child_number"
+                app:layout_constraintTop_toBottomOf="@+id/home_phone"
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <AutoCompleteTextView
+                    android:id="@+id/marital_status_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:inputType="none"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/child_number"
+                style="@style/ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginEnd="15dp"
+                app:hintTextAppearance="@style/hintStyle"
+                android:gravity="right"
+                android:hint="تعداد فرزندان"
+                android:textColorHint="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/marital_status"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/marital_status"
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <AutoCompleteTextView
+                    android:id="@+id/child_number_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:inputType="none"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <FrameLayout
+                android:id="@+id/next_page"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="23dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/next_page_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_marginLeft="30dp"
+                    android:gravity="left|center"
+                    android:padding="0dp"
+                    android:text="صفحه ی بعد"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    tools:ignore="RtlHardcoded" />
+
+                <ImageView
+                    android:id="@+id/next_page_pic"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:gravity="left|center"
+                    app:srcCompat="@drawable/singup_next_page"
+                    tools:ignore="VectorDrawableCompat" />
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

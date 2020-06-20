@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.RegisterProductFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/register_product_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34.7dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:text="@string/register_product_title_text"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/register_product_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="36.7dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="64dp"
+                android:background="@drawable/login_input_background"
+                android:ems="10"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="right|center"
+                android:hint="@string/register_product_name_input_text"
+                android:inputType="textPersonName"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/textInputColor"
+                android:textColorHint="@color/textInputColor"
+                android:textSize="11.3sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_product_title"
+                tools:ignore="RtlHardcoded,SmallSp" />
+
+            <EditText
+                android:id="@+id/register_product_phone_input"
+                android:layout_width="match_parent"
+                android:layout_height="36.7dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="12.7dp"
+                android:layout_marginEnd="64dp"
+                android:background="@drawable/login_input_background"
+                android:ems="10"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="right|center"
+                android:hint="@string/register_product_phone_input_text"
+                android:inputType="phone"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/textInputColor"
+                android:textColorHint="@color/textInputColor"
+                android:textSize="11.3sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_product_name_input"
+                tools:ignore="RtlHardcoded,SmallSp" />
+
+            <EditText
+                android:id="@+id/register_product_barcode_input"
+                android:layout_width="match_parent"
+                android:layout_height="36.7dp"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="64dp"
+                android:background="@drawable/login_input_background"
+                android:ems="9"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="right|center"
+                android:hint="@string/register_product_barcode_input_hint"
+                android:inputType="textPersonName"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/textInputColor"
+                android:textColorHint="@color/textInputColor"
+                android:textSize="11.3sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_product_phone_input"
+                tools:ignore="RtlHardcoded,SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/register_product_barcode_button"
+                android:layout_width="80dp"
+                android:layout_height="36.7dp"
+                android:layout_marginStart="64dp"
+                android:background="@drawable/register_product_barcode_button"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="center|start"
+                android:paddingEnd="8dp"
+                android:text="@string/register_product_barcode_text"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/register_product_barcode_input"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/register_product_rolls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="start"
+                android:text="@string/register_product_rolls_title"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_product_barcode_input" />
+
+            <TextView
+                android:id="@+id/register_product_rolls_text_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="22dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="start"
+                android:lineSpacingExtra="3.3sp"
+                android:text="امتیازات کالا، پس از تایید نمایندگی  پس از فروش برای
+.شما اعمال میگردد"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_product_rolls"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/register_product_rolls_text_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="22dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="start"
+                android:text="شما میـتوانید میزان  امتـیاز  هر دستـگاه  را  در  صفحـه
+.&quot;راهنمای جوایز&quot; مشاهده کنید"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_product_rolls_text_1"
+                tools:ignore="SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/register_product_Inquiry"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
+                android:background="@drawable/login_input_background"
+                android:fontFamily="@font/yekanweb_regular"
+                android:text="@string/register_product_Inquiry"
+                android:textColor="@color/textInputColor"
+                android:textSize="20.7sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_product_rolls_text_2"
+                app:layout_constraintVertical_bias="0.8" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>
