@@ -32,6 +32,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -47,10 +55,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.2.0-beta01'
 
-    implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-rc02'
-    implementation 'android.arch.navigation:navigation-fragment:1.0.0-rc02'
-    implementation 'android.arch.navigation:navigation-ui:1.0.0-rc02'
-    implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-rc02'
+    implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0'
+    implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 

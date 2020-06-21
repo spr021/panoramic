@@ -16,7 +16,6 @@ class AnnouncementsViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     private var mDateView: TextView? = null
     private var mImageView: ImageView? = null
     private var mSeenView: View? = null
-    private var mBoxView: View? = null
 
 
     init {
@@ -24,7 +23,6 @@ class AnnouncementsViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         mDateView = itemView.findViewById(R.id.list_description)
         mImageView = itemView.findViewById(R.id.list_image)
         mSeenView = itemView.findViewById(R.id.notification)
-        mBoxView = itemView.findViewById(R.id.list_box)
     }
 
     fun bind(movie: AnnouncementsEntity) {

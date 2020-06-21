@@ -10,9 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbd14e65-067b-4f89-ae21-1e247f0b001a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/announcements/AnnouncementsAdabter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/announcements/AnnouncementsFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/data/entity/AnnouncementsEntity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -24,49 +21,24 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/avocado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/avocado.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Panoramic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Panoramic.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/Movie.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/MovieViewHolder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/announcements/AnnouncementsViewHolder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/AnnouncementsFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/AwardsGuide.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/awards/AwardsGuide.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/ConformationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/registerproduct/ConformationFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/HomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/home/HomeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/ListAdabterAnnouncements.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/LoginActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/MoviesFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MoviesFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/PersonalInformation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/personalinformation/PersonalInformation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/RegisterProductFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/registerproduct/RegisterProductFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/SMSFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/singup/SMSFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/ScoreFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/score/ScoreFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/Singup1Fragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/singup/Singup1Fragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/Singup2Fragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/singup/Singup2Fragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/Singup3Fragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/singup/Singup3Fragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/SingupActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/SplashActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/SplashActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/ui/TopSeller.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/topseller/TopSeller.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_singup.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_announcements.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_announcements.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_awards_guide.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_awards_guide.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_conformation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_conformation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movies.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_personal_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_personal_information.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register_product.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register_product.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_score.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_score.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_singup1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_singup1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_singup2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_singup2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_singup3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_singup3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_sms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_sms.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_top_seller.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_top_seller.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/bottom_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/navigation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/singup_navigation.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/announcements/AnnouncementItemFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/announcements/AnnouncementItemFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/announcements/AnnouncementsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/announcements/AnnouncementsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/announcements/AnnouncementsViewHolder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/announcements/AnnouncementsViewHolder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/forgetpassword/ForgetpasswordPhoneFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/forgetpassword/ForgetpasswordPhoneFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/forgetpassword/ForgetpasswordSMSFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/forgetpassword/ForgetpasswordSMSFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/forgetpassword/NewPasswordFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/forgetpassword/NewPasswordFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/login/LoginFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/login/LoginFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MovieItemFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MovieItemFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MoviesFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MoviesFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MoviesViewHolder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MoviesViewHolder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/data/entity/AnnouncementsEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/data/entity/AnnouncementsEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/data/entity/MoviesEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/data/entity/MoviesEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_movies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_movies.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,14 +206,14 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="177" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1294.741@72.27.1294.741" timestamp="1591680658312" />
-    <state x="493" y="116" width="442" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1591768100270">
+    <state x="493" y="116" width="442" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1592747041956">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="493" y="116" width="442" height="569" key="#com.intellij.ide.util.MemberChooser/72.27.1294.741@72.27.1294.741" timestamp="1591768100270" />
-    <state x="192" y="325" width="1054" height="152" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1592651770513">
+    <state x="493" y="116" width="442" height="569" key="#com.intellij.ide.util.MemberChooser/72.27.1294.741@72.27.1294.741" timestamp="1592747041956" />
+    <state x="192" y="325" width="1141" height="152" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1592749508691">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="192" y="325" width="1054" height="152" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/72.27.1294.741@72.27.1294.741" timestamp="1592651770513" />
+    <state x="192" y="325" width="1141" height="152" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/72.27.1294.741@72.27.1294.741" timestamp="1592749508691" />
     <state x="72" y="27" width="928" height="741" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592656331459">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
@@ -274,22 +246,22 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="515" y="157" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1592321236267" />
-    <state width="1248" height="395" key="GridCell.Tab.0.bottom" timestamp="1592649420751">
+    <state width="1248" height="395" key="GridCell.Tab.0.bottom" timestamp="1592746058102">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="395" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1592649420751" />
-    <state width="1248" height="395" key="GridCell.Tab.0.center" timestamp="1592649420750">
+    <state width="1248" height="395" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1592746058102" />
+    <state width="1248" height="395" key="GridCell.Tab.0.center" timestamp="1592746058101">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="395" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1592649420750" />
-    <state width="1248" height="395" key="GridCell.Tab.0.left" timestamp="1592649420749">
+    <state width="1248" height="395" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1592746058101" />
+    <state width="1248" height="395" key="GridCell.Tab.0.left" timestamp="1592746058100">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="395" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1592649420749" />
-    <state width="1248" height="395" key="GridCell.Tab.0.right" timestamp="1592649420751">
+    <state width="1248" height="395" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1592746058100" />
+    <state width="1248" height="395" key="GridCell.Tab.0.right" timestamp="1592746058102">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="395" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1592649420751" />
+    <state width="1248" height="395" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1592746058102" />
     <state x="332" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1592311444256">
       <screen x="72" y="27" width="1294" height="741" />
     </state>

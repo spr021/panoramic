@@ -5,9 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
-import com.example.panoramic.databinding.FragmentConformationBinding
 import com.example.panoramic.databinding.FragmentRegisterProductBinding
-import com.example.panoramic.databinding.FragmentSmsBinding
 
 class RegisterProductFragment : Fragment(R.layout.fragment_register_product) {
 
