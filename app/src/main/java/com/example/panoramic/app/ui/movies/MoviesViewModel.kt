@@ -3,7 +3,9 @@ package com.example.panoramic.app.ui.movies
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.panoramic.data.entity.MoviesEntity
+import kotlinx.coroutines.launch
 
 class MoviesViewModel : ViewModel() {
     private val _viewState: MutableLiveData<MoviesEntity> = MutableLiveData()
@@ -11,5 +13,8 @@ class MoviesViewModel : ViewModel() {
 
     fun request() {
         //send request and get json convert to data class with Gson()
+        viewModelScope.launch {
+        }
+
     }
 }

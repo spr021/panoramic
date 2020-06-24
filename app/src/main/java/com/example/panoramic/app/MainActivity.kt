@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
                 when (destination.id) {
                     R.id.registerProductFragment -> bottom_navigation?.visibility = View.GONE
                     R.id.conformationFragment -> bottom_navigation?.visibility = View.GONE
+                    R.id.scoreFragment -> bottom_navigation?.visibility = View.GONE
                     else -> bottom_navigation.visibility = View.VISIBLE
                 }
         }
