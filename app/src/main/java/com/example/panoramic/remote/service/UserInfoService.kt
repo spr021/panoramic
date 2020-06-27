@@ -12,6 +12,7 @@ class UserInfoService(private val networkManager: NetworkManager) {
     }
 
     companion object{
-        const val URL_FEATURED = "https://restapis.xyz/around-me/v1/featured"
+        const val URL_FEATURED = "https://run.mocky.io/v3/f7ed6496-7273-4f28-a444-6e79b5ec65df"
+        // https://designer.mocky.io/design/confirmation
     }
 }
