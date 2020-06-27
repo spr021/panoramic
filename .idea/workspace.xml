@@ -21,25 +21,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_savedstate_1_0_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_material_material_1_2_0_beta01_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_10_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_14_0_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MoviesViewHolder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MoviesViewHolder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MoviesViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/movies/MoviesViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/score/ScoreFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/score/ScoreFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_announcement_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_announcement_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_forgetpassword_sms.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_forgetpassword_sms.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_new_password.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_score.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_score.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_success_singup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_success_singup.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/build-attribution/androidGradlePluginAttributionData" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/home/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/home/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/score/ScoreViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/panoramic/app/ui/score/ScoreViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,10 +72,11 @@
       <list>
         <option value="Class" />
         <option value="navigationResourceFile" />
-        <option value="Kotlin File" />
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Object" />
       </list>
     </option>
   </component>
@@ -98,15 +99,15 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.panoramic.remote" />
       <recent name="com.example.panoramic.app.ui.home" />
       <recent name="com.example.panoramic.app.ui.login" />
       <recent name="com.example.panoramic.app.ui.singup" />
       <recent name="com.example.panoramic.app.ui.personalinformation" />
-      <recent name="com.example.panoramic.app.ui.registerproduct" />
     </key>
     <key name="android.template.111415199">
       <recent name="com.example.panoramic.ui" />
@@ -218,10 +219,10 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="493" y="116" width="442" height="569" key="#com.intellij.ide.util.MemberChooser/72.27.1294.741@72.27.1294.741" timestamp="1592747041956" />
-    <state x="192" y="325" width="1141" height="152" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1592749508691">
+    <state x="192" y="325" width="1141" height="152" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1593185822097">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="192" y="325" width="1141" height="152" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/72.27.1294.741@72.27.1294.741" timestamp="1592749508691" />
+    <state x="192" y="325" width="1141" height="152" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/72.27.1294.741@72.27.1294.741" timestamp="1593185822097" />
     <state x="72" y="27" width="928" height="741" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592656331459">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
@@ -230,10 +231,10 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="452" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/72.27.1294.741@72.27.1294.741" timestamp="1592896545566" />
-    <state x="472" y="27" width="627" height="699" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1592657993684">
+    <state x="472" y="27" width="627" height="699" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1593185836940">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="472" y="27" width="627" height="699" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/72.27.1294.741@72.27.1294.741" timestamp="1592657993684" />
+    <state x="472" y="27" width="627" height="699" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/72.27.1294.741@72.27.1294.741" timestamp="1593185836940" />
     <state x="455" y="273" width="518" height="256" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1591097144750">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
@@ -254,30 +255,30 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="515" y="157" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1592321236267" />
-    <state width="1248" height="395" key="GridCell.Tab.0.bottom" timestamp="1592746058102">
+    <state width="1248" height="412" key="GridCell.Tab.0.bottom" timestamp="1593240450465">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="395" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1592746058102" />
-    <state width="1248" height="395" key="GridCell.Tab.0.center" timestamp="1592746058101">
+    <state width="1248" height="412" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1593240450465" />
+    <state width="1248" height="412" key="GridCell.Tab.0.center" timestamp="1593240450465">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="395" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1592746058101" />
-    <state width="1248" height="395" key="GridCell.Tab.0.left" timestamp="1592746058100">
+    <state width="1248" height="412" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1593240450465" />
+    <state width="1248" height="412" key="GridCell.Tab.0.left" timestamp="1593240450464">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="395" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1592746058100" />
-    <state width="1248" height="395" key="GridCell.Tab.0.right" timestamp="1592746058102">
+    <state width="1248" height="412" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1593240450464" />
+    <state width="1248" height="412" key="GridCell.Tab.0.right" timestamp="1593240450465">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="395" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1592746058102" />
-    <state x="332" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1592807798813">
+    <state width="1248" height="412" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1593240450465" />
+    <state x="332" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1593189686720">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="332" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1592807798813" />
-    <state x="172" y="127" width="1094" height="541" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1592295574604">
+    <state x="332" y="31" width="1022" height="737" key="SettingsEditor/72.27.1294.741@72.27.1294.741" timestamp="1593189686720" />
+    <state x="172" y="127" width="1094" height="541" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1593189483926">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="172" y="127" width="1094" height="541" key="com.android.tools.idea.avdmanager.AvdListDialog/72.27.1294.741@72.27.1294.741" timestamp="1592295574604" />
+    <state x="172" y="127" width="1094" height="541" key="com.android.tools.idea.avdmanager.AvdListDialog/72.27.1294.741@72.27.1294.741" timestamp="1593189483926" />
     <state x="795" y="29" width="549" height="743" key="dock-window-1" timestamp="1591605377636">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
