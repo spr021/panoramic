@@ -261,6 +261,15 @@
                             <option name="y" value="-611" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_announcementsFragment_to_announcementItemFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -432,6 +441,15 @@
                             <option name="y" value="-619" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_moviesFragment_to_movieItemFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -494,8 +512,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="16" />
-                            <option name="y" value="-621" />
+                            <option name="x" value="18" />
+                            <option name="y" value="-589" />
                           </Point>
                         </option>
                         <option name="myPositions">

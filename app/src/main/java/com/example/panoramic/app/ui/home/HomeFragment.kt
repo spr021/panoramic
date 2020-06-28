@@ -22,12 +22,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val binding = FragmentHomeBinding.bind(view)
         fragmentHomeBinding = binding
-
         // Initialize the ViewModel
         viewModelFactory = HomeViewModelFactory(HomeFragmentArgs.fromBundle(arguments!!))
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
+        // to all the data in the ViewModel
+        binding.homeViewModel = viewModel
 
         binding.yourScore.setOnClickListener {
             val extras = FragmentNavigatorExtras(your_score to "your_score")
@@ -56,6 +58,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
 
     }
+
 
     override fun onDestroyView() {
         fragmentHomeBinding = null
