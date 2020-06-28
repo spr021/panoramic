@@ -36,6 +36,8 @@ class MainActivity : AppCompatActivity() {
                     R.id.registerProductFragment -> bottom_navigation?.visibility = View.GONE
                     R.id.conformationFragment -> bottom_navigation?.visibility = View.GONE
                     R.id.scoreFragment -> bottom_navigation?.visibility = View.GONE
+                    R.id.SMSFragment -> bottom_navigation?.visibility = View.GONE
+                    R.id.successSingupFragment -> bottom_navigation?.visibility = View.GONE
                     else -> bottom_navigation.visibility = View.VISIBLE
                 }
         }
