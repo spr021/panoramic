@@ -1,18 +1,24 @@
 package com.example.panoramic.app.ui.personalinformation
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.panoramic.R
+import com.example.panoramic.databinding.FragmentPersonalInformationBinding
 
-class PersonalInformation : Fragment() {
+class PersonalInformation : Fragment(R.layout.fragment_personal_information) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_personal_information, container, false)
+    private var fragmentPersonalInformationBinding: FragmentPersonalInformationBinding? = null
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentPersonalInformationBinding.bind(view)
+        fragmentPersonalInformationBinding = binding
     }
+
+    override fun onDestroyView() {
+        fragmentPersonalInformationBinding = null
+        super.onDestroyView()
+    }
+
 }

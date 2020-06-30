@@ -1,13 +1,460 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".app.ui.personalinformation.PersonalInformation">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="personal information"/>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".app.ui.personalinformation.PersonalInformation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="lollipop">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_pictuer_score"
+                android:layout_width="51.3dp"
+                android:layout_height="51.3dp"
+                android:layout_marginEnd="13.3dp"
+                android:src="@drawable/home_person_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/score_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="end"
+                android:text="محمد نظامی پور"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/total_score"
+                app:layout_constraintEnd_toStartOf="@+id/profile_pictuer_score"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/total_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="end"
+                android:text="مجموع امتیازات :"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/total_pay_month"
+                app:layout_constraintEnd_toStartOf="@+id/profile_pictuer_score"
+                app:layout_constraintTop_toBottomOf="@+id/score_name" />
+
+            <TextView
+                android:id="@+id/total_score_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="end"
+                android:text="320"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/total_score"
+                app:layout_constraintEnd_toStartOf="@+id/total_score" />
+
+            <ImageView
+                android:id="@+id/score_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/total_score"
+                app:layout_constraintEnd_toStartOf="@+id/total_score_value"
+                app:layout_constraintTop_toTopOf="@+id/total_score"
+                app:srcCompat="@drawable/coin" />
+
+            <TextView
+                android:id="@+id/total_pay_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="end"
+                android:text="رتبه  شما در کشور :"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/profile_pictuer_score"
+                app:layout_constraintTop_toBottomOf="@+id/total_score" />
+
+            <TextView
+                android:id="@+id/total_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/yekanweb_regular"
+                android:gravity="center|end"
+                android:text="33"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/total_pay_month"
+                app:layout_constraintEnd_toStartOf="@+id/total_pay_month" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="85dp"
+            android:background="@drawable/score_recyclerview"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="85dp" />
+
+
+                <TextView
+                    android:id="@+id/sub_title_person_info"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="اطلاعات شخصی"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/person_info_phone_number"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="شماره تلفن :"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/sub_title_person_info" />
+
+                <TextView
+                    android:id="@+id/person_info_phone_number_value"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="09129344311"
+                    app:layout_constraintEnd_toStartOf="@+id/person_info_phone_number"
+                    app:layout_constraintTop_toTopOf="@+id/person_info_phone_number" />
+
+                <TextView
+                    android:id="@+id/person_info_email"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="رایانامه :"
+                    app:layout_constraintStart_toStartOf="@+id/person_info_phone_number"
+                    app:layout_constraintTop_toBottomOf="@+id/person_info_phone_number" />
+
+                <TextView
+                    android:id="@+id/person_info_email_value"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="monezamipoor@gmail.com"
+                    app:layout_constraintEnd_toStartOf="@+id/person_info_email"
+                    app:layout_constraintTop_toTopOf="@+id/person_info_email" />
+
+                <View
+                    android:id="@+id/line_break_1"
+                    style="@style/lineBreaker"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/person_info_email" />
+
+                <TextView
+                    android:id="@+id/sub_title_shop_info"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="اطلاعات فروشگاه"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line_break_1" />
+
+                <TextView
+                    android:id="@+id/shop_info_name"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="نام فروشگاه :"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/sub_title_shop_info" />
+
+                <TextView
+                    android:id="@+id/shop_info_name_value"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="سگ فروشان اهواز"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/shop_info_name" />
+
+                <TextView
+                    android:id="@+id/shop_info_city"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="شهر :"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/shop_info_name" />
+
+                <TextView
+                    android:id="@+id/shop_info_city_value"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="اهوار، خوزستان"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/shop_info_city" />
+
+                <TextView
+                    android:id="@+id/shop_info_zip_code"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="کد پستی :"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/shop_info_city" />
+
+                <TextView
+                    android:id="@+id/shop_info_zip_code_value"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="1743002696"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/shop_info_zip_code" />
+
+                <TextView
+                    android:id="@+id/shop_info_address"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="آدرس فروشگاه :"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/shop_info_zip_code" />
+
+                <TextView
+                    android:id="@+id/shop_info_address_value"
+                    style="@style/baseText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="right"
+                    android:text="لورم ایپسوم تولید متن ساختگی با کیفیت واقعی  با تکیه بر صنعت چاپ به نحو خوبی دسترسی به آزادی بیان را در رختشورخانه حمایت"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/shop_info_address" />
+
+                <View
+                    android:id="@+id/line_break_2"
+                    style="@style/lineBreaker"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/shop_info_address_value" />
+
+                <TextView
+                    android:id="@+id/sub_title_payment_info"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="اطلاعات پرداخت"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line_break_2" />
+
+                <TextView
+                    android:id="@+id/payment_info_bank_name"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="نام بانک :"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/sub_title_payment_info" />
+
+                <TextView
+                    android:id="@+id/payment_info_bank_name_value"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="توسعه تعاون"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/payment_info_bank_name" />
+
+                <TextView
+                    android:id="@+id/payment_info_bank_account_number"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="شماره حساب :"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/payment_info_bank_name" />
+
+                <TextView
+                    android:id="@+id/payment_info_bank_account_number_value"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="192.108.126.2464"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/payment_info_bank_account_number" />
+
+                <TextView
+                    android:id="@+id/payment_info_bank_shaba_number"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="شماره شبا :"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/payment_info_bank_account_number" />
+
+                <TextView
+                    android:id="@+id/payment_info_bank_shaba_number_value"
+                    style="@style/baseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="IR12343333300284898842"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/payment_info_bank_shaba_number" />
+
+                <View
+                    android:id="@+id/line_break_3"
+                    style="@style/lineBreaker"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/payment_info_bank_shaba_number_value" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/change_password"
+                    style="@style/baseText"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/person_info_button"
+                    android:gravity="center|right"
+                    android:padding="10dp"
+                    android:text="تغییر رمز عبور"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/transaction_history"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/transaction_history"
+                    tools:ignore="RtlHardcoded" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/transaction_history"
+                    style="@style/baseText"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:gravity="center|right"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/person_info_button"
+                    android:text="تاریخچه تراکنش ها"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/change_password"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line_break_3"
+                    tools:ignore="RtlHardcoded" />
+
+                <View
+                    android:id="@+id/line_break_4"
+                    style="@style/lineBreaker"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transaction_history" />
+
+                <TextView
+                    android:id="@+id/sub_title_call_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="24dp"
+                    style="@style/baseText"
+                    android:textSize="18sp"
+                    android:text="تماس با ما"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line_break_4" />
+
+                <TextView
+                    android:id="@+id/sub_title_call_us_text"
+                    style="@style/baseText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="90dp"
+                    android:text="فروشندگان محترم، لطفا جهت تغییر اطلاعات شخصی خود،  و یا مشاهده هرگونه مشکلی در اپلیکیشن، لطفا از طریق تماس با شماره های 021-22879855 ،  021-22879792 یا از طریق واتساپ 09129583214 با ما در میان بگذارید"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/sub_title_call_us"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sub_title_call_us" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </FrameLayout>
+</layout>

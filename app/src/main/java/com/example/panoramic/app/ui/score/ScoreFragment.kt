@@ -53,6 +53,4 @@ class ScoreFragment : Fragment(R.layout.fragment_score) {
         super.onDestroyView()
     }
 
-
-
 }

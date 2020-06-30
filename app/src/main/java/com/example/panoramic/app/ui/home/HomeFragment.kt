@@ -13,7 +13,7 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.databinding.FragmentHomeBinding
-import kotlinx.android.synthetic.main.dialog_fragment_home.*
+import kotlinx.android.synthetic.main.toast_fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -63,7 +63,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun toast(modelNumber: String?, serialNumber: String?) {
         val toastText = " دستگاه $modelNumber به شماره سریال $serialNumber برای شما ثبت شد و پس از تایید خدمات پس از فروش، امتیاز آن به حساب شما اعمال خواهد شد "
-        val layout = layoutInflater.inflate(R.layout.dialog_fragment_home,linearLayout)
+        val layout = layoutInflater.inflate(R.layout.toast_fragment_home,linearLayout)
             val myToast = Toast(activity)
             val textview = layout.findViewById<TextView>(R.id.custom_toast_message)
             textview.text = toastText

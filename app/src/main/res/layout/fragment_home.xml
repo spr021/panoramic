@@ -119,12 +119,10 @@
 
             <View
                 android:id="@+id/line_break_1"
-                android:layout_width="match_parent"
-                android:layout_height="1px"
+                style="@style/lineBreaker"
                 android:layout_marginStart="36.3dp"
                 android:layout_marginTop="23dp"
                 android:layout_marginEnd="36.3dp"
-                android:background="@color/textInputColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/click_for_more_info_reward" />
@@ -182,12 +180,10 @@
 
             <View
                 android:id="@+id/line_break_2"
-                android:layout_width="match_parent"
-                android:layout_height="1px"
+                style="@style/lineBreaker"
                 android:layout_marginStart="36.3dp"
                 android:layout_marginTop="11dp"
                 android:layout_marginEnd="36.3dp"
-                android:background="@color/textInputColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/register_new_product" />
@@ -245,12 +241,10 @@
 
             <View
                 android:id="@+id/line_break_3"
-                android:layout_width="match_parent"
-                android:layout_height="1px"
                 android:layout_marginStart="36.3dp"
                 android:layout_marginTop="11dp"
                 android:layout_marginEnd="36.3dp"
-                android:background="@color/textInputColor"
+                style="@style/lineBreaker"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/educational_videos" />
@@ -308,12 +302,10 @@
 
             <View
                 android:id="@+id/line_break_4"
-                android:layout_width="match_parent"
-                android:layout_height="1px"
+                style="@style/lineBreaker"
                 android:layout_marginStart="36.3dp"
                 android:layout_marginTop="11dp"
                 android:layout_marginEnd="36.3dp"
-                android:background="@color/textInputColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/announcements" />
