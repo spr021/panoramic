@@ -105,9 +105,9 @@
         style="@style/baseText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
         android:layout_marginEnd="8dp"
         android:text="5,364,265"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/paid"
         app:layout_constraintTop_toTopOf="@+id/paid" />
 

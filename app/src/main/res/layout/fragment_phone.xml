@@ -16,6 +16,52 @@
             android:background="@color/colorPrimary">
 
 
+            <TextView
+                android:id="@+id/phone_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/baseText"
+                android:textColor="@color/white"
+                android:layout_marginTop="32dp"
+                android:textSize="18sp"
+                android:text="لطفا شماره تلفن همراه خود را وارد کنید"
+                app:layout_constraintBottom_toTopOf="@+id/phone_input"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.13" />
+
+            <EditText
+                android:id="@+id/phone_input"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:background="@drawable/login_input_background"
+                android:ems="11"
+                android:gravity="right|center"
+                android:hint="شماره همراه"
+                android:inputType="phone"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/textInputColor"
+                android:textColorHint="@color/textInputColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints,RtlHardcoded" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/phone_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/baseText"
+                android:background="@drawable/login_button"
+                android:text="تایید"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone_input"
+                app:layout_constraintVertical_bias="0.72" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
