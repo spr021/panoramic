@@ -23,7 +23,7 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
 
     private var fragmentMoviesBinding: FragmentMoviesBinding? = null
     private val viewModel: MoviesViewModel by viewModels()
-    lateinit var recyclerViewInformation: MoviesEntity
+    private lateinit var recyclerViewInformation: MoviesEntity
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

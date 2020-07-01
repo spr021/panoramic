@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/personal_information"
-        android:name="com.example.panoramic.app.ui.personalinformation.PersonalInformation"
+        android:name="com.example.panoramic.app.ui.personalinformation.PersonalInformationFragment"
         android:label="fragment_personal_information"
         tools:layout="@layout/fragment_personal_information" />
     <fragment

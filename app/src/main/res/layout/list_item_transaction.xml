@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/payment"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:textColor="@color/white"
+        android:text="پرداختی"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/date"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/white"
+        android:text="1399/5/3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/payment"
+        app:layout_constraintTop_toTopOf="@+id/payment" />
+
+    <TextView
+        android:id="@+id/tracking_code_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginEnd="8dp"
+        android:text="7398462946209882"
+        app:layout_constraintEnd_toStartOf="@+id/tracking_code"
+        app:layout_constraintTop_toTopOf="@+id/tracking_code" />
+
+
+    <TextView
+        android:id="@+id/tracking_code"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="کد رهگیری :"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payment"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/score"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="امتیاز :"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tracking_code"
+        app:layout_constraintTop_toBottomOf="@+id/tracking_code_value" />
+
+    <TextView
+        android:id="@+id/score_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/white"
+        android:text="30"
+        app:layout_constraintEnd_toStartOf="@+id/score"
+        app:layout_constraintTop_toTopOf="@+id/score" />
+
+    <ImageView
+        android:id="@+id/coin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/score_value"
+        app:layout_constraintTop_toTopOf="@+id/score_value"
+        app:srcCompat="@drawable/coin" />
+
+    <TextView
+        android:id="@+id/paid"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginEnd="16dp"
+        android:text="مبلغ پرداختی :"
+        app:layout_constraintEnd_toStartOf="@+id/coin"
+        app:layout_constraintTop_toTopOf="@+id/score" />
+
+    <TextView
+        android:id="@+id/paid_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginEnd="8dp"
+        android:text="5,364,265"
+        app:layout_constraintEnd_toStartOf="@+id/paid"
+        app:layout_constraintTop_toTopOf="@+id/paid" />
+
+    <View
+        android:id="@+id/line_breaker"
+        style="@style/lineBreaker"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
