@@ -25,7 +25,7 @@ class MoviesViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         mSeenView = itemView.findViewById(R.id.list_checkBox)
     }
 
-    fun bind(movie: MoviesEntity) {
+    fun bind(movie: MoviesEntity, action: OnMoviesItemClickListener) {
         mTitleView?.text = movie.title
         mTimeView?.text = movie.time
         Picasso.get()
@@ -33,6 +33,9 @@ class MoviesViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             .placeholder(R.drawable.placeholder_image)
             .into(mImageView)
         mSeenView?.isChecked = movie.seen
-    }
 
+        itemView.setOnClickListener {
+            action.onItemClick(movie, adapterPosition)
+        }
+    }
 }

@@ -4,6 +4,8 @@ data class MoviesEntity(
     val title: String,
     val time: String,
     val image: String,
-    val seen: Boolean
+    val seen: Boolean,
+    val text: String,
+    val video: String
 )
 

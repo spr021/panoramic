@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_navigation"
     tools:ignore="UnusedNavigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -206,5 +206,18 @@
         android:id="@+id/movieItemFragment"
         android:name="com.example.panoramic.app.ui.movies.MovieItemFragment"
         android:label="fragment_movie_item"
-        tools:layout="@layout/fragment_movie_item" />
+        tools:layout="@layout/fragment_movie_item" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="video"
+            app:argType="string" />
+    </fragment>
 </navigation>
