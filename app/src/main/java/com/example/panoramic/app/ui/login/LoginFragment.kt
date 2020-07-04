@@ -19,6 +19,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.singup.setOnClickListener {
             view.findNavController().navigate(R.id.action_loginFragment_to_phoneFragment)
         }
+        binding.forgetPassword.setOnClickListener {
+            view.findNavController().navigate(R.id.action_loginFragment_to_forgetpasswordPhoneFragment)
+        }
 
     }
 
