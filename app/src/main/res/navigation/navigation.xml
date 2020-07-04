@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_navigation"
     tools:ignore="UnusedNavigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -154,7 +154,7 @@
     </fragment>
     <fragment
         android:id="@+id/phoneFragment"
-        android:name="com.example.panoramic.app.ui.movies.PhoneFragment"
+        android:name="com.example.panoramic.app.ui.singup.PhoneFragment"
         android:label="PhoneFragment"
         tools:layout="@layout/fragment_phone">
         <action
@@ -172,7 +172,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgetpasswordPhoneFragment"
-        android:name="com.example.panoramic.app.ui.movies.ForgetpasswordPhoneFragment"
+        android:name="com.example.panoramic.app.ui.forgetpassword.ForgetpasswordPhoneFragment"
         android:label="ForgetpasswordPhoneFragment"
         tools:layout="@layout/fragment_forgetpassword">
         <action

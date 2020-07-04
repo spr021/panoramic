@@ -13,6 +13,8 @@ class SMSViewModel: ViewModel() {
     val currentTime: LiveData<Long>
         get() = _currentTime
 
+    var smsCode: String? = null
+
     private val timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
 
         override fun onTick(millisUntilFinished: Long) {
@@ -21,13 +23,21 @@ class SMSViewModel: ViewModel() {
 
         override fun onFinish() {
             _currentTime.value = DONE
-            //onGameFinish()
         }
     }.start()
 
     // The String version of the current time
     val currentTimeString = Transformations.map(currentTime) { time ->
         DateUtils.formatElapsedTime(time)
+    }
+
+    fun onInputFillFinish(code: String) {
+        smsCode = code
+        // send requset for checking true sms
+    }
+
+    fun onResendCodeClick() {
+        //send reuqest for resend sms code
     }
 
     override fun onCleared() {
