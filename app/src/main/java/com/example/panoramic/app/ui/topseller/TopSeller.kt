@@ -8,10 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.R
-import com.example.panoramic.app.ui.movies.MoviesAdabter
-import com.example.panoramic.data.entity.MoviesEntity
 import com.example.panoramic.data.entity.TopSellerEntity
-import com.example.panoramic.databinding.FragmentMoviesBinding
 
 class TopSeller : Fragment() {
 

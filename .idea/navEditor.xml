@@ -296,6 +296,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="playerFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1732" />
+                            <option name="y" value="770" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="registerProductFragment">
                     <value>
                       <LayoutPositions>

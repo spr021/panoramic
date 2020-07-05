@@ -13,10 +13,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.R
-import com.example.panoramic.app.ui.movies.MoviesAdabter
-import com.example.panoramic.data.entity.MoviesEntity
 import com.example.panoramic.data.entity.TransactionEntity
-import com.example.panoramic.databinding.FragmentMoviesBinding
 
 class TransactionHistoryDialogFragment : DialogFragment()  {
 

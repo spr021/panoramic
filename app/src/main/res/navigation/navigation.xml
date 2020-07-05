@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.example.panoramic.app.ui.movies.MoviesFragment"
+        android:name="com.example.panoramic.app.ui.movies.home.MoviesFragment"
         android:label="fragment_movies"
         tools:layout="@layout/fragment_movies" >
         <action
@@ -204,7 +204,7 @@
         tools:layout="@layout/fragment_announcement_item" />
     <fragment
         android:id="@+id/movieItemFragment"
-        android:name="com.example.panoramic.app.ui.movies.MovieItemFragment"
+        android:name="com.example.panoramic.app.ui.movies.details.MovieItemFragment"
         android:label="fragment_movie_item"
         tools:layout="@layout/fragment_movie_item" >
         <argument
@@ -219,5 +219,36 @@
         <argument
             android:name="video"
             app:argType="string" />
+        <action
+            android:id="@+id/action_movieItemFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+        <argument
+            android:name="seenVideo"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.example.panoramic.app.ui.movies.details.PlayerFragment"
+        android:label="fragment_player"
+        tools:layout="@layout/fragment_player" >
+
+        <action
+            android:id="@+id/action_playerFragment_to_movieItemFragment"
+            app:destination="@id/movieItemFragment"
+            app:popUpTo="@id/moviesFragment" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="video"
+            app:argType="string" />
+
     </fragment>
 </navigation>

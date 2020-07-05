@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.singup3Fragment -> bottom_navigation?.visibility = View.GONE
                     R.id.SMSFragment -> bottom_navigation?.visibility = View.GONE
                     R.id.successSingupFragment -> bottom_navigation?.visibility = View.GONE
+                    R.id.playerFragment -> bottom_navigation?.visibility = View.GONE
                     else -> bottom_navigation.visibility = View.VISIBLE
                 }
         }
