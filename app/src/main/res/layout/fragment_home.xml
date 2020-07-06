@@ -127,11 +127,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/click_for_more_info_reward" />
 
-            <FrameLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/register_new_product"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/home_item_frame_height"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/home_item_frame_marghin_top"
+                android:paddingVertical="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line_break_1">
@@ -142,41 +143,50 @@
                     android:layout_height="@dimen/home_item_frame_image_width_and_height"
                     android:layout_gravity="center|end"
                     android:layout_marginEnd="@dimen/home_item_frame_image_marghin_end"
-                    android:src="@drawable/home_register_new_product_background" />
+                    android:src="@drawable/home_register_new_product_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/register_new_product_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/home_item_frame_title_marghin_top"
-                    android:layout_marginEnd="@dimen/home_item_frame_title_marghin_end"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:text="@string/register_new_product_text"
-                    android:textSize="@dimen/home_item_frame_title_text_size" />
+                    android:textSize="@dimen/home_item_frame_title_text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/register_new_product_image"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/last_registered_product"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textSize="@dimen/home_item_frame_text_size"
-                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
-                    android:layout_marginEnd="@dimen/home_item_frame_text_marghin_end"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="@string/last_registered_product" />
+                    android:text="@string/last_registered_product"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    app:layout_constraintEnd_toEndOf="@+id/register_new_product_text"
+                    app:layout_constraintTop_toBottomOf="@+id/register_new_product_text" />
 
                 <TextView
                     android:id="@+id/last_registered_product_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:textSize="@dimen/home_item_frame_text_size"
-                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
-                    android:layout_marginEnd="250dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="PA-43SA2643" />
-            </FrameLayout>
+                    android:text="PA-43SA2643"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    app:layout_constraintBottom_toBottomOf="@+id/last_registered_product"
+                    app:layout_constraintEnd_toStartOf="@+id/last_registered_product"
+                    app:layout_constraintTop_toTopOf="@+id/last_registered_product" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:id="@+id/line_break_2"
@@ -188,12 +198,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/register_new_product" />
 
-            <FrameLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/educational_videos"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/home_item_frame_height"
-                android:layout_marginTop="@dimen/home_item_frame_marghin_top"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingVertical="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line_break_2">
 
@@ -202,42 +214,51 @@
                     android:layout_width="@dimen/home_item_frame_image_width_and_height"
                     android:layout_height="@dimen/home_item_frame_image_width_and_height"
                     android:layout_gravity="center|end"
-                    android:layout_marginEnd="@dimen/home_item_frame_image_marghin_end"
-                    android:src="@drawable/home_educational_videos_background" />
+                    android:layout_marginEnd="24dp"
+                    android:src="@drawable/home_educational_videos_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/educational_videos_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/home_item_frame_title_marghin_top"
-                    android:layout_marginEnd="@dimen/home_item_frame_title_marghin_end"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:text="@string/educational_videos_title_text"
-                    android:textSize="@dimen/home_item_frame_title_text_size"/>
+                    android:textSize="@dimen/home_item_frame_title_text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/educational_videos_image"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/number_of_unseen_videos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
-                    android:textSize="@dimen/home_item_frame_text_size"
-                    android:layout_marginEnd="@dimen/home_item_frame_text_marghin_end"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="@string/number_of_unseen_videos" />
+                    android:text="@string/number_of_unseen_videos"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    app:layout_constraintEnd_toEndOf="@+id/educational_videos_text"
+                    app:layout_constraintTop_toBottomOf="@+id/educational_videos_text" />
 
                 <TextView
                     android:id="@+id/number_of_unseen_videos_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/home_item_frame_text_size"
                     android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
-                    android:layout_marginEnd="265dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="3" />
-            </FrameLayout>
+                    android:text="3"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    app:layout_constraintBottom_toBottomOf="@+id/number_of_unseen_videos"
+                    app:layout_constraintEnd_toStartOf="@+id/number_of_unseen_videos"
+                    app:layout_constraintTop_toTopOf="@+id/number_of_unseen_videos" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:id="@+id/line_break_3"
@@ -249,10 +270,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/educational_videos" />
 
-            <FrameLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/announcements"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/home_item_frame_height"
+                android:paddingVertical="16dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/home_item_frame_marghin_top"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -263,42 +285,51 @@
                     android:layout_width="@dimen/home_item_frame_image_width_and_height"
                     android:layout_height="@dimen/home_item_frame_image_width_and_height"
                     android:layout_gravity="center|end"
-                    android:layout_marginEnd="@dimen/home_item_frame_image_marghin_end"
-                    android:src="@drawable/home_announcements_background" />
+                    android:layout_marginEnd="24dp"
+                    android:src="@drawable/home_announcements_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/announcements_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="@dimen/home_item_frame_title_marghin_end"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:text="@string/announcements_text"
-                    android:textSize="@dimen/home_item_frame_title_text_size"/>
+                    android:textSize="@dimen/home_item_frame_title_text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/announcements_image"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/unread_notices"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
-                    android:textSize="@dimen/home_item_frame_text_size"
-                    android:layout_marginEnd="@dimen/home_item_frame_text_marghin_end"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="@string/unread_notices" />
+                    android:text="@string/unread_notices"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    app:layout_constraintEnd_toEndOf="@+id/announcements_text"
+                    app:layout_constraintTop_toBottomOf="@+id/announcements_text" />
 
                 <TextView
                     android:id="@+id/unread_notices_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/home_item_frame_text_size"
                     android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/home_item_frame_text_marghin_top"
-                    android:layout_marginEnd="235dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="5" />
-            </FrameLayout>
+                    android:text="5"
+                    android:textSize="@dimen/home_item_frame_text_size"
+                    app:layout_constraintBottom_toBottomOf="@+id/unread_notices"
+                    app:layout_constraintEnd_toStartOf="@+id/unread_notices"
+                    app:layout_constraintTop_toTopOf="@+id/unread_notices" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:id="@+id/line_break_4"

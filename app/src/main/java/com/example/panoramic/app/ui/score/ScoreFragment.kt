@@ -40,7 +40,7 @@ class ScoreFragment : Fragment(R.layout.fragment_score) {
 
         binding.scoreRecyclerview.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = ScoreAdabter(listOf(recyclerViewInformation))
+            adapter = ScoreAdabter(mNicolasCageMovies)
         }
 
         viewModel.viewState.observe(viewLifecycleOwner, viewStateObserver)

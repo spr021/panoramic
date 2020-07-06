@@ -35,7 +35,7 @@ class AnnouncementsFragment : Fragment(R.layout.fragment_announcements) {
 
         binding.announcemntsRecyclerview.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = AnnouncementsAdabter(listOf(recyclerViewInformation))
+            adapter = AnnouncementsAdabter(mNicolasCageMovies)
         }
 
         viewModel.viewState.observe(viewLifecycleOwner, viewStateObserver)
