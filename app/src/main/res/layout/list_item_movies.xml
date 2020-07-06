@@ -1,74 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:orientation="horizontal"
     android:padding="16dp">
 
-    <CheckBox
-        android:id="@+id/list_checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:checked="false"
-        android:clickable="false"
-        app:buttonTint="@color/colorPrimary"
-        android:scaleX="1.4"
-        android:scaleY="1.4" />
 
-    <LinearLayout
-        android:id="@+id/list_box"
-        android:background="@color/backgroundColorGray"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:id="@+id/list_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/yekanweb_regular"
+        android:gravity="right"
+        android:text="اسمارت"
+        android:textColor="#000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/list_image"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/list_checkBox_text"
+        app:layout_constraintTop_toTopOf="@+id/list_image"
+        tools:ignore="NestedWeights,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/list_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
-        android:layout_marginTop="3dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/list_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:gravity="right|top"
-            android:fontFamily="@font/yekanweb_regular"
-            android:textSize="16sp"
-            android:textColor="#000"
-            android:paddingRight="16dp"
-            android:layout_weight="1"
-            android:text="اسمارت"
-            android:textStyle="bold"
-            tools:ignore="NestedWeights,RtlHardcoded" />
-
-        <TextView
-            android:id="@+id/list_time"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:gravity="right|bottom"
-            android:fontFamily="@font/yekanweb_regular"
-            android:textSize="10sp"
-            android:textColor="@color/textInputColor"
-            android:layout_weight="1"
-            android:paddingRight="16dp"
-            android:text="تاریخ انتشار"
-            tools:ignore="RtlHardcoded" />
-
-    </LinearLayout>
+        android:fontFamily="@font/yekanweb_regular"
+        android:gravity="right|bottom"
+        android:text="تاریخ انتشار"
+        android:textColor="@color/textInputColor"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/list_image"
+        app:layout_constraintEnd_toStartOf="@+id/list_image"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/list_checkBox_text"
+        tools:ignore="RtlHardcoded" />
 
     <ImageView
         android:id="@+id/list_image"
-        android:layout_marginTop="3dp"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_weight="3"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-</LinearLayout>
+    <CheckBox
+        android:id="@+id/list_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:clickable="false"
+        android:gravity="center"
+        android:scaleX="1.8"
+        android:scaleY="1.8"
+        android:theme="@style/checkBoxStyle"
+        app:buttonTint="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/list_checkBox_text"
+        app:layout_constraintEnd_toEndOf="@+id/list_checkBox_text"
+        app:layout_constraintStart_toStartOf="@+id/list_checkBox_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/list_checkBox_text"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="مشاهده شده"
+        android:textColor="@color/textInputColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_checkBox"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
