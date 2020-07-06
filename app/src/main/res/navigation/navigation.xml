@@ -68,6 +68,13 @@
             app:destination="@id/conformationFragment"
             app:popUpTo="@id/conformationFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_registerProductFragment_to_barcodeFragment"
+            app:destination="@id/barcodeFragment" />
+        <argument
+            android:name="barcode"
+            app:argType="string"
+            android:defaultValue="" />
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"
@@ -250,5 +257,14 @@
             android:name="video"
             app:argType="string" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/barcodeFragment"
+        android:name="com.example.panoramic.app.ui.registerproduct.BarcodeFragment"
+        android:label="BarcodeFragment" >
+        <action
+            android:id="@+id/action_barcodeFragment_to_registerProductFragment"
+            app:destination="@id/registerProductFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
 </navigation>

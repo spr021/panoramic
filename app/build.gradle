@@ -69,5 +69,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     //picasso mange image
     implementation 'com.squareup.picasso:picasso:2.71828'
+    //barcode
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 
 }
