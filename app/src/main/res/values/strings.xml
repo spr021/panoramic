@@ -28,4 +28,8 @@
     <string name="register_product_name_input_text">نام و نام خانوادگی مصرف کننده</string>
     <string name="register_product_title_text">لطفا اطلاعات زیر را کامل کنید :</string>
     <string name="home_page">خانه</string>
+    <string name="call_center_text">ضمن تشکر از ثبت نام شما، اوپراتور های ما ظرف حداکثر 72 ساعت جهت احراز هویت با شما تماس خواهند گرفت</string>
+    <string name="call_center_home_link">جهت ورود، اینجا را لمس کنید</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

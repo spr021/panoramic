@@ -1,4 +1,8 @@
 /build
 .idea/
+<<<<<<< HEAD
 .idea/*
 local.properties
+=======
+.idea/*
+>>>>>>> view

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/backgroundColorGray"
+    android:layout_height="120dp"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/rank_image"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/medal_award" />
+
+    <TextView
+        android:id="@+id/rank_number"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rank_image"
+        app:layout_constraintEnd_toEndOf="@+id/rank_image"
+        app:layout_constraintStart_toStartOf="@+id/rank_image"
+        app:layout_constraintTop_toTopOf="@+id/rank_image" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_pictuer"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/home_person_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rank_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/baseText"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="محمد نظامی پور"
+        app:layout_constraintBottom_toTopOf="@+id/total_score"
+        app:layout_constraintEnd_toStartOf="@+id/profile_pictuer"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/total_score"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="مجموع امتیازات :"
+        app:layout_constraintBottom_toTopOf="@+id/shop_name"
+        app:layout_constraintEnd_toStartOf="@+id/profile_pictuer"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/total_score_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="320"
+        app:layout_constraintBottom_toBottomOf="@+id/total_score"
+        app:layout_constraintEnd_toStartOf="@+id/total_score"
+        app:layout_constraintTop_toTopOf="@+id/total_score" />
+
+    <ImageView
+        android:id="@+id/coin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/total_score_value"
+        app:layout_constraintEnd_toStartOf="@+id/total_score_value"
+        app:layout_constraintTop_toTopOf="@+id/total_score_value"
+        app:srcCompat="@drawable/coin" />
+
+    <TextView
+        android:id="@+id/shop_name"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="فروشگاه سگوند"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profile_pictuer"
+        app:layout_constraintTop_toBottomOf="@+id/total_score" />
+
+    <TextView
+        android:id="@+id/state"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="تهران"
+        app:layout_constraintBottom_toBottomOf="@+id/shop_name"
+        app:layout_constraintEnd_toStartOf="@+id/shop_name"
+        app:layout_constraintTop_toTopOf="@+id/shop_name" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

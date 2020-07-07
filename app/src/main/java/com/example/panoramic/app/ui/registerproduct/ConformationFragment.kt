@@ -25,7 +25,7 @@ class ConformationFragment : Fragment(R.layout.fragment_conformation) {
         modelNumber = binding.modelValue.text.toString()
         serialNumber = binding.serialValue.text.toString()
         binding.editingInformationButton.setOnClickListener {
-            findNavController().navigate(ConformationFragmentDirections.actionConformationFragmentToRegisterProductFragment())
+            findNavController().navigate(R.id.action_conformationFragment_to_registerProductFragment)
         }
         binding.confirmButton.setOnClickListener {
             findNavController().navigate(

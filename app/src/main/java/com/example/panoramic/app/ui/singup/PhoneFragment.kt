@@ -9,11 +9,11 @@ import com.example.panoramic.databinding.FragmentPhoneBinding
 class PhoneFragment : Fragment(R.layout.fragment_phone) {
 
     private var fragmentPhoneBinding: FragmentPhoneBinding? = null
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentPhoneBinding.bind(view)
         fragmentPhoneBinding = binding
+
 
     }
 

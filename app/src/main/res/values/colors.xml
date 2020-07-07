@@ -9,5 +9,6 @@
     <color name="colorButtonNormal">#233DD1</color>
     <color name="notification">#ffdf0e</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fff</color>
+    <color name="Black">#000</color>
 
 </resources>

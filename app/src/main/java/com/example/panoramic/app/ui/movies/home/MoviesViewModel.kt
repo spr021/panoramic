@@ -1,4 +1,4 @@
-package com.example.panoramic.app.ui.movies
+package com.example.panoramic.app.ui.movies.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

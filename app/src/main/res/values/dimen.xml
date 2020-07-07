@@ -4,7 +4,7 @@
     <dimen name="home_item_frame_height">80dp</dimen>
     <dimen name="home_item_frame_marghin_top">11dp</dimen>
     <dimen name="home_item_frame_image_width_and_height">70dp</dimen>
-    <dimen name="home_item_frame_image_marghin_end">17.3dp</dimen>
+    <dimen name="home_item_frame_image_marghin_end">24dp</dimen>
     <dimen name="home_item_frame_title_marghin_top">11dp</dimen>
     <dimen name="home_item_frame_title_text_size">18sp</dimen>
     <dimen name="home_item_frame_text_size">12sp</dimen>
