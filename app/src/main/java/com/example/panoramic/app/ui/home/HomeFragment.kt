@@ -3,12 +3,8 @@ package com.example.panoramic.app.ui.home
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-<<<<<<< HEAD
 import android.widget.TextView
 import android.widget.Toast
-=======
-import android.widget.ProgressBar
->>>>>>> network
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -16,20 +12,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
-import com.example.panoramic.data.entity.HomeEntity
 import com.example.panoramic.databinding.FragmentHomeBinding
-<<<<<<< HEAD
 import kotlinx.android.synthetic.main.toast_fragment_home.*
-=======
-import com.example.panoramic.remote.model.CookieResponseDto
-import com.example.panoramic.remote.service.CookieService
->>>>>>> network
 import kotlinx.android.synthetic.main.fragment_home.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -61,7 +46,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.announcements.setOnClickListener {
             view.findNavController().navigate(R.id.action_homeFragment_to_announcementsFragment)
         }
-<<<<<<< HEAD
 
         viewModel.confirmSuccess.observe(viewLifecycleOwner, Observer {
             if(it) {
@@ -71,11 +55,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 })
             }
         })
-
-
-=======
->>>>>>> network
-
 
     }
 
@@ -91,8 +70,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             myToast.show()
     }
 
-<<<<<<< HEAD
-=======
     /*private fun onUserInfoReady(list: List<HomeEntity>?) {
         activity?.runOnUiThread {
 
@@ -107,7 +84,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             //categoryRepository.getCategories(::onCategoriesReady)
         }
     }*/
->>>>>>> network
 
     override fun onDestroyView() {
         fragmentHomeBinding = null
