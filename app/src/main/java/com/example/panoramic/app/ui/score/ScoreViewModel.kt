@@ -12,4 +12,8 @@ class ScoreViewModel : ViewModel() {
     fun request() {
         //send request and get json convert to data class with Gson()
     }
+
+    companion object{
+
+    }
 }
