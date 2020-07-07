@@ -19,14 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.ui.singup.SingupActivity">
-
-        </activity>
-        <activity
-            android:name=".app.ui.login.LoginActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-
-        </activity>
         <activity android:name=".app.MainActivity">
 
         </activity>

@@ -7,12 +7,17 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.R
-import com.example.panoramic.app.Injector
 import com.example.panoramic.data.entity.HomeEntity
 import com.example.panoramic.databinding.FragmentHomeBinding
+import com.example.panoramic.remote.model.CookieResponseDto
+import com.example.panoramic.remote.service.CookieService
 import kotlinx.android.synthetic.main.fragment_home.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -35,20 +40,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.announcements.setOnClickListener {
             view.findNavController().navigate(R.id.action_homeFragment_to_announcementsFragment)
         }
-        //val args = HomeFragmentArgs.fromBundle(arguments!!)
-        //Toast.makeText(context, "NumCorrect: ${args.modelNumber}, NumQuestions: ${args.serialNumber}", Toast.LENGTH_LONG).show()
-
 
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        val userRepository = Injector.provideUserRepository(requireContext())
-        userRepository.getUserInfo(::onUserInfoReady)
-    }
-
-    private fun onUserInfoReady(list: List<HomeEntity>?) {
+    /*private fun onUserInfoReady(list: List<HomeEntity>?) {
         activity?.runOnUiThread {
 
             //val recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerView)
@@ -61,7 +56,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             //val categoryRepository = Injector.provideCategoryRepository()
             //categoryRepository.getCategories(::onCategoriesReady)
         }
-    }
+    }*/
 
     override fun onDestroyView() {
         fragmentHomeBinding = null

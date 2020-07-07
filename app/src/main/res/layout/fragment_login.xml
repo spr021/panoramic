@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        tools:context=".app.ui.login.LoginActivity">
+        tools:context=".app.ui.login.LoginFragment">
 
         <ImageView
             android:id="@+id/logo"
@@ -17,12 +17,12 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:contentDescription="@string/logo"
-            android:src="@drawable/ic_panaromic_vector"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.2"
+            app:srcCompat="@drawable/ic_hadishesabz"
             tools:ignore="MissingConstraints" />
 
         <EditText
@@ -104,6 +104,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/singup"
             app:layout_constraintVertical_bias="100" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/singup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
