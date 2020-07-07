@@ -1,4 +1,4 @@
-package com.example.panoramic.app.ui.announcements
+package com.example.panoramic.app.ui.announcements.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -46,6 +46,7 @@
 
     <ImageView
         android:id="@+id/list_image"
+        android:transitionName="image_cover"
         android:layout_width="150dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"

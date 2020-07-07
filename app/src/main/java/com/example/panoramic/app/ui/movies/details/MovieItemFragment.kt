@@ -25,7 +25,7 @@ class MovieItemFragment : Fragment(R.layout.fragment_movie_item) {
         viewModelFactory =
             MovieItemViewModelFactory(
                 MovieItemFragmentArgs.fromBundle(
-                    arguments!!
+                    requireArguments()
                 )
             )
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MovieItemViewModel::class.java)
@@ -53,7 +53,7 @@ class MovieItemFragment : Fragment(R.layout.fragment_movie_item) {
                 )
             )
         }
-        if(arguments!!.getBoolean("seenVideo")){
+        if(requireArguments().getBoolean("seenVideo")){
             toast()
         }
 

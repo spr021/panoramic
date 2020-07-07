@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ss.iml" filepath="$PROJECT_DIR$/.idea/ss.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Panoramic.iml" filepath="$PROJECT_DIR$/.idea/modules/Panoramic.iml" group="Panoramic" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Panoramic/app" />
     </modules>
   </component>
 </project>

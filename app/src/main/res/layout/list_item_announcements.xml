@@ -1,71 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:paddingLeft="16dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="16dp">
 
-    <LinearLayout
-        android:id="@+id/list_box"
-        android:background="@color/backgroundColorGray"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+
+    <TextView
+        android:id="@+id/list_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/yekanweb_regular"
+        android:gravity="right"
+        android:text="اسمارت"
+        android:textColor="#000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/list_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/list_image"
+        tools:ignore="NestedWeights,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/list_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginEnd="16dp"
         android:layout_weight="1"
-        android:layout_marginTop="3dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/list_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:gravity="right|top"
-            android:fontFamily="@font/yekanweb_regular"
-            android:textSize="16sp"
-            android:textColor="#000"
-            android:paddingRight="16dp"
-            android:layout_weight="1"
-            android:text="اسمارت"
-            android:textStyle="bold"
-            tools:ignore="NestedWeights,RtlHardcoded" />
-
-        <TextView
-            android:id="@+id/list_description"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:gravity="right|bottom"
-            android:fontFamily="@font/yekanweb_regular"
-            android:textSize="10sp"
-            android:textColor="@color/textInputColor"
-            android:layout_weight="1"
-            android:paddingRight="16dp"
-            android:text="تاریخ انتشار"
-            tools:ignore="RtlHardcoded" />
-
-    </LinearLayout>
+        android:fontFamily="@font/yekanweb_regular"
+        android:gravity="right|bottom"
+        android:text="تاریخ انتشار"
+        android:textColor="@color/textInputColor"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/list_image"
+        app:layout_constraintEnd_toStartOf="@+id/list_image"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="RtlHardcoded" />
 
     <ImageView
         android:id="@+id/list_image"
-        android:layout_marginTop="3dp"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_weight="3"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="7dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
+        android:transitionName="image_cover"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/notification"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="-7.5dp"
+        android:layout_marginRight="-7.5dp"
         android:src="@color/notification"
-        android:layout_marginLeft="-5dp"
-        android:visibility="visible"/>
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

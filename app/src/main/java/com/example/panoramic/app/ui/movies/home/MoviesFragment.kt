@@ -5,15 +5,17 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.panoramic.R
 import com.example.panoramic.app.ui.movies.OnMoviesItemClickListener
 import com.example.panoramic.data.entity.MoviesEntity
 import com.example.panoramic.databinding.FragmentMoviesBinding
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_movie_item.*
 
-class MoviesFragment : Fragment(R.layout.fragment_movies),
-    OnMoviesItemClickListener {
+class MoviesFragment : Fragment(R.layout.fragment_movies), OnMoviesItemClickListener {
 
     private val mNicolasCageMovies = listOf(
         MoviesEntity(
@@ -48,10 +50,7 @@ class MoviesFragment : Fragment(R.layout.fragment_movies),
 
         binding.moviesRecyclerview.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = MoviesAdabter(
-                mNicolasCageMovies,
-                this@MoviesFragment
-            )
+            adapter = MoviesAdabter(mNicolasCageMovies, this@MoviesFragment)
         }
 
         viewModel.viewState.observe(viewLifecycleOwner, viewStateObserver)
@@ -60,6 +59,7 @@ class MoviesFragment : Fragment(R.layout.fragment_movies),
     }
 
     override fun onItemClick(moviesEntity: MoviesEntity, position: Int) {
+        val extras = FragmentNavigatorExtras(image_cover to "image_cover")
         findNavController().navigate(
             MoviesFragmentDirections.actionMoviesFragmentToMovieItemFragment(
                 moviesEntity.title,

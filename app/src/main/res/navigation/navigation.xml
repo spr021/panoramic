@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_navigation"
     tools:ignore="UnusedNavigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -16,13 +16,25 @@
             app:destination="@id/scoreFragment" />
         <action
             android:id="@+id/action_homeFragment_to_registerProductFragment"
-            app:destination="@id/registerProductFragment" />
+            app:destination="@id/registerProductFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_homeFragment_to_moviesFragment"
-            app:destination="@id/moviesFragment" />
+            app:destination="@id/moviesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_homeFragment_to_announcementsFragment"
-            app:destination="@id/announcementsFragment" />
+            app:destination="@id/announcementsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <argument
             android:name="modelNumber"
             app:argType="string"
@@ -83,16 +95,24 @@
         tools:layout="@layout/fragment_movies" >
         <action
             android:id="@+id/action_moviesFragment_to_movieItemFragment"
-            app:destination="@id/movieItemFragment" />
+            app:destination="@id/movieItemFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/announcementsFragment"
-        android:name="com.example.panoramic.app.ui.announcements.AnnouncementsFragment"
+        android:name="com.example.panoramic.app.ui.announcements.home.AnnouncementsFragment"
         android:label="fragment_announcements"
         tools:layout="@layout/fragment_announcements" >
         <action
             android:id="@+id/action_announcementsFragment_to_announcementItemFragment"
-            app:destination="@id/announcementItemFragment" />
+            app:destination="@id/announcementItemFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/conformationFragment"
@@ -206,9 +226,19 @@
     </fragment>
     <fragment
         android:id="@+id/announcementItemFragment"
-        android:name="com.example.panoramic.app.ui.announcements.AnnouncementItemFragment"
+        android:name="com.example.panoramic.app.ui.announcements.details.AnnouncementItemFragment"
         android:label="fragment_announcement_item"
-        tools:layout="@layout/fragment_announcement_item" />
+        tools:layout="@layout/fragment_announcement_item" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="image"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/movieItemFragment"
         android:name="com.example.panoramic.app.ui.movies.details.MovieItemFragment"

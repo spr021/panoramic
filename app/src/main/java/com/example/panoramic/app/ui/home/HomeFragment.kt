@@ -28,7 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val binding = FragmentHomeBinding.bind(view)
         fragmentHomeBinding = binding
         // Initialize the ViewModel
-        viewModelFactory = HomeViewModelFactory(HomeFragmentArgs.fromBundle(arguments!!))
+        viewModelFactory = HomeViewModelFactory(HomeFragmentArgs.fromBundle(requireArguments()))
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
         // to all the data in the ViewModel
         binding.homeViewModel = viewModel

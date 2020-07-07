@@ -1,4 +1,4 @@
-package com.example.panoramic.app.ui.announcements
+package com.example.panoramic.app.ui.announcements.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.R
+import com.example.panoramic.app.ui.announcements.OnAnnouncementsItemClickListener
+import com.example.panoramic.app.ui.movies.OnMoviesItemClickListener
 import com.example.panoramic.data.entity.AnnouncementsEntity
 import com.squareup.picasso.Picasso
 
@@ -25,17 +27,21 @@ class AnnouncementsViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         mSeenView = itemView.findViewById(R.id.notification)
     }
 
-    fun bind(movie: AnnouncementsEntity) {
-        mTitleView?.text = movie.title
-        mDateView?.text = movie.date
+    fun bind(announcement: AnnouncementsEntity, action: OnAnnouncementsItemClickListener) {
+        mTitleView?.text = announcement.title
+        mDateView?.text = announcement.date
         Picasso.get()
-            .load(movie.image)
+            .load(announcement.image)
             .placeholder(R.drawable.placeholder_image)
             .into(mImageView)
-        mSeenView?.visibility = if (movie.seen) {
+        mSeenView?.visibility = if (announcement.seen) {
             View.VISIBLE
         } else {
             View.GONE
+        }
+
+        itemView.setOnClickListener {
+            action.onItemClick(announcement, adapterPosition)
         }
     }
 
