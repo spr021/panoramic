@@ -76,9 +76,9 @@
 
             <EditText
                 android:id="@+id/register_product_barcode_input"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="36.7dp"
-                android:layout_marginStart="150dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="13dp"
                 android:layout_marginEnd="64dp"
                 android:background="@drawable/login_input_background"
@@ -93,7 +93,7 @@
                 android:textColorHint="@color/textInputColor"
                 android:textSize="11.3sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/register_product_barcode_button"
                 app:layout_constraintTop_toBottomOf="@+id/register_product_phone_input"
                 tools:ignore="RtlHardcoded,SmallSp" />
 
@@ -128,7 +128,7 @@
 
             <TextView
                 android:id="@+id/register_product_rolls_text_1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="8dp"
@@ -147,7 +147,7 @@
 
             <TextView
                 android:id="@+id/register_product_rolls_text_2"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="8dp"
