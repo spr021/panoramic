@@ -1,5 +1,6 @@
 package com.example.panoramic.app.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -32,6 +33,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
         // to all the data in the ViewModel
         binding.homeViewModel = viewModel
+
+        activity?.getSharedPreferences("REGISTER_PRODUCT", Context.MODE_PRIVATE)!!.edit().clear().apply()
 
         binding.yourScore.setOnClickListener {
             val extras = FragmentNavigatorExtras(your_score to "your_score")

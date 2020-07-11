@@ -82,7 +82,7 @@
                 android:layout_marginTop="13dp"
                 android:layout_marginEnd="64dp"
                 android:background="@drawable/login_input_background"
-                android:ems="9"
+                android:ems="15"
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="right|center"
                 android:hint="@string/register_product_barcode_input_hint"

@@ -1,5 +1,6 @@
 package com.example.panoramic.app.ui.registerproduct
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -25,9 +26,11 @@ class ConformationFragment : Fragment(R.layout.fragment_conformation) {
         modelNumber = binding.modelValue.text.toString()
         serialNumber = binding.serialValue.text.toString()
         binding.editingInformationButton.setOnClickListener {
+            activity?.getSharedPreferences("REGISTER_PRODUCT", Context.MODE_PRIVATE)!!.edit().clear().apply()
             findNavController().navigate(R.id.action_conformationFragment_to_registerProductFragment)
         }
         binding.confirmButton.setOnClickListener {
+            activity?.getSharedPreferences("REGISTER_PRODUCT", Context.MODE_PRIVATE)!!.edit().clear().apply()
             findNavController().navigate(
                 ConformationFragmentDirections.actionConformationFragmentToHomeFragment(
                     modelNumber,
