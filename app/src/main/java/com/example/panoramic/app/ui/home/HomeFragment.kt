@@ -1,6 +1,8 @@
 package com.example.panoramic.app.ui.home
 
+import android.app.Activity
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -13,6 +15,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
+import com.example.panoramic.app.CustomToast
 import com.example.panoramic.databinding.FragmentHomeBinding
 import kotlinx.android.synthetic.main.toast_fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -53,24 +56,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel.confirmSuccess.observe(viewLifecycleOwner, Observer {
             if(it) {
                 viewModel.args.observe(viewLifecycleOwner, Observer { args ->
-                    toast(args[0], args[1])
+                    val modelNumber = args[0]
+                    val serialNumber = args[1]
+
+                    CustomToast(requireActivity(), " دستگاه $modelNumber به شماره سریال $serialNumber برای شما ثبت شد و پس از تایید خدمات پس از فروش، امتیاز آن به حساب شما اعمال خواهد شد ", R.color.green)
+
                     viewModel.onConfirmSuccess()
                 })
             }
         })
 
-    }
-
-    private fun toast(modelNumber: String?, serialNumber: String?) {
-        val toastText = " دستگاه $modelNumber به شماره سریال $serialNumber برای شما ثبت شد و پس از تایید خدمات پس از فروش، امتیاز آن به حساب شما اعمال خواهد شد "
-        val layout = layoutInflater.inflate(R.layout.toast_fragment_home,linearLayout)
-            val myToast = Toast(activity)
-            val textview = layout.findViewById<TextView>(R.id.custom_toast_message)
-            textview.text = toastText
-            myToast.duration = Toast.LENGTH_LONG
-            myToast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.TOP, 0, 0)
-            myToast.view = layout
-            myToast.show()
     }
 
     /*private fun onUserInfoReady(list: List<HomeEntity>?) {

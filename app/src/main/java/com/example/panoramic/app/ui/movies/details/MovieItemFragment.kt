@@ -1,5 +1,6 @@
 package com.example.panoramic.app.ui.movies.details
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.panoramic.R
+import com.example.panoramic.app.CustomToast
 import com.example.panoramic.databinding.FragmentMovieItemBinding
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.toast_fragment_home.*
@@ -54,22 +56,10 @@ class MovieItemFragment : Fragment(R.layout.fragment_movie_item) {
             )
         }
         if(requireArguments().getBoolean("seenVideo")){
-            toast()
+            CustomToast(requireActivity(), "امتیاز ویدیو برای شما ثبت شد", R.color.green)
         }
 
 
-    }
-
-    private fun toast() {
-        val toastText = "امتیاز ویدیو برای شما ثبت شد"
-        val layout = layoutInflater.inflate(R.layout.toast_fragment_home,linearLayout)
-        val myToast = Toast(activity)
-        val textview = layout.findViewById<TextView>(R.id.custom_toast_message)
-        textview.text = toastText
-        myToast.duration = Toast.LENGTH_LONG
-        myToast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.TOP, 0, 0)
-        myToast.view = layout
-        myToast.show()
     }
 
     override fun onDestroyView() {

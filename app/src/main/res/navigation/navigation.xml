@@ -270,10 +270,6 @@
         android:label="fragment_player"
         tools:layout="@layout/fragment_player" >
 
-        <action
-            android:id="@+id/action_playerFragment_to_movieItemFragment"
-            app:destination="@id/movieItemFragment"
-            app:popUpTo="@id/moviesFragment" />
         <argument
             android:name="title"
             app:argType="string" />
@@ -286,6 +282,9 @@
         <argument
             android:name="video"
             app:argType="string" />
+        <action
+            android:id="@+id/action_playerFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
 
     </fragment>
     <fragment
@@ -296,5 +295,13 @@
             android:id="@+id/action_barcodeFragment_to_registerProductFragment"
             app:destination="@id/registerProductFragment"
             app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.example.panoramic.app.ui.movies.details.QuestionFragment"
+        android:label="QuestionFragment" >
+        <action
+            android:id="@+id/action_questionFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment" />
     </fragment>
 </navigation>

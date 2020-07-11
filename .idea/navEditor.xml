@@ -337,12 +337,24 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_playerFragment_to_movieItemFragment">
+                            <entry key="action_playerFragment_to_questionFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="questionFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1963" />
+                            <option name="y" value="815" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

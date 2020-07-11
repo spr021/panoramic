@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="#1ebc19"
-    android:id="@+id/linearLayout">
+    android:id="@+id/custom_toast_layout">
 
     <TextView
         android:id="@+id/custom_toast_message"

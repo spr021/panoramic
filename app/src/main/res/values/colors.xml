@@ -10,5 +10,7 @@
     <color name="notification">#ffdf0e</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fff</color>
     <color name="Black">#000</color>
+    <color name="green">#1ebc19</color>
+    <color name="red">#B71C1C</color>
 
 </resources>
