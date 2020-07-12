@@ -1,13 +1,10 @@
 package com.example.panoramic.app.ui.home
 
-import android.app.Activity
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
+import android.util.Log
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -17,8 +14,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.CustomToast
 import com.example.panoramic.databinding.FragmentHomeBinding
-import kotlinx.android.synthetic.main.toast_fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.util.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -36,6 +33,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
         // to all the data in the ViewModel
         binding.homeViewModel = viewModel
+
+        setWellcomeText()
 
         activity?.getSharedPreferences("REGISTER_PRODUCT", Context.MODE_PRIVATE)!!.edit().clear().apply()
 
@@ -82,6 +81,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             //categoryRepository.getCategories(::onCategoriesReady)
         }
     }*/
+
+    private fun setWellcomeText(){
+        val rightNow = Calendar.getInstance()
+        val currentHourIn24Format = rightNow[Calendar.HOUR_OF_DAY]
+        val wellcomeText = view?.findViewById<TextView>(R.id.welcome_text)
+        when (currentHourIn24Format) {
+            in 5..10 -> wellcomeText!!.text = "صبح به خیر"
+            in 10..15 -> wellcomeText!!.text = "ظهر به خیر"
+            in 15..19 -> wellcomeText!!.text = "عصر به خیر"
+            else -> wellcomeText!!.text = "شب به خیر"
+        }
+    }
 
     override fun onDestroyView() {
         fragmentHomeBinding = null

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -16,16 +15,16 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/SingupTextInputLayoutStyle"
                 android:id="@+id/name"
+                style="@style/SingupTextInputLayoutStyle"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="23dp"
-                app:hintTextAppearance="@style/hintStyle"
                 android:gravity="right"
-                android:hint="نام"
+                android:hint="@string/name"
                 android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints,RtlHardcoded">
@@ -33,23 +32,23 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:singleLine="true"
-                    android:textColor="@color/white"
-                    android:gravity="right" />
+                    android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/SingupTextInputLayoutStyle"
                 android:id="@+id/family"
+                style="@style/SingupTextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
-                app:hintTextAppearance="@style/hintStyle"
                 android:layout_marginEnd="173dp"
                 android:gravity="right"
-                android:hint="نام خانوادگی"
+                android:hint="@string/family"
                 android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toStartOf="@+id/name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/name"
@@ -72,10 +71,10 @@
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="23dp"
-                app:hintTextAppearance="@style/hintStyle"
                 android:gravity="right"
-                android:hint="آدرس رایانامه (ایمیل)"
+                android:hint="@string/email"
                 android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name"
@@ -98,11 +97,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="16dp"
-                app:hintTextAppearance="@style/hintStyle"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
-                android:hint="شماره تلفن همراه"
+                android:hint="@string/phone"
                 android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email"
@@ -124,12 +123,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
-                app:hintTextAppearance="@style/hintStyle"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
-                android:hint="نام فروشگاه"
+                android:hint="@string/shop_name"
                 android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phone_number"
@@ -150,12 +149,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
-                app:hintTextAppearance="@style/hintStyle"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
-                android:hint="نام مالک فروشگاه"
+                android:hint="@string/shop_owner"
                 android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shop_name"
@@ -177,11 +176,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="16dp"
-                app:hintTextAppearance="@style/hintStyle"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
-                android:hint="کد پستی فروشگاه"
+                android:hint="@string/shop_zip"
                 android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shop_owner"
@@ -216,7 +215,7 @@
                     android:layout_marginLeft="30dp"
                     android:gravity="left|center"
                     android:padding="0dp"
-                    android:text="صفحه ی بعد"
+                    android:text="@string/next_page"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     tools:ignore="RtlHardcoded" />
@@ -225,9 +224,10 @@
                     android:id="@+id/next_page_pic"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:contentDescription="@string/next_page"
                     android:gravity="left|center"
                     app:srcCompat="@drawable/singup_next_page"
-                    tools:ignore="VectorDrawableCompat" />
+                    tools:ignore="RtlHardcoded,VectorDrawableCompat" />
 
             </FrameLayout>
 

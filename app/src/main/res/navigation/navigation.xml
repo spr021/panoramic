@@ -290,7 +290,8 @@
     <fragment
         android:id="@+id/barcodeFragment"
         android:name="com.example.panoramic.app.ui.registerproduct.BarcodeFragment"
-        android:label="BarcodeFragment" >
+        android:label="BarcodeFragment"
+        tools:layout="@layout/fragment_barcode">
         <action
             android:id="@+id/action_barcodeFragment_to_registerProductFragment"
             app:destination="@id/registerProductFragment"
@@ -299,7 +300,8 @@
     <fragment
         android:id="@+id/questionFragment"
         android:name="com.example.panoramic.app.ui.movies.details.QuestionFragment"
-        android:label="QuestionFragment" >
+        android:label="QuestionFragment"
+        tools:layout="@layout/fragment_question">
         <action
             android:id="@+id/action_questionFragment_to_moviesFragment"
             app:destination="@id/moviesFragment" />

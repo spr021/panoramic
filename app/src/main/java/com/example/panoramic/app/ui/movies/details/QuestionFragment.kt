@@ -75,7 +75,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
-                    CustomToast(requireActivity(), "پاسخ شما اشتباه بود دوباره ویدو را تماشا کنید و به سوالات پاسخ دهید", R.color.red)
+                    CustomToast(requireActivity(), "تعداد خطا های پاسخگویی شما بیش از حد مجاز بود. لطفا مجددا اقدام به مشاهده فیلم و پاسخگویی سوالات نمایید", R.color.red)
                     view.findNavController().navigate(R.id.action_questionFragment_to_moviesFragment)
                 }
             }

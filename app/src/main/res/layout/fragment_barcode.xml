@@ -28,6 +28,7 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
+                android:contentDescription="@string/flash_light"
                 android:src="@drawable/highlight_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />

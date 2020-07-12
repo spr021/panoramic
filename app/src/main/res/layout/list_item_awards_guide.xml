@@ -3,154 +3,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="210dp"
-    android:background="@drawable/login_button"
-    android:padding="16dp">
+    android:layout_height="wrap_content"
+    android:background="@drawable/login_input_background"
+    android:layout_margin="8dp"
+    android:padding="8dp">
 
-
-    <ImageView
-        android:id="@+id/product_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/price"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/inch_value"
         style="@style/baseText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="قیمت مصرف کننده :"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/price_value"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/dialog_personal_information_button"
+        android:text="32"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/price_value"
-        app:layout_constraintTop_toTopOf="@+id/price_value" />
+        app:layout_constraintStart_toEndOf="@+id/model_number"
+        app:layout_constraintTop_toTopOf="@+id/model_number" />
+
 
     <TextView
         android:id="@+id/model_number"
         style="@style/baseText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PA43SA2643"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/product_image"
+        android:layout_marginTop="8dp"
+        android:text="PA32BA1633"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/inch_value"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/size"
-        style="@style/baseText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="سایز :"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/product_image"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/size_value"
-        app:layout_constraintTop_toBottomOf="@+id/model_number" />
-
-    <TextView
-        android:id="@+id/size_value"
-        style="@style/baseText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text='32"'
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/size"
-        app:layout_constraintEnd_toStartOf="@+id/size"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/type"
-        style="@style/baseText"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/tv_image"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="نوع :"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/product_image"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/type_value"
-        app:layout_constraintTop_toBottomOf="@+id/size" />
-
-    <TextView
-        android:id="@+id/type_value"
-        style="@style/baseText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="بیسیک"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/type"
-        app:layout_constraintEnd_toStartOf="@+id/type"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/model_number"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/score"
         style="@style/baseText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="امتیاز :"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/product_image"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/score_value"
-        app:layout_constraintTop_toBottomOf="@+id/type" />
-
-    <TextView
-        android:id="@+id/score_value"
-        style="@style/baseText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="10"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/score"
-        app:layout_constraintEnd_toStartOf="@+id/score"
+        android:layout_marginStart="4dp"
+        android:text="30"
+        app:layout_constraintBottom_toBottomOf="@+id/coin"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/coin" />
+        app:layout_constraintStart_toEndOf="@+id/coin"
+        app:layout_constraintTop_toTopOf="@+id/coin" />
 
     <ImageView
         android:id="@+id/coin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/score"
-        app:layout_constraintEnd_toStartOf="@+id/score_value"
+        app:layout_constraintBottom_toBottomOf="@+id/score_text"
+        app:layout_constraintEnd_toStartOf="@+id/score"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/score_value"
+        app:layout_constraintStart_toEndOf="@+id/score_text"
+        app:layout_constraintTop_toTopOf="@+id/score_text"
         app:srcCompat="@drawable/coin" />
 
     <TextView
-        android:id="@+id/price_value"
+        android:id="@+id/score_text"
         style="@style/baseText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="20,420,000 ریال"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/price"
+        android:text="امتیاز"
+        app:layout_constraintEnd_toStartOf="@+id/coin"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_image" />
+
+    <ImageView
+        android:id="@+id/arrows"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:rotation="180"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coin"
+        app:layout_constraintVertical_bias="0.8"
+        app:srcCompat="@drawable/arrow"
+        tools:ignore="VectorDrawableCompat" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

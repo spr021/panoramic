@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -24,13 +23,13 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
-                android:hint="شماره کارت"
+                android:hint="@string/card_number"
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ExtraText">
+                tools:ignore="ExtraText,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -51,13 +50,13 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
-                android:hint="شماره حساب"
+                android:hint="@string/account_number"
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="@+id/card_number"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_number"
-                tools:ignore="ExtraText">
+                tools:ignore="ExtraText,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -78,13 +77,13 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
-                android:hint="شماره شبا"
+                android:hint="@string/shaba_number"
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="@+id/card_number"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/account_number"
-                tools:ignore="ExtraText">
+                tools:ignore="ExtraText,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -105,13 +104,13 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
-                android:hint="نام بانک"
+                android:hint="@string/bank_name"
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shaba_number"
-                tools:ignore="ExtraText">
+                tools:ignore="ExtraText,RtlHardcoded">
 
                 <AutoCompleteTextView
                     android:id="@+id/bank_name_list"
@@ -120,7 +119,8 @@
                     android:gravity="right"
                     android:inputType="none"
                     android:singleLine="true"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    tools:ignore="LabelFor" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,7 +144,7 @@
                     android:layout_marginLeft="30dp"
                     android:gravity="left|center"
                     android:padding="0dp"
-                    android:text="صفحه ی بعد"
+                    android:text="@string/next_page"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     tools:ignore="RtlHardcoded" />
@@ -153,9 +153,10 @@
                     android:id="@+id/next_page_pic"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:contentDescription="@string/next_page"
                     android:gravity="left|center"
                     app:srcCompat="@drawable/singup_next_page"
-                    tools:ignore="VectorDrawableCompat" />
+                    tools:ignore="RtlHardcoded,VectorDrawableCompat" />
 
             </FrameLayout>
 

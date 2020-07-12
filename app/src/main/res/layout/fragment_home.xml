@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -58,13 +57,13 @@
 
             <FrameLayout
                 android:id="@+id/your_score"
-                android:transitionName="your_score"
                 android:layout_width="match_parent"
                 android:layout_height="45.3dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="21.3dp"
                 android:layout_marginEnd="18dp"
                 android:background="@drawable/your_score"
+                android:transitionName="your_score"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_pictuer"
@@ -89,7 +88,7 @@
                     android:layout_height="26dp"
                     android:layout_gravity="center|start"
                     android:layout_marginStart="11dp"
-                    android:contentDescription="coin"
+                    android:contentDescription="@string/coin"
                     android:src="@drawable/coin" />
 
                 <TextView
@@ -99,9 +98,9 @@
                     android:layout_gravity="center|start"
                     android:layout_marginStart="39dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="score"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:text="score" />
 
             </FrameLayout>
 
@@ -115,7 +114,8 @@
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/your_score" />
+                app:layout_constraintTop_toBottomOf="@+id/your_score"
+                tools:ignore="SmallSp" />
 
             <View
                 android:id="@+id/line_break_1"
@@ -143,6 +143,7 @@
                     android:layout_height="@dimen/home_item_frame_image_width_and_height"
                     android:layout_gravity="center|end"
                     android:layout_marginEnd="@dimen/home_item_frame_image_marghin_end"
+                    android:contentDescription="@string/register_new_product"
                     android:src="@drawable/home_register_new_product_background"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -181,11 +182,11 @@
                     android:layout_gravity="end"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="PA-43SA2643"
                     android:textSize="@dimen/home_item_frame_text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/last_registered_product"
                     app:layout_constraintEnd_toStartOf="@+id/last_registered_product"
-                    app:layout_constraintTop_toTopOf="@+id/last_registered_product" />
+                    app:layout_constraintTop_toTopOf="@+id/last_registered_product"
+                    tools:text="PA-43SA2643" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
@@ -215,6 +216,7 @@
                     android:layout_height="@dimen/home_item_frame_image_width_and_height"
                     android:layout_gravity="center|end"
                     android:layout_marginEnd="24dp"
+                    android:contentDescription="@string/educational_videos_image"
                     android:src="@drawable/home_educational_videos_background"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -253,19 +255,19 @@
                     android:layout_gravity="end"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="3"
                     android:textSize="@dimen/home_item_frame_text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/number_of_unseen_videos"
                     app:layout_constraintEnd_toStartOf="@+id/number_of_unseen_videos"
-                    app:layout_constraintTop_toTopOf="@+id/number_of_unseen_videos" />
+                    app:layout_constraintTop_toTopOf="@+id/number_of_unseen_videos"
+                    tools:text="3" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:id="@+id/line_break_3"
+                style="@style/lineBreaker"
                 android:layout_marginStart="36.3dp"
                 android:layout_marginTop="11dp"
                 android:layout_marginEnd="36.3dp"
-                style="@style/lineBreaker"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/educational_videos" />
@@ -273,9 +275,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/announcements"
                 android:layout_width="match_parent"
-                android:paddingVertical="16dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/home_item_frame_marghin_top"
+                android:paddingVertical="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line_break_3">
@@ -286,6 +288,7 @@
                     android:layout_height="@dimen/home_item_frame_image_width_and_height"
                     android:layout_gravity="center|end"
                     android:layout_marginEnd="24dp"
+                    android:contentDescription="@string/announcements_image"
                     android:src="@drawable/home_announcements_background"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -324,11 +327,11 @@
                     android:layout_gravity="end"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="5"
                     android:textSize="@dimen/home_item_frame_text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/unread_notices"
                     app:layout_constraintEnd_toStartOf="@+id/unread_notices"
-                    app:layout_constraintTop_toTopOf="@+id/unread_notices" />
+                    app:layout_constraintTop_toTopOf="@+id/unread_notices"
+                    tools:text="5" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View

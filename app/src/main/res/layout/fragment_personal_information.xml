@@ -402,10 +402,10 @@
                     android:layout_height="60dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:gravity="center"
                     android:layout_marginEnd="12dp"
                     android:background="@drawable/person_info_button"
+                    android:gravity="center"
+                    android:padding="5dp"
                     android:text="تاریخچه تراکنش ها"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toStartOf="@+id/change_password"
@@ -426,13 +426,13 @@
 
                 <TextView
                     android:id="@+id/sub_title_call_us"
+                    style="@style/baseText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="24dp"
-                    style="@style/baseText"
-                    android:textSize="18sp"
                     android:text="تماس با ما"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/line_break_4" />
 

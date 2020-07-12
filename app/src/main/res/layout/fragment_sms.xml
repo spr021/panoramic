@@ -12,7 +12,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:importantForAutofill="noExcludeDescendants">
 
 
             <TextView
@@ -21,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="لطفا کد پیامک شده را وارد کنید"
+                android:text="@string/enter_sms_code"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/sms_input1"
@@ -50,7 +51,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5"
-                tools:ignore="MissingConstraints,RtlHardcoded" />
+                tools:ignore="LabelFor,MissingConstraints,RtlHardcoded" />
 
             <EditText
                 android:id="@+id/sms_input2"
@@ -72,7 +73,7 @@
                 app:layout_constraintStart_toEndOf="@+id/sms_input1"
                 app:layout_constraintTop_toTopOf="@+id/sms_input1"
                 app:layout_constraintVertical_bias="0.5"
-                tools:ignore="MissingConstraints,RtlHardcoded" />
+                tools:ignore="LabelFor,MissingConstraints,RtlHardcoded" />
 
             <EditText
                 android:id="@+id/sms_input3"
@@ -94,7 +95,7 @@
                 app:layout_constraintStart_toEndOf="@+id/sms_input2"
                 app:layout_constraintTop_toTopOf="@+id/sms_input1"
                 app:layout_constraintVertical_bias="0.5"
-                tools:ignore="MissingConstraints,RtlHardcoded" />
+                tools:ignore="LabelFor,MissingConstraints,RtlHardcoded" />
 
             <EditText
                 android:id="@+id/sms_input4"
@@ -116,7 +117,7 @@
                 app:layout_constraintStart_toEndOf="@+id/sms_input3"
                 app:layout_constraintTop_toTopOf="@+id/sms_input1"
                 app:layout_constraintVertical_bias="0.5"
-                tools:ignore="MissingConstraints,RtlHardcoded" />
+                tools:ignore="LabelFor,MissingConstraints,RtlHardcoded" />
 
             <EditText
                 android:id="@+id/sms_input5"
@@ -139,7 +140,7 @@
                 app:layout_constraintStart_toEndOf="@+id/sms_input4"
                 app:layout_constraintTop_toTopOf="@+id/sms_input1"
                 app:layout_constraintVertical_bias="0.5"
-                tools:ignore="MissingConstraints,RtlHardcoded" />
+                tools:ignore="LabelFor,MissingConstraints,RtlHardcoded" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/phone_button"
@@ -148,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/login_button"
                 android:focusableInTouchMode="false"
-                android:text="تایید"
+                android:text="@string/confirm_phone_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -160,23 +161,23 @@
                 style="@style/baseText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" 2:13 تا ارسال مجدد کد"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phone_button" />
+                app:layout_constraintTop_toBottomOf="@+id/phone_button"
+                tools:text=" 2:13 تا ارسال مجدد کد" />
 
             <TextView
                 android:id="@+id/resend"
                 style="@style/baseText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="جهت ارسال مجدد کد، اینجا را لمس کنید"
+                android:text="@string/resend_code"
                 android:textColor="@color/white"
                 android:textSize="14sp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

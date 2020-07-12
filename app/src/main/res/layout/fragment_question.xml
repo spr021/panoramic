@@ -10,6 +10,7 @@
             name="question"
             type="com.example.panoramic.app.ui.movies.details.QuestionFragment" />
     </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,22 +18,22 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayout"
-            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
 
 
             <TextView
                 android:id="@+id/questionText"
+                style="@style/baseText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/question_horizontal_margin"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="@dimen/question_horizontal_margin"
-                style="@style/baseText"
+                android:text="@{question.currentQuestion.text}"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:text="@{question.currentQuestion.text}"
                 android:textStyle="bold"
                 android:typeface="normal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -44,71 +45,72 @@
                 android:id="@+id/questionRadioGroup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="right"
                 android:layout_marginStart="@dimen/question_horizontal_margin"
                 android:layout_marginTop="@dimen/vertical_margin"
                 android:layout_marginEnd="@dimen/question_horizontal_margin"
                 android:animateLayoutChanges="true"
-                android:orientation="vertical"
-                android:layout_alignParentLeft="true"
-                android:layout_gravity="right"
                 android:inputType="text"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/questionText">
+                app:layout_constraintTop_toBottomOf="@+id/questionText"
+                tools:ignore="RtlHardcoded">
 
                 <RadioButton
                     android:id="@+id/firstAnswerRadioButton"
+                    style="@style/baseText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:checked="true"
-                    style="@style/baseText"
-                    android:textColor="@color/white"
                     android:button="@null"
+                    android:checked="true"
                     android:drawableRight="?android:attr/listChoiceIndicatorSingle"
                     android:gravity="right|center"
                     android:text="@{question.answers[0]}"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Blue" />
 
                 <RadioButton
                     android:id="@+id/secondAnswerRadioButton"
+                    style="@style/baseText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/baseText"
-                    android:textColor="@color/white"
+                    android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorSingle"
                     android:gravity="right|center"
-                    android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:text="@{question.answers[1]}"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Green" />
 
                 <RadioButton
                     android:id="@+id/thirdAnswerRadioButton"
+                    style="@style/baseText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorSingle"
-                    style="@style/baseText"
-                    android:textColor="@color/white"
                     android:gravity="right|center"
                     android:text="@{question.answers[2]}"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Yellow" />
 
                 <RadioButton
                     android:id="@+id/fourthAnswerRadioButton"
-                    android:layout_width="match_parent"
                     style="@style/baseText"
-                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorSingle"
                     android:gravity="right|center"
-                    android:layout_height="wrap_content"
                     android:text="@{question.answers[3]}"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Red" />
             </RadioGroup>
@@ -121,9 +123,9 @@
                 android:layout_marginTop="@dimen/vertical_margin"
                 android:layout_marginEnd="@dimen/question_horizontal_margin"
                 android:background="@drawable/login_button"
-                android:text="ثبت"
-                android:textStyle="bold"
+                android:text="@string/confirm"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

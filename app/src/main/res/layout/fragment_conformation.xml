@@ -27,7 +27,7 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
-                    android:text="شماره مدل :"
+                    android:text="@string/model_number"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -42,13 +42,13 @@
                     android:layout_marginEnd="56dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="right"
-                    android:text="PA32BA1633"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/model_number"
-                    tools:ignore="RtlHardcoded" />
+                    tools:ignore="RtlHardcoded"
+                    tools:text="PA32BA1633" />
 
                 <TextView
                     android:id="@+id/size_number"
@@ -58,7 +58,7 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
-                    android:text="سایز :"
+                    android:text="@string/size"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -73,13 +73,13 @@
                     android:layout_marginEnd="56dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="right"
-                    android:text="32 اینچ"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/size_number"
-                    tools:ignore="RtlHardcoded" />
+                    tools:ignore="RtlHardcoded"
+                    tools:text="32 اینچ" />
 
                 <TextView
                     android:id="@+id/type"
@@ -89,11 +89,12 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
-                    android:text="نوع :"
+                    android:text="@string/type"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/size_value" />
+                    app:layout_constraintTop_toBottomOf="@+id/size_value"
+                    tools:ignore="RtlHardcoded" />
 
                 <TextView
                     android:id="@+id/type_value"
@@ -103,12 +104,13 @@
                     android:layout_marginEnd="56dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="right"
-                    android:text="اسمارت"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/type" />
+                    app:layout_constraintTop_toBottomOf="@+id/type"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="اسمارت" />
 
                 <TextView
                     android:id="@+id/resolotion"
@@ -118,11 +120,12 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
-                    android:text="کیفیت تصویر :"
+                    android:text="@string/resolotion"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/type_value" />
+                    app:layout_constraintTop_toBottomOf="@+id/type_value"
+                    tools:ignore="RtlHardcoded" />
 
                 <TextView
                     android:id="@+id/resolotion_value"
@@ -132,12 +135,13 @@
                     android:layout_marginEnd="56dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="right"
-                    android:text="UHD"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/resolotion" />
+                    app:layout_constraintTop_toBottomOf="@+id/resolotion"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="UHD" />
 
                 <TextView
                     android:id="@+id/serial_number"
@@ -147,7 +151,7 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
-                    android:text="شماره سریال :"
+                    android:text="@string/serial_number"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -162,13 +166,13 @@
                     android:layout_marginEnd="56dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="right"
-                    android:text="0139006908248281"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/serial_number"
-                    tools:ignore="RtlHardcoded" />
+                    tools:ignore="RtlHardcoded"
+                    tools:text="0139006908248281" />
 
                 <TextView
                     android:id="@+id/confirm_text"
@@ -176,7 +180,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="center"
-                    android:text="آیا صحت اطلاعات بالا را تایید میکنید ؟"
+                    android:text="@string/confirm_text"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -194,7 +198,7 @@
                     android:background="@drawable/conformation_confirm_button"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="center"
-                    android:text="تایید و ثبت"
+                    android:text="@string/confirm_button"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -212,7 +216,7 @@
                     android:background="@drawable/conformation_editing_information_button"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="center"
-                    android:text="ویرایش اطلاعات"
+                    android:text="@string/edite_button"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"

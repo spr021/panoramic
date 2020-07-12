@@ -55,10 +55,6 @@ class MovieItemFragment : Fragment(R.layout.fragment_movie_item) {
                 )
             )
         }
-        if(requireArguments().getBoolean("seenVideo")){
-            CustomToast(requireActivity(), "امتیاز ویدیو برای شما ثبت شد", R.color.green)
-        }
-
 
     }
 
