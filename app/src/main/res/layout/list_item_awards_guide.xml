@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/login_input_background"
+    android:layout_height="282dp"
     android:layout_margin="8dp"
+    android:background="@drawable/login_input_background"
     android:padding="8dp">
 
 
@@ -92,13 +92,172 @@
         android:layout_height="30dp"
         android:rotation="180"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coin"
-        app:layout_constraintVertical_bias="0.8"
         app:srcCompat="@drawable/arrow"
         tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/size"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="سایز :"
+        app:layout_constraintStart_toStartOf="@+id/coin"
+        app:layout_constraintTop_toBottomOf="@+id/arrows" />
+
+    <TextView
+        android:id="@+id/size_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="32 اینچ"
+        app:layout_constraintBottom_toBottomOf="@+id/size"
+        app:layout_constraintEnd_toStartOf="@+id/size"
+        app:layout_constraintTop_toTopOf="@+id/size" />
+
+    <TextView
+        android:id="@+id/type"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="نوع :"
+        app:layout_constraintStart_toStartOf="@+id/size"
+        app:layout_constraintTop_toBottomOf="@+id/size" />
+
+    <TextView
+        android:id="@+id/type_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="بیسیک"
+        app:layout_constraintBottom_toBottomOf="@+id/type"
+        app:layout_constraintEnd_toStartOf="@+id/type"
+        app:layout_constraintTop_toTopOf="@+id/type" />
+
+    <TextView
+        android:id="@+id/panel_type"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="نوع پنل :"
+        app:layout_constraintStart_toStartOf="@+id/type"
+        app:layout_constraintTop_toBottomOf="@+id/type" />
+
+    <TextView
+        android:id="@+id/panel_type_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="QLED"
+        app:layout_constraintBottom_toBottomOf="@+id/panel_type"
+        app:layout_constraintEnd_toStartOf="@+id/panel_type"
+        app:layout_constraintTop_toTopOf="@+id/panel_type" />
+
+    <TextView
+        android:id="@+id/HTMI"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text=": HTMI"
+        app:layout_constraintStart_toStartOf="@+id/panel_type"
+        app:layout_constraintTop_toBottomOf="@+id/panel_type" />
+
+    <TextView
+        android:id="@+id/HTMI_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="3 عدد"
+        app:layout_constraintBottom_toBottomOf="@+id/HTMI"
+        app:layout_constraintEnd_toStartOf="@+id/HTMI"
+        app:layout_constraintTop_toTopOf="@+id/HTMI" />
+
+    <TextView
+        android:id="@+id/USB"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text=": USB"
+        app:layout_constraintStart_toStartOf="@+id/HTMI"
+        app:layout_constraintTop_toBottomOf="@+id/HTMI" />
+
+    <TextView
+        android:id="@+id/USB_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="۳ عدد"
+        app:layout_constraintBottom_toBottomOf="@+id/USB"
+        app:layout_constraintEnd_toStartOf="@+id/USB"
+        app:layout_constraintTop_toTopOf="@+id/USB" />
+
+    <TextView
+        android:id="@+id/OS"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="سیستم عامل :"
+        app:layout_constraintStart_toStartOf="@+id/USB"
+        app:layout_constraintTop_toBottomOf="@+id/USB" />
+
+    <TextView
+        android:id="@+id/OS_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="Android 7.1"
+        app:layout_constraintBottom_toBottomOf="@+id/OS"
+        app:layout_constraintEnd_toStartOf="@+id/OS"
+        app:layout_constraintTop_toTopOf="@+id/OS" />
+
+    <View
+        android:id="@+id/line_breaker"
+        style="@style/lineBreaker"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OS" />
+
+    <TextView
+        android:id="@+id/price"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="قیمت :"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/price_value"
+        app:layout_constraintTop_toBottomOf="@+id/line_breaker" />
+
+    <TextView
+        android:id="@+id/price_value"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="32,234,000"
+        app:layout_constraintBottom_toBottomOf="@+id/price"
+        app:layout_constraintEnd_toStartOf="@+id/price"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/price" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

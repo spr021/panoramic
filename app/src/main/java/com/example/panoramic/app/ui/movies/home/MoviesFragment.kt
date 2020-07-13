@@ -59,7 +59,7 @@ class MoviesFragment : Fragment(R.layout.fragment_movies), OnMoviesItemClickList
     }
 
     override fun onItemClick(moviesEntity: MoviesEntity, position: Int) {
-        val extras = FragmentNavigatorExtras(image_cover to "image_cover")
+        //val extras = FragmentNavigatorExtras(image_cover to "image_cover")
         findNavController().navigate(
             MoviesFragmentDirections.actionMoviesFragmentToMovieItemFragment(
                 moviesEntity.title,

@@ -72,4 +72,5 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     companion object {
         var BaseUrl = "http://app.panoramic.co.ir/"
     }
+
 }
