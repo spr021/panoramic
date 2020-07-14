@@ -34,6 +34,7 @@ class AwardsGuideViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         mInchView?.text = product.size.toString()
         Picasso.get()
             .load(product.image)
+            .placeholder(R.drawable.placeholder_image)
             .into(mImageView)
         mScoreView?.text = product.score.toString()
 

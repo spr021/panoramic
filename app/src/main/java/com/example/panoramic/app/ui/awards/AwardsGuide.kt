@@ -422,7 +422,7 @@ class AwardsGuide : Fragment(R.layout.fragment_awards_guide), OnAwardItemClickLi
         if (view.findViewById<ImageView>(R.id.arrows).visibility == View.VISIBLE) {
             view.findViewById<ImageView>(R.id.arrows).visibility = View.GONE
 
-            SlideView(view, view.height + view.marginTop + view.marginBottom, 1250)
+            SlideView(view, view.height + view.marginTop + view.marginBottom, 1300)
         } else {
             view.findViewById<ImageView>(R.id.arrows).visibility = View.VISIBLE
 
