@@ -1,6 +1,7 @@
 package com.example.panoramic.app.ui.awards
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -17,6 +18,7 @@ class AwardsGuideViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     private var mInchView: TextView? = null
     private var mImageView: ImageView? = null
     private var mScoreView: TextView? = null
+    private var mArrow: ImageView? = null
 
 
     init {
@@ -24,6 +26,7 @@ class AwardsGuideViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         mInchView = itemView.findViewById(R.id.inch_value)
         mImageView = itemView.findViewById(R.id.tv_image)
         mScoreView = itemView.findViewById(R.id.score)
+        mArrow = itemView.findViewById(R.id.arrows)
     }
 
     fun bind(product: AwardGuideEntity, action: OnAwardItemClickListener) {
@@ -34,8 +37,8 @@ class AwardsGuideViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             .into(mImageView)
         mScoreView?.text = product.score.toString()
 
-
-
+        mArrow!!.visibility = View.VISIBLE
+        itemView.layoutParams.height = 750
         itemView.setOnClickListener {
             action.onItemClick(product, adapterPosition, itemView)
         }
