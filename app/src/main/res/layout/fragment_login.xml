@@ -12,14 +12,14 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="181.3dp"
-            android:layout_height="107.3dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/logo"
             app:layout_constraintBottom_toTopOf="@+id/username"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_hadishesabz"
+            app:srcCompat="@drawable/splash_logo"
             tools:ignore="MissingConstraints" />
 
         <EditText
@@ -57,7 +57,7 @@
             android:paddingEnd="16dp"
             android:textColor="@color/textInputColor"
             android:textColorHint="@color/textInputColor"
-            app:layout_constraintBottom_toTopOf="@+id/login"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,27 +67,30 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login"
-            android:layout_width="106dp"
+            android:layout_width="0dp"
             android:layout_height="45.3dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/login_button"
             android:text="@string/login_button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/singup"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/singup"
-            android:layout_width="84dp"
-            android:layout_height="24.7dp"
-            android:layout_marginTop="16dp"
+            style="@style/baseText"
+            android:layout_width="0dp"
+            android:layout_height="45.3dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/login_singup_button"
             android:text="@string/singup_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login" />
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/login"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toTopOf="@+id/login" />
 
         <TextView
             android:id="@+id/forget_password"

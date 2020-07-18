@@ -5,8 +5,8 @@ import com.example.panoramic.remote.service.UserInfoService
 
 class UserInfoRemoteDataSource (private val userInfoService: UserInfoService) {
 
-    fun getUserInfo(): List<PlaceDto>? {
-        return userInfoService.getUserInfoResponse()
-            .response?.items
-    }
+   // fun getUserInfo(): List<PlaceDto>? {
+   //     return userInfoService.getUserInfoResponse()
+  //          .response?.items
+   // }
 }

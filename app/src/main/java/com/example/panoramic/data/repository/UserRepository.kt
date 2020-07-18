@@ -6,12 +6,12 @@ import com.example.panoramic.remote.datasource.UserInfoRemoteDataSource
 
 class UserRepository (private val userInfoRemoteDataSource: UserInfoRemoteDataSource) {
 
-    fun getUserInfo(success: (List<HomeEntity>?) -> Unit) {
-        Thread {
-            val result = userInfoRemoteDataSource.getUserInfo()?.map { PlaceDto ->
-                PlaceDto.toHomeEntity()
-            }
-            success(result)
-        }.start()
-    }
+  //  fun getUserInfo(success: (List<HomeEntity>?) -> Unit) {
+   //     Thread {
+    //        val result = userInfoRemoteDataSource.getUserInfo()?.map { PlaceDto ->
+    //            PlaceDto.toHomeEntity()
+    //        }
+    //        success(result)
+     //   }.start()
+   // }
 }

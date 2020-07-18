@@ -1,18 +1,11 @@
 package com.example.panoramic.remote.service
 
-import com.example.panoramic.remote.NetworkManager
-import com.example.panoramic.remote.model.UserInfoResponseDto
-import com.google.gson.Gson
+import com.example.panoramic.remote.model.UserInfoDta
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Query
 
-class UserInfoService(private val networkManager: NetworkManager) {
-
-    fun getUserInfoResponse(): UserInfoResponseDto {
-        val rawData = networkManager.get(URL_FEATURED)
-        return Gson().fromJson(rawData, UserInfoResponseDto::class.java)
-    }
-
-    companion object{
-        const val URL_FEATURED = "https://run.mocky.io/v3/f7ed6496-7273-4f28-a444-6e79b5ec65df"
-        // https://designer.mocky.io/design/confirmation
-    }
+interface UserInfoService {
+    @GET("Home")
+    fun getUserInfo(@Query("cookie") cookie: String): Call<UserInfoDta>
 }
