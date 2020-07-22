@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.panoramic.R
+import com.example.panoramic.app.MainActivity
 import com.example.panoramic.databinding.FragmentLoginBinding
 import com.example.panoramic.remote.model.CookieResponseDto
 import com.example.panoramic.remote.model.LoginResponseDto
@@ -52,7 +53,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun getCurrentData() {
         val sharedPref = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)
         val retrofit = Retrofit.Builder()
-            .baseUrl(BaseUrl)
+            .baseUrl(MainActivity.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(CookieService::class.java)
@@ -79,7 +80,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val sharedPref = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)
         val cookie = sharedPref!!.getString("COOKIE", "")
         val retrofit = Retrofit.Builder()
-            .baseUrl(BaseUrl)
+            .baseUrl(MainActivity.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(LoginService::class.java)
@@ -117,10 +118,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onDestroyView() {
         fragmentLoginBinding = null
         super.onDestroyView()
-    }
-
-    companion object {
-        var BaseUrl = "http://app.panoramic.co.ir/"
     }
 
 }

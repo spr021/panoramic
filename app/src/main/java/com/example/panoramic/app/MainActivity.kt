@@ -67,4 +67,8 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, null)
     }
+
+    companion object {
+        var BaseUrl = "http://app.panoramic.co.ir/"
+    }
 }

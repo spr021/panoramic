@@ -3,19 +3,29 @@ package com.example.panoramic.app
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
 import android.app.Activity
+import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.net.toUri
+import androidx.databinding.BindingAdapter
 import com.example.panoramic.R
+import com.example.panoramic.app.ui.registerproduct.RegisterProductFragment
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.toast_fragment_home.view.*
 
 
+@Suppress("FunctionName")
 fun CustomToast(context: Activity, message: String, color: Int) {
     val layoutInflater: LayoutInflater = LayoutInflater.from(context)
     val layout = layoutInflater.inflate(
@@ -37,6 +47,7 @@ fun CustomToast(context: Activity, message: String, color: Int) {
     toast.show()
 }
 
+@Suppress("FunctionName")
 fun SlideView(view: View?, currentHeight: Int, newHeight: Int) {
 
     view?.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -49,7 +60,7 @@ fun SlideView(view: View?, currentHeight: Int, newHeight: Int) {
      * and manually updates the height of the view  */
     slideAnimator.addUpdateListener { animation1: ValueAnimator ->
         val value = animation1.animatedValue as Int
-        view!!.layoutParams.height = value
+        view.layoutParams.height = value
         view.requestLayout()
     }
 
@@ -58,6 +69,30 @@ fun SlideView(view: View?, currentHeight: Int, newHeight: Int) {
         interpolator = AccelerateDecelerateInterpolator()
         play(slideAnimator)
         start()
+    }
+}
+
+fun clearSharedPreferences(context: Activity, name: String){
+    context.getSharedPreferences(name, Context.MODE_PRIVATE)!!.edit()
+        .clear().apply()
+}
+
+@Suppress("DEPRECATION")
+fun isOnline(): Boolean {
+    val connMgr = Activity().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val networkInfo: NetworkInfo? = connMgr.activeNetworkInfo
+    return networkInfo?.isConnected == true
+}
+
+@BindingAdapter("imageUrl")
+fun bindImage(view: ImageView, imageUrl: String?) {
+    imageUrl.let {
+        val imgUri = imageUrl?.toUri()?.buildUpon()?.scheme("https")?.build()
+        Picasso.get()
+            .load(imgUri)
+            .error(R.drawable.home_person_icon)
+            .placeholder(R.drawable.home_person_icon)
+            .into(view)
     }
 }
 

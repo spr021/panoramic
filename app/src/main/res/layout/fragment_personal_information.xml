@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="personalViewModel"
+            type="com.example.panoramic.app.ui.personalinformation.PersonalInformationViewModel" />
+    </data>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,7 +30,7 @@
                 android:layout_width="51.3dp"
                 android:layout_height="51.3dp"
                 android:layout_marginEnd="13.3dp"
-                android:src="@drawable/home_person_icon"
+                app:imageUrl="@{personalViewModel.userInfo.prof_pic}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +42,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="end"
-                android:text="محمد نظامی پور"
+                android:text="@{personalViewModel.userInfo.name + ' ' + personalViewModel.userInfo.last_name}"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/total_score"
@@ -63,7 +70,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="end"
-                android:text="320"
+                android:text="@{personalViewModel.userInfo.score_total}"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/total_score"
@@ -101,11 +108,24 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="center|end"
-                android:text="33"
+                android:text="@{personalViewModel.userInfo.rank}"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/total_pay_month"
                 app:layout_constraintEnd_toStartOf="@+id/total_pay_month" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/logout"
+                style="@style/baseText"
+                android:layout_width="88dp"
+                android:layout_height="45.3dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/login_singup_button"
+                android:text="@string/log_out"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -156,7 +176,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="09129344311"
+                    android:text="@{personalViewModel.userInfo.mobile_number}"
                     app:layout_constraintEnd_toStartOf="@+id/person_info_phone_number"
                     app:layout_constraintTop_toTopOf="@+id/person_info_phone_number" />
 
@@ -176,7 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="monezamipoor@gmail.com"
+                    android:text="@{personalViewModel.userInfo.email}"
                     app:layout_constraintEnd_toStartOf="@+id/person_info_email"
                     app:layout_constraintTop_toTopOf="@+id/person_info_email" />
 
@@ -218,7 +238,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="سگ فروشان اهواز"
+                    android:text="@{personalViewModel.userInfo.shop_name}"
                     app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toTopOf="@+id/shop_info_name" />
 
@@ -238,7 +258,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="اهوار، خوزستان"
+                    android:text="@{personalViewModel.userInfo.city}"
                     app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toTopOf="@+id/shop_info_city" />
 
@@ -258,7 +278,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="1743002696"
+                    android:text="@{personalViewModel.userInfo.shop_zip}"
                     app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toTopOf="@+id/shop_info_zip_code" />
 
@@ -280,10 +300,11 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="10dp"
                     android:gravity="right"
-                    android:text="لورم ایپسوم تولید متن ساختگی با کیفیت واقعی  با تکیه بر صنعت چاپ به نحو خوبی دسترسی به آزادی بیان را در رختشورخانه حمایت"
+                    android:text="@{personalViewModel.userInfo.shop_address}"
                     app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/shop_info_address" />
+                    app:layout_constraintTop_toTopOf="@+id/shop_info_address"
+                    tools:ignore="RtlHardcoded" />
 
                 <View
                     android:id="@+id/line_break_2"
@@ -323,7 +344,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="توسعه تعاون"
+                    android:text="@{personalViewModel.userInfo.bank_name}"
                     app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toTopOf="@+id/payment_info_bank_name" />
 
@@ -343,7 +364,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="192.108.126.2464"
+                    android:text="@{personalViewModel.userInfo.account_number}"
                     app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toTopOf="@+id/payment_info_bank_account_number" />
 
@@ -363,7 +384,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="IR12343333300284898842"
+                    android:text="@{personalViewModel.userInfo.shaba}"
                     app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toTopOf="@+id/payment_info_bank_shaba_number" />
 

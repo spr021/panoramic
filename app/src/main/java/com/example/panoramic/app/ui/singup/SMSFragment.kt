@@ -1,14 +1,18 @@
 package com.example.panoramic.app.ui.singup
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
+import com.example.panoramic.app.CustomToast
 import com.example.panoramic.app.ui.singup.viewmodel.SMSViewModel
+import com.example.panoramic.databinding.FragmentForgetpasswordSmsBinding
 import com.example.panoramic.databinding.FragmentSmsBinding
 
 class SMSFragment : Fragment(R.layout.fragment_sms) {
@@ -54,13 +58,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
                 }
             }
             setOnClickListener {
-                binding.smsInput2.clearFocus()
-                binding.smsInput1.requestFocus()
-                binding.smsInput1.text = null
-                binding.smsInput2.text = null
-                binding.smsInput3.text = null
-                binding.smsInput4.text = null
-                binding.smsInput5.text = null
+                clearInputFocus(binding, 2)
             }
         }
         binding.smsInput3.apply {
@@ -72,13 +70,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
                 }
             }
             setOnClickListener {
-                binding.smsInput3.clearFocus()
-                binding.smsInput1.requestFocus()
-                binding.smsInput1.text = null
-                binding.smsInput2.text = null
-                binding.smsInput3.text = null
-                binding.smsInput4.text = null
-                binding.smsInput5.text = null
+                clearInputFocus(binding, 3)
             }
 
         }
@@ -91,13 +83,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
                 }
             }
             setOnClickListener {
-                binding.smsInput4.clearFocus()
-                binding.smsInput1.requestFocus()
-                binding.smsInput1.text = null
-                binding.smsInput2.text = null
-                binding.smsInput3.text = null
-                binding.smsInput4.text = null
-                binding.smsInput5.text = null
+                clearInputFocus(binding, 4)
             }
         }
         binding.smsInput5.apply {
@@ -106,20 +92,45 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
                     SMS += binding.smsInput5.text
                     binding.smsInput5.clearFocus()
                     binding.phoneButton.requestFocus()
-                    viewModel.onInputFillFinish(SMS.toString())
+                    val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
+                        .getString("COOKIE", "")
+                    viewModel.onInputFillFinish(SMS.toString(), cookie)
                 }
             }
             setOnClickListener {
-                binding.smsInput5.clearFocus()
-                binding.smsInput1.requestFocus()
-                binding.smsInput1.text = null
-                binding.smsInput2.text = null
-                binding.smsInput3.text = null
-                binding.smsInput4.text = null
-                binding.smsInput5.text = null
+                clearInputFocus(binding, 5)
             }
         }
 
+        binding.phoneButton.setOnClickListener {
+            val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
+                .getString("COOKIE", "")
+            viewModel.onInputFillFinish(SMS.toString(), cookie)
+        }
+        viewModel.requestResponse.observe(viewLifecycleOwner, Observer {
+            if(it) {
+                findNavController().navigate(R.id.action_SMSFragment_to_singup1Fragment)
+            } else {
+                CustomToast(this.requireActivity(), "کد وارد شده اشتباه است", R.color.red)
+            }
+        })
+    }
+
+    private fun clearInputFocus(binding: FragmentSmsBinding, numberInput: Int) {
+        val smsInput = when(numberInput) {
+            1 -> binding.smsInput1
+            2 -> binding.smsInput2
+            3 -> binding.smsInput3
+            4 -> binding.smsInput4
+            else -> binding.smsInput5
+        }
+        smsInput.clearFocus()
+        binding.smsInput1.requestFocus()
+        binding.smsInput1.text = null
+        binding.smsInput2.text = null
+        binding.smsInput3.text = null
+        binding.smsInput4.text = null
+        binding.smsInput5.text = null
     }
 
     override fun onDestroyView() {

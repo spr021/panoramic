@@ -23,7 +23,7 @@
                     android:id="@+id/model_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
@@ -54,7 +54,7 @@
                     android:id="@+id/size_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
@@ -85,7 +85,7 @@
                     android:id="@+id/type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
@@ -116,7 +116,7 @@
                     android:id="@+id/resolotion"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
@@ -144,10 +144,41 @@
                     tools:text="UHD" />
 
                 <TextView
+                    android:id="@+id/panel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:gravity="left"
+                    android:text="@string/panel"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/resolotion_value"
+                    tools:ignore="RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/panel_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="56dp"
+                    android:fontFamily="@font/yekanweb_regular"
+                    android:gravity="right"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/panel"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="UHD" />
+
+                <TextView
                     android:id="@+id/serial_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="left"
@@ -155,7 +186,7 @@
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/resolotion_value"
+                    app:layout_constraintTop_toBottomOf="@+id/panel_value"
                     tools:ignore="RtlHardcoded" />
 
                 <TextView
@@ -178,16 +209,16 @@
                     android:id="@+id/confirm_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:gravity="center"
                     android:text="@string/confirm_text"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/confirm_button"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/serial_value"
-                    app:layout_constraintVertical_bias="0.6" />
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/confirm_button"
@@ -205,7 +236,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/editing_information_button"
-                    app:layout_constraintTop_toBottomOf="@+id/confirm_text" />
+                    app:layout_constraintTop_toBottomOf="@+id/serial_value"
+                    app:layout_constraintVertical_bias="0.8" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/editing_information_button"
@@ -219,11 +251,12 @@
                     android:text="@string/edite_button"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/confirm_button"
                     app:layout_constraintEnd_toStartOf="@+id/confirm_button"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/confirm_text" />
+                    app:layout_constraintTop_toTopOf="@+id/confirm_button" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

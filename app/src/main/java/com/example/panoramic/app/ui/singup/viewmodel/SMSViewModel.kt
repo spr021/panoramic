@@ -2,23 +2,39 @@ package com.example.panoramic.app.ui.singup.viewmodel
 
 import android.os.CountDownTimer
 import android.text.format.DateUtils
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.example.panoramic.app.MainActivity
+import com.example.panoramic.remote.model.SendPhoneBody
+import com.example.panoramic.remote.model.SendPhoneDto
+import com.example.panoramic.remote.model.SendSmsBody
+import com.example.panoramic.remote.model.SendSmsCodeDto
+import com.example.panoramic.remote.service.SendPhoneService
+import com.example.panoramic.remote.service.SendSmsCodeService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-class SMSViewModel: ViewModel() {
+class SMSViewModel : ViewModel() {
 
     private val _currentTime = MutableLiveData<Long>()
     val currentTime: LiveData<Long>
         get() = _currentTime
 
-    var smsCode: String? = null
+    private val _requestResponse = MutableLiveData<Boolean>()
+    val requestResponse: LiveData<Boolean>
+        get() = _requestResponse
+
 
     private val timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
 
         override fun onTick(millisUntilFinished: Long) {
-            _currentTime.value = millisUntilFinished/ONE_SECOND
+            _currentTime.value = millisUntilFinished / ONE_SECOND
         }
 
         override fun onFinish() {
@@ -31,9 +47,32 @@ class SMSViewModel: ViewModel() {
         DateUtils.formatElapsedTime(time)
     }
 
-    fun onInputFillFinish(code: String) {
-        smsCode = code
-        // send requset for checking true sms
+    fun onInputFillFinish(code: String, cookie: String?) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(MainActivity.BaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(SendSmsCodeService::class.java)
+        val call = service.sendSmsCode(
+            SendSmsBody(
+                cookie,
+                code
+            )
+        )
+        call.enqueue(object : Callback<SendSmsCodeDto> {
+            override fun onResponse(
+                call: Call<SendSmsCodeDto>,
+                response: Response<SendSmsCodeDto>
+            ) {
+                if (response.code() == 200) {
+                    _requestResponse.value = response.body().success
+                }
+            }
+
+            override fun onFailure(call: Call<SendSmsCodeDto>, t: Throwable) {
+                Log.i("SendPhoneDto", t.toString())
+            }
+        })
     }
 
     fun onResendCodeClick() {
@@ -45,7 +84,7 @@ class SMSViewModel: ViewModel() {
         timer.cancel()
     }
 
-    companion object{
+    companion object {
         // Time when the SMS is over
         private const val DONE = 0L
 

@@ -39,7 +39,7 @@
     <string name="model_number">شماره مدل :</string>
     <string name="size">سایز :</string>
     <string name="type">نوع :</string>
-    <string name="resolotion">کیفیت تصویر :</string>
+    <string name="resolotion">رزولوشن :</string>
     <string name="serial_number">شماره سریال :</string>
     <string name="confirm_text">آیا صحت اطلاعات بالا را تایید میکنید ؟</string>
     <string name="confirm_button">تایید و ثبت</string>
@@ -72,4 +72,6 @@
     <string name="shaba_number">شماره شبا</string>
     <string name="bank_name">نام بانک</string>
     <string name="call_center_image">Call Center Image</string>
+    <string name="panel">پنل :</string>
+    <string name="log_out">خروج</string>
 </resources>

@@ -2,7 +2,6 @@ package com.example.panoramic.app.ui.home
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -13,18 +12,8 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.CustomToast
-import com.example.panoramic.app.ui.login.LoginFragment
 import com.example.panoramic.databinding.FragmentHomeBinding
-import com.example.panoramic.remote.model.CookieResponseDto
-import com.example.panoramic.remote.model.UserInfoDta
-import com.example.panoramic.remote.service.CookieService
-import com.example.panoramic.remote.service.UserInfoService
 import kotlinx.android.synthetic.main.fragment_home.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -43,9 +32,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
         // to all the data in the ViewModel
         binding.homeViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         setWellcomeText()
-        getUserInfo()
+
+        val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
+        viewModel.getUserInfo(cookie)
+
 
         activity?.getSharedPreferences("REGISTER_PRODUCT", Context.MODE_PRIVATE)!!.edit().clear().apply()
 
@@ -93,29 +86,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }*/
 
-    private fun getUserInfo() {
-        val sharedPref = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)
-        val cookie = sharedPref!!.getString("COOKIE", "")
-        val retrofit = Retrofit.Builder()
-            .baseUrl(LoginFragment.BaseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val service = retrofit.create(UserInfoService::class.java)
-        val call = service.getUserInfo(cookie!!)
-        call.enqueue(object : Callback<UserInfoDta> {
-            override fun onResponse(call: Call<UserInfoDta>, response: Response<UserInfoDta>) {
-                if (response.code() == 200) {
-                    fragmentHomeBinding!!.homeName.text = response.body().name
-                }
-            }
-            override fun onFailure(call: Call<UserInfoDta>, t: Throwable) {
-
-                val errorText = view?.findViewById<TextView>(R.id.message)
-                errorText?.text = t.message
-                errorText?.visibility = View.VISIBLE
-            }
-        })
-    }
 
     private fun setWellcomeText(){
         val rightNow = Calendar.getInstance()
@@ -134,7 +104,5 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onDestroyView()
     }
 
-    companion object {
-        var BaseUrl = "http://app.panoramic.co.ir/"
-    }
+
 }

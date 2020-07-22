@@ -26,7 +26,7 @@
                 android:layout_height="47.3dp"
                 android:layout_marginStart="27.3dp"
                 android:layout_marginTop="18.7dp"
-                android:src="@drawable/home_person_icon"
+                app:imageUrl="@{homeViewModel.userInfo.prof_pic}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="22dp"
                 android:fontFamily="@font/yekanweb_regular"
-                android:text="@string/username_home"
+                android:text="@{homeViewModel.userInfo.name}"
                 android:textColor="@color/colorPrimary"
                 android:textSize="17.3sp"
                 app:layout_constraintBottom_toBottomOf="@+id/profile_pictuer"
@@ -96,6 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
+                    android:text="@{homeViewModel.userInfo.score_total}"
                     android:layout_marginStart="39dp"
                     android:fontFamily="@font/yekanweb_regular"
                     android:textColor="@color/white"

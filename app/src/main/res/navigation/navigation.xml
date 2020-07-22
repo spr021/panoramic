@@ -127,6 +127,33 @@
         <action
             android:id="@+id/action_conformationFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="modelNumber"
+            app:argType="string" />
+        <argument
+            android:name="size"
+            app:argType="string" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="resolotion"
+            app:argType="string" />
+        <argument
+            android:name="panel"
+            app:argType="string" />
+        <argument
+            android:name="serialNumber"
+            app:argType="string" />
+        <argument
+            android:name="productId"
+            app:argType="string" />
+        <argument
+            android:name="customerName"
+            app:argType="string" />
+        <argument
+            android:name="customerPhone"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/SMSFragment"
