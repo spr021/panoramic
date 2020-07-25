@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.databinding.FragmentSingup3Binding
 
@@ -17,6 +18,10 @@ class Singup3Fragment : Fragment(R.layout.fragment_singup3) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentSingup3Binding.bind(view)
         fragmentSingup3Binding = binding
+
+        binding.nextPage.setOnClickListener {
+            findNavController().navigate(R.id.action_singup3Fragment_to_successSingupFragment)
+        }
 
         //drop down list for bank name
         val bankNameAdapter = ArrayAdapter(requireContext(),

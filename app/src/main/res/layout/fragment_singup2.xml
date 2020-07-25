@@ -17,9 +17,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/national_id"
                 style="@style/SingupTextInputLayoutStyle"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
@@ -27,15 +27,48 @@
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/age"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ExtraText,RtlHardcoded">
-                tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/national_id_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/age"
+                style="@style/SingupTextInputLayoutStyle"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="right"
+                app:errorEnabled="true"
+                android:hint="@string/age"
+                android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
+                app:layout_constraintEnd_toStartOf="@+id/national_id"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ExtraText,RtlHardcoded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/age_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:maxLength="2"
                     android:inputType="number"
                     android:singleLine="true"
                     android:textColor="@color/white" />
@@ -60,6 +93,7 @@
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/home_address_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -78,6 +112,7 @@
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
                 android:hint="@string/home_zip"
+                app:errorEnabled="true"
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +121,12 @@
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/home_zip_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:inputType="phone"
+                    android:maxLength="10"
                     android:singleLine="true"
                     android:textColor="@color/white" />
 
@@ -101,7 +138,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
                 android:hint="@string/home_phone"
@@ -113,8 +149,10 @@
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/home_phone_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="11"
                     android:gravity="right"
                     android:inputType="phone"
                     android:singleLine="true"
@@ -173,6 +211,33 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/child_number_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:inputType="none"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/education"
+                style="@style/ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="right"
+                android:hint="@string/education"
+                android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
+                app:layout_constraintEnd_toEndOf="@+id/marital_status"
+                app:layout_constraintStart_toStartOf="@+id/child_number"
+                app:layout_constraintTop_toBottomOf="@+id/marital_status"
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <AutoCompleteTextView
+                    android:id="@+id/education_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"

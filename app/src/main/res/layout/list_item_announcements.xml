@@ -12,7 +12,7 @@
     android:paddingBottom="16dp"
     tools:ignore="RtlHardcoded">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <com.github.florent37.shapeofview.shapes.CircleView
         android:id="@+id/notification"
         android:layout_width="15dp"
         android:layout_height="15dp"

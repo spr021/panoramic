@@ -163,6 +163,9 @@
         <action
             android:id="@+id/action_SMSFragment_to_singup1Fragment"
             app:destination="@id/singup1Fragment" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/singup1Fragment"
@@ -172,6 +175,9 @@
         <action
             android:id="@+id/action_singup1Fragment_to_singup2Fragment"
             app:destination="@id/singup2Fragment" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/singup2Fragment"
@@ -181,6 +187,9 @@
         <action
             android:id="@+id/action_singup2Fragment_to_singup3Fragment"
             app:destination="@id/singup3Fragment" />
+        <argument
+            android:name="firstPageInfo"
+            app:argType="string[]" />
     </fragment>
     <fragment
         android:id="@+id/singup3Fragment"

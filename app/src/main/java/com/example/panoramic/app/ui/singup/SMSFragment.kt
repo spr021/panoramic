@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.CustomToast
+import com.example.panoramic.app.ui.home.HomeFragmentArgs
 import com.example.panoramic.app.ui.singup.viewmodel.SMSViewModel
 import com.example.panoramic.databinding.FragmentForgetpasswordSmsBinding
 import com.example.panoramic.databinding.FragmentSmsBinding
@@ -31,7 +32,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
 
         viewModel.currentTimeString.observe(viewLifecycleOwner, Observer {
             binding.timer.text = "$it تا ارسال مجدد کد "
-            if(it == "00:00"){
+            if (it == "00:00") {
                 binding.timer.visibility = View.GONE
                 binding.resend.apply {
                     visibility = View.VISIBLE
@@ -43,7 +44,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         })
 
         binding.smsInput1.addTextChangedListener {
-            if(binding.smsInput1.text.toString().trim().length == 1) {
+            if (binding.smsInput1.text.toString().trim().length == 1) {
                 SMS = binding.smsInput1.text.toString()
                 binding.smsInput1.clearFocus()
                 binding.smsInput2.requestFocus()
@@ -51,7 +52,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         }
         binding.smsInput2.apply {
             addTextChangedListener {
-                if(binding.smsInput2.text.toString().trim().length == 1) {
+                if (binding.smsInput2.text.toString().trim().length == 1) {
                     SMS += binding.smsInput2.text
                     binding.smsInput2.clearFocus()
                     binding.smsInput3.requestFocus()
@@ -63,7 +64,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         }
         binding.smsInput3.apply {
             addTextChangedListener {
-                if(binding.smsInput3.text.toString().trim().length == 1) {
+                if (binding.smsInput3.text.toString().trim().length == 1) {
                     SMS += binding.smsInput3.text
                     binding.smsInput3.clearFocus()
                     binding.smsInput4.requestFocus()
@@ -76,7 +77,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         }
         binding.smsInput4.apply {
             addTextChangedListener {
-                if(binding.smsInput4.text.toString().trim().length == 1) {
+                if (binding.smsInput4.text.toString().trim().length == 1) {
                     SMS += binding.smsInput4.text
                     binding.smsInput4.clearFocus()
                     binding.smsInput5.requestFocus()
@@ -88,7 +89,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         }
         binding.smsInput5.apply {
             addTextChangedListener {
-                if(binding.smsInput5.text.toString().trim().length == 1) {
+                if (binding.smsInput5.text.toString().trim().length == 1) {
                     SMS += binding.smsInput5.text
                     binding.smsInput5.clearFocus()
                     binding.phoneButton.requestFocus()
@@ -108,8 +109,12 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
             viewModel.onInputFillFinish(SMS.toString(), cookie)
         }
         viewModel.requestResponse.observe(viewLifecycleOwner, Observer {
-            if(it) {
-                findNavController().navigate(R.id.action_SMSFragment_to_singup1Fragment)
+            if (it) {
+                findNavController().navigate(
+                    SMSFragmentDirections.actionSMSFragmentToSingup1Fragment(
+                        SMSFragmentArgs.fromBundle(requireArguments()).phoneNumber
+                    )
+                )
             } else {
                 CustomToast(this.requireActivity(), "کد وارد شده اشتباه است", R.color.red)
             }
@@ -117,7 +122,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
     }
 
     private fun clearInputFocus(binding: FragmentSmsBinding, numberInput: Int) {
-        val smsInput = when(numberInput) {
+        val smsInput = when (numberInput) {
             1 -> binding.smsInput1
             2 -> binding.smsInput2
             3 -> binding.smsInput3

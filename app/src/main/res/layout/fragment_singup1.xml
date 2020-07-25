@@ -30,6 +30,7 @@
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -55,6 +56,7 @@
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/family_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -81,6 +83,7 @@
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -100,6 +103,7 @@
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
                 android:hint="@string/phone"
+                app:errorEnabled="true"
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -108,10 +112,13 @@
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_number_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusable="false"
                     android:gravity="right"
                     android:inputType="phone"
+                    android:maxLength="11"
                     android:singleLine="true"
                     android:textColor="@color/white" />
 
@@ -123,7 +130,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
                 android:hint="@string/shop_name"
@@ -135,6 +141,7 @@
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/shop_name_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -161,6 +168,34 @@
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/shop_owner_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/shop_address"
+                style="@style/SingupTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="23dp"
+                android:gravity="right"
+                android:hint="@string/shop_address"
+                android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shop_owner"
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/shop_address_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -179,18 +214,22 @@
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
                 android:hint="@string/shop_zip"
+                app:errorEnabled="true"
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/shop_owner"
+                app:layout_constraintTop_toBottomOf="@+id/shop_address"
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/shop_zip_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
+                    android:inputType="number"
                     android:singleLine="true"
+                    android:maxLength="10"
                     android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>

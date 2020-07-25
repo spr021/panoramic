@@ -1,6 +1,7 @@
 package com.example.panoramic.app.ui.singup
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -29,8 +30,27 @@ class Singup2Fragment : Fragment(R.layout.fragment_singup2) {
             R.layout.list_item_singup, listOf("۱", "۲", "۳", "۴", "۵"))
         (binding.childNumberItem as? AutoCompleteTextView)?.setAdapter(childNumberAdapter)
 
+        //drop down list for child number
+        val educationAdapter = ArrayAdapter(requireContext(),
+            R.layout.list_item_singup, listOf("سیکل", "دیپلم", "کاردانی", "کارشناسی", "کارشناسی ارشد", "سایر"))
+        (binding.educationItem as? AutoCompleteTextView)?.setAdapter(educationAdapter)
+
+        val args = Singup2FragmentArgs.fromBundle(requireArguments())
+
+        val nationalId = binding.nationalIdValue.toString()
+        val age = binding.ageValue.toString()
+        val homeAddress = binding.homeAddressValue.toString()
+        val homeZip = binding.homeZipValue.toString()
+        val homePhone = binding.homePhoneValue.toString()
+        val maritalStatus = binding.maritalStatusItem.toString()
+        val childNumber = binding.childNumberItem.toString()
+        val education = binding.educationItem.toString()
+        val arr = arrayOf(nationalId, age, homeAddress, homeZip, homePhone, maritalStatus, childNumber, education)
+
         binding.nextPage.setOnClickListener {
-            findNavController().navigate(R.id.action_singup2Fragment_to_singup3Fragment, null, null, null)
+            val secondPageInfo = arrayOf(*args.firstPageInfo, *arr)
+            Log.i("sasa", secondPageInfo[0])
+            findNavController().navigate(R.id.action_singup2Fragment_to_singup3Fragment)
         }
     }
 

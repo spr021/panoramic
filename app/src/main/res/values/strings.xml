@@ -74,4 +74,8 @@
     <string name="call_center_image">Call Center Image</string>
     <string name="panel">پنل :</string>
     <string name="log_out">خروج</string>
+    <string name="contact_us_text">فروشندگان محترم، لطفا جهت تغییر اطلاعات شخصی خود، و یا مشاهده هرگونه مشکلی در اپلیکیشن، لطفا از طریق تماس با شماره های 021-22879855 ، 021-22879792 یا از طریق واتساپ 09129583214 با ما در میان بگذارید</string>
+    <string name="shop_address">آدرس فروشگاه</string>
+    <string name="age">سن</string>
+    <string name="education">تحصیلات</string>
 </resources>

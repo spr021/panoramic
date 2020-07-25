@@ -28,7 +28,7 @@ class PhoneFragment : Fragment(R.layout.fragment_phone) {
                 .getString("COOKIE", "")
             val phoneNumber = binding.phoneInput.text.toString()
             viewModel.sendPhoneNumber(cookie, phoneNumber)
-            findNavController().navigate(R.id.action_phoneFragment_to_SMSFragment)
+            findNavController().navigate(PhoneFragmentDirections.actionPhoneFragmentToSMSFragment(phoneNumber))
 
         }
 

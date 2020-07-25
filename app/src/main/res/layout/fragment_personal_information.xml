@@ -465,7 +465,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="90dp"
-                    android:text="فروشندگان محترم، لطفا جهت تغییر اطلاعات شخصی خود،  و یا مشاهده هرگونه مشکلی در اپلیکیشن، لطفا از طریق تماس با شماره های 021-22879855 ،  021-22879792 یا از طریق واتساپ 09129583214 با ما در میان بگذارید"
+                    android:text="@string/contact_us_text"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/sub_title_call_us"
                     app:layout_constraintStart_toStartOf="parent"
