@@ -14,16 +14,13 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ForgetpasswordPhoneViewModel: ViewModel() {
+class ForgetpasswordPhoneViewModel : ViewModel() {
 
     private val _requestResponse = MutableLiveData<Boolean>()
     val requestResponse: LiveData<Boolean>
         get() = _requestResponse
 
-    fun sendPhoneNumber(
-        cookie: String?,
-        phone: String
-    ) {
+    fun sendPhoneNumber(cookie: String?, phone: String) {
         val retrofit = Retrofit.Builder()
             .baseUrl(MainActivity.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())

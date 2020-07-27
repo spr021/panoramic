@@ -2,6 +2,7 @@ package com.example.panoramic.data
 
 import com.example.panoramic.data.entity.HomeEntity
 import com.example.panoramic.remote.model.PlaceDto
+import com.example.panoramic.remote.model.SingUpBody
 
 fun PlaceDto.toHomeEntity() = HomeEntity(
     title = full_name,

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
@@ -414,19 +415,52 @@ class AwardsGuide : Fragment(R.layout.fragment_awards_guide), OnAwardItemClickLi
         view.findViewById<RecyclerView>(R.id.award_recyclerview).apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = AwardsGuideAdabter(mNicolasCageMovies, this@AwardsGuide)
-            
+
         }
     }
 
+    @Suppress("NAME_SHADOWING")
     override fun onItemClick(awardGuideEntity: AwardGuideEntity, position: Int, view: View) {
-        if (view.findViewById<ImageView>(R.id.arrows).visibility == View.VISIBLE) {
-            view.findViewById<ImageView>(R.id.arrows).visibility = View.GONE
+        val arrow = view.findViewById<ImageView>(R.id.arrows)
+        val viewList = listOf(
+            view.findViewById<TextView>(R.id.size),
+            view.findViewById<TextView>(R.id.size_value),
+            view.findViewById<TextView>(R.id.type),
+            view.findViewById<TextView>(R.id.type_value),
+            view.findViewById<TextView>(R.id.panel_type),
+            view.findViewById<TextView>(R.id.panel_type_value),
+            view.findViewById<TextView>(R.id.HTMI),
+            view.findViewById<TextView>(R.id.HTMI_value),
+            view.findViewById<TextView>(R.id.USB),
+            view.findViewById<TextView>(R.id.USB_value),
+            view.findViewById<TextView>(R.id.OS),
+            view.findViewById<TextView>(R.id.OS_value),
+            view.findViewById<View>(R.id.line_breaker),
+            view.findViewById<TextView>(R.id.price),
+            view.findViewById<TextView>(R.id.price_value)
+        )
+        if (arrow.visibility == View.VISIBLE) {
+            arrow.visibility = View.GONE
 
-            SlideView(view, view.height + view.marginTop + view.marginBottom, 1300)
+            viewList.map { view ->
+                view.visibility = View.VISIBLE
+            }
+            SlideView(
+                view,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
         } else {
-            view.findViewById<ImageView>(R.id.arrows).visibility = View.VISIBLE
+            arrow.visibility = View.VISIBLE
 
-            SlideView(view, view.height + view.marginTop + view.marginBottom, 750)
+            viewList.map { view ->
+                view.visibility = View.GONE
+            }
+            SlideView(
+                view,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
         }
     }
 }

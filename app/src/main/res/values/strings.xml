@@ -78,4 +78,5 @@
     <string name="shop_address">آدرس فروشگاه</string>
     <string name="age">سن</string>
     <string name="education">تحصیلات</string>
+    <string name="regen">استان</string>
 </resources>

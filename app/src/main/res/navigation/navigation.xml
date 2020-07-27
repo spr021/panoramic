@@ -199,6 +199,9 @@
         <action
             android:id="@+id/action_singup3Fragment_to_successSingupFragment"
             app:destination="@id/successSingupFragment" />
+        <argument
+            android:name="secondPageInfo"
+            app:argType="string[]" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

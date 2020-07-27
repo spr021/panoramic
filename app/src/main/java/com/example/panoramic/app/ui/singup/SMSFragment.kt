@@ -23,7 +23,6 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
     var SMS: String? = null
 
     @SuppressLint("SetTextI18n")
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentSmsBinding.bind(view)

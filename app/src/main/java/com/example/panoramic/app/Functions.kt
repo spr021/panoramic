@@ -13,14 +13,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import com.example.panoramic.R
-import com.example.panoramic.app.ui.registerproduct.RegisterProductFragment
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.toast_fragment_home.view.*
 
@@ -50,22 +47,22 @@ fun CustomToast(context: Activity, message: String, color: Int) {
 @Suppress("FunctionName")
 fun SlideView(view: View?, currentHeight: Int, newHeight: Int) {
 
-    view?.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-    val finalHeight = view!!.measuredHeight
+
+
     val slideAnimator = ValueAnimator
         .ofInt(currentHeight, newHeight)
         .setDuration(500)
 
     /* We use an update listener which listens to each tick
      * and manually updates the height of the view  */
-    slideAnimator.addUpdateListener { animation1: ValueAnimator ->
-        val value = animation1.animatedValue as Int
-        view.layoutParams.height = value
+    slideAnimator.addUpdateListener {
+        val value = it.animatedValue as Int
+        view!!.layoutParams.height = value
         view.requestLayout()
     }
 
     /*  We use an animationSet to play the animation  */
-    val animationSet = AnimatorSet().apply {
+        AnimatorSet().apply {
         interpolator = AccelerateDecelerateInterpolator()
         play(slideAnimator)
         start()
@@ -78,8 +75,8 @@ fun clearSharedPreferences(context: Activity, name: String){
 }
 
 @Suppress("DEPRECATION")
-fun isOnline(): Boolean {
-    val connMgr = Activity().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+fun isOnline(context: Context?): Boolean {
+    val connMgr = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val networkInfo: NetworkInfo? = connMgr.activeNetworkInfo
     return networkInfo?.isConnected == true
 }

@@ -31,7 +31,6 @@ class PhoneFragment : Fragment(R.layout.fragment_phone) {
             findNavController().navigate(PhoneFragmentDirections.actionPhoneFragmentToSMSFragment(phoneNumber))
 
         }
-
     }
 
     override fun onDestroyView() {

@@ -48,17 +48,13 @@ class SMSViewModel : ViewModel() {
     }
 
     fun onInputFillFinish(code: String, cookie: String?) {
+        val body = SendSmsBody(cookie, code)
         val retrofit = Retrofit.Builder()
             .baseUrl(MainActivity.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(SendSmsCodeService::class.java)
-        val call = service.sendSmsCode(
-            SendSmsBody(
-                cookie,
-                code
-            )
-        )
+        val call = service.sendSmsCode(body)
         call.enqueue(object : Callback<SendSmsCodeDto> {
             override fun onResponse(
                 call: Call<SendSmsCodeDto>,

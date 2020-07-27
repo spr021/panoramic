@@ -23,7 +23,6 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
-                app:errorEnabled="true"
                 android:hint="@string/card_number"
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
@@ -33,11 +32,12 @@
                 tools:ignore="ExtraText,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/card_number_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:maxLength="16"
                     android:inputType="number"
+                    android:maxLength="16"
                     android:singleLine="true"
                     android:textColor="@color/white" />
 
@@ -53,7 +53,6 @@
                 android:gravity="right"
                 android:hint="@string/account_number"
                 android:textColorHint="@color/white"
-                app:errorEnabled="true"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="@+id/card_number"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,6 +60,7 @@
                 tools:ignore="ExtraText,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/account_number_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -81,7 +81,6 @@
                 android:gravity="right"
                 android:hint="@string/shaba_number"
                 android:textColorHint="@color/white"
-                app:errorEnabled="true"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="@+id/card_number"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +88,7 @@
                 tools:ignore="ExtraText,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/shaba_number_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -127,41 +127,23 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <FrameLayout
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/next_page"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="23dp"
-                android:layout_marginEnd="23dp"
-                android:layout_marginBottom="24dp"
+                style="@style/baseText"
+                android:layout_width="88dp"
+                android:layout_height="45.3dp"
+                android:background="@drawable/login_singup_button"
+                android:padding="0dp"
+                android:text="@string/singup_button"
+                android:textColor="@color/white"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints">
+                app:layout_constraintTop_toBottomOf="@+id/bank_name"
+                app:layout_constraintVertical_bias="0.9" />
 
-                <TextView
-                    android:id="@+id/next_page_next"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left|center"
-                    android:layout_marginLeft="30dp"
-                    android:gravity="left|center"
-                    android:padding="0dp"
-                    android:text="@string/next_page"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    tools:ignore="RtlHardcoded" />
-
-                <ImageView
-                    android:id="@+id/next_page_pic"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:contentDescription="@string/next_page"
-                    android:gravity="left|center"
-                    app:srcCompat="@drawable/singup_next_page"
-                    tools:ignore="RtlHardcoded,VectorDrawableCompat" />
-
-            </FrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

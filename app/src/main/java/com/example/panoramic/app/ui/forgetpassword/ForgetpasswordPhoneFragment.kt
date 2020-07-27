@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.ui.forgetpassword.viewmodel.ForgetpasswordPhoneViewModel
-import com.example.panoramic.app.ui.singup.viewmodel.PhoneViewModel
 import com.example.panoramic.databinding.FragmentForgetpasswordBinding
 
 class ForgetpasswordPhoneFragment : Fragment(R.layout.fragment_forgetpassword) {
@@ -20,7 +19,6 @@ class ForgetpasswordPhoneFragment : Fragment(R.layout.fragment_forgetpassword) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentForgetpasswordBinding.bind(view)
         fragmentForgetpasswordPhoneBinding = binding
-
         viewModel = ViewModelProviders.of(this).get(ForgetpasswordPhoneViewModel::class.java)
 
         binding.phoneButton.setOnClickListener {

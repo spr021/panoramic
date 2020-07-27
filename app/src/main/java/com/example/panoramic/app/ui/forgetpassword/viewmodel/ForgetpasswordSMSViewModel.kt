@@ -1,4 +1,4 @@
-package com.example.panoramic.app.ui.singup.viewmodel
+package com.example.panoramic.app.ui.forgetpassword.viewmodel
 
 import android.os.CountDownTimer
 import android.text.format.DateUtils
@@ -17,7 +17,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ForgetpasswordSMSViewModel: ViewModel() {
+class ForgetpasswordSMSViewModel : ViewModel() {
 
     private val _currentTime = MutableLiveData<Long>()
     val currentTime: LiveData<Long>
@@ -45,17 +45,13 @@ class ForgetpasswordSMSViewModel: ViewModel() {
     }
 
     fun onInputFillFinish(code: String, cookie: String?) {
+            val body = SendSmsBody(cookie, code)
         val retrofit = Retrofit.Builder()
             .baseUrl(MainActivity.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(SendSmsCodeService::class.java)
-        val call = service.sendSmsCode(
-            SendSmsBody(
-                cookie,
-                code
-            )
-        )
+        val call = service.sendSmsCode(body)
         call.enqueue(object : Callback<SendSmsCodeDto> {
             override fun onResponse(
                 call: Call<SendSmsCodeDto>,

@@ -76,6 +76,33 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/city"
+                style="@style/SingupTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="23dp"
+                android:gravity="right"
+                android:hint="@string/regen"
+                android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/national_id"
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/city_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/home_address"
                 style="@style/SingupTextInputLayoutStyle"
                 android:layout_width="match_parent"
@@ -89,7 +116,7 @@
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/national_id"
+                app:layout_constraintTop_toBottomOf="@+id/city"
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -250,13 +277,11 @@
 
             <FrameLayout
                 android:id="@+id/next_page"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginStart="23dp"
-                android:layout_marginEnd="23dp"
                 android:layout_marginBottom="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints">
 

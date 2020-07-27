@@ -61,9 +61,4 @@ class HomeViewModel(args: HomeFragmentArgs) : ViewModel() {
             }
         })
     }
-
-
-
-
-
 }

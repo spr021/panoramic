@@ -21,10 +21,7 @@ class PhoneViewModel() : ViewModel() {
     val requestResponse: LiveData<Boolean>
         get() = _requestResponse
 
-    fun sendPhoneNumber(
-        cookie: String?,
-        phone: String
-    ) {
+    fun sendPhoneNumber(cookie: String?, phone: String) {
         val retrofit = Retrofit.Builder()
             .baseUrl(MainActivity.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
