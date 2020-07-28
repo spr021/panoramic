@@ -1,6 +1,7 @@
 package com.example.panoramic.app.ui.singup
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.CustomToast
+import com.example.panoramic.app.ui.forgetpassword.ForgetpasswordSMSFragmentArgs
 import com.example.panoramic.app.ui.home.HomeFragmentArgs
 import com.example.panoramic.app.ui.singup.viewmodel.SMSViewModel
 import com.example.panoramic.databinding.FragmentForgetpasswordSmsBinding
@@ -20,14 +22,20 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
 
     private var fragmentSMSBinding: FragmentSmsBinding? = null
     private lateinit var viewModel: SMSViewModel
-    var SMS: String? = null
+    private var SMS: String? = null
 
+    @Suppress("DEPRECATION")
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentSmsBinding.bind(view)
         fragmentSMSBinding = binding
         viewModel = ViewModelProviders.of(this).get(SMSViewModel::class.java)
+
+        val args = SMSFragmentArgs.fromBundle(requireArguments())
+
+        val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
+            .getString("COOKIE", "")
 
         viewModel.currentTimeString.observe(viewLifecycleOwner, Observer {
             binding.timer.text = "$it تا ارسال مجدد کد "
@@ -36,24 +44,45 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
                 binding.resend.apply {
                     visibility = View.VISIBLE
                     setOnClickListener {
-                        viewModel.onResendCodeClick()
+                        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(context)
+                        alertDialogBuilder.setMessage("آیا شماره تلفن را صحیح وارد کردید ؟  ${args.phoneNumber}")
+                        alertDialogBuilder.setPositiveButton("تایید") { _, _ ->
+                            viewModel.onResendCodeClick(
+                                cookie,
+                                args.phoneNumber
+                            )
+                        }
+                        alertDialogBuilder.setNegativeButton("اصلاح") { _, _ ->
+                            findNavController().navigate(
+                                R.id.action_forgetpasswordSMSFragment_to_forgetpasswordPhoneFragment
+                            )
+                        }
+
+                        val alertDialog: AlertDialog = alertDialogBuilder.create()
+                        alertDialog.show()
                     }
                 }
             }
         })
 
-        binding.smsInput1.addTextChangedListener {
-            if (binding.smsInput1.text.toString().trim().length == 1) {
-                SMS = binding.smsInput1.text.toString()
-                binding.smsInput1.clearFocus()
-                binding.smsInput2.requestFocus()
+        binding.smsInput1.requestFocus()
+
+        binding.smsInput1.apply {
+            addTextChangedListener {
+                if (it.toString().trim().length == 1) {
+                    SMS += binding.smsInput1.text.toString()
+                    binding.smsInput2.requestFocus()
+
+                }
+            }
+            setOnClickListener {
+                clearInputFocus(binding, 1)
             }
         }
         binding.smsInput2.apply {
             addTextChangedListener {
-                if (binding.smsInput2.text.toString().trim().length == 1) {
+                if (it.toString().trim().length == 1) {
                     SMS += binding.smsInput2.text
-                    binding.smsInput2.clearFocus()
                     binding.smsInput3.requestFocus()
                 }
             }
@@ -63,9 +92,8 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         }
         binding.smsInput3.apply {
             addTextChangedListener {
-                if (binding.smsInput3.text.toString().trim().length == 1) {
+                if (it.toString().trim().length == 1) {
                     SMS += binding.smsInput3.text
-                    binding.smsInput3.clearFocus()
                     binding.smsInput4.requestFocus()
                 }
             }
@@ -78,7 +106,6 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
             addTextChangedListener {
                 if (binding.smsInput4.text.toString().trim().length == 1) {
                     SMS += binding.smsInput4.text
-                    binding.smsInput4.clearFocus()
                     binding.smsInput5.requestFocus()
                 }
             }
@@ -90,11 +117,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
             addTextChangedListener {
                 if (binding.smsInput5.text.toString().trim().length == 1) {
                     SMS += binding.smsInput5.text
-                    binding.smsInput5.clearFocus()
                     binding.phoneButton.requestFocus()
-                    val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
-                        .getString("COOKIE", "")
-                    viewModel.onInputFillFinish(SMS.toString(), cookie)
                 }
             }
             setOnClickListener {
@@ -103,19 +126,26 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         }
 
         binding.phoneButton.setOnClickListener {
-            val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
-                .getString("COOKIE", "")
             viewModel.onInputFillFinish(SMS.toString(), cookie)
         }
         viewModel.requestResponse.observe(viewLifecycleOwner, Observer {
             if (it) {
-                findNavController().navigate(
-                    SMSFragmentDirections.actionSMSFragmentToSingup1Fragment(
-                        SMSFragmentArgs.fromBundle(requireArguments()).phoneNumber
-                    )
-                )
+                findNavController().navigate(R.id.action_forgetpasswordSMSFragment_to_newPasswordFragment)
             } else {
                 CustomToast(this.requireActivity(), "کد وارد شده اشتباه است", R.color.red)
+                binding.phoneButton.isEnabled = false
+                binding.phoneButton.setBackgroundResource(R.drawable.login_button_disable)
+                binding.smsInput1.text = null
+                binding.smsInput2.text = null
+                binding.smsInput3.text = null
+                binding.smsInput4.text = null
+                binding.smsInput5.text = null
+            }
+        })
+        viewModel.requestResponseResend.observe(viewLifecycleOwner, Observer {
+            if (it) {
+                binding.phoneButton.isEnabled = true
+                binding.phoneButton.setBackgroundResource(R.drawable.login_button)
             }
         })
     }

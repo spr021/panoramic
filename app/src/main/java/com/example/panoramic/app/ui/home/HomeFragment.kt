@@ -36,15 +36,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         setWellcomeText()
 
-        val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
+        val cookie =
+            activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
         viewModel.getUserInfo(cookie)
 
-
-        activity?.getSharedPreferences("REGISTER_PRODUCT", Context.MODE_PRIVATE)!!.edit().clear().apply()
+        activity?.getSharedPreferences("REGISTER_PRODUCT", Context.MODE_PRIVATE)!!.edit().clear()
+            .apply()
 
         binding.yourScore.setOnClickListener {
             val extras = FragmentNavigatorExtras(your_score to "your_score")
-            findNavController().navigate(R.id.action_homeFragment_to_scoreFragment, null, null, extras)
+            findNavController().navigate(
+                R.id.action_homeFragment_to_scoreFragment,
+                null,
+                null,
+                extras
+            )
         }
         binding.registerNewProduct.setOnClickListener {
             view.findNavController().navigate(R.id.action_homeFragment_to_registerProductFragment)
@@ -57,12 +63,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         viewModel.confirmSuccess.observe(viewLifecycleOwner, Observer {
-            if(it) {
+            if (it) {
                 viewModel.args.observe(viewLifecycleOwner, Observer { args ->
                     val modelNumber = args[0]
                     val serialNumber = args[1]
 
-                    CustomToast(requireActivity(), " دستگاه $modelNumber به شماره سریال $serialNumber برای شما ثبت شد و پس از تایید خدمات پس از فروش، امتیاز آن به حساب شما اعمال خواهد شد ", R.color.green)
+                    CustomToast(
+                        requireActivity(),
+                        " دستگاه $modelNumber به شماره سریال $serialNumber برای شما ثبت شد و پس از تایید خدمات پس از فروش، امتیاز آن به حساب شما اعمال خواهد شد ",
+                        R.color.green
+                    )
 
                     viewModel.onConfirmSuccess()
                 })
@@ -87,7 +97,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }*/
 
 
-    private fun setWellcomeText(){
+    private fun setWellcomeText() {
         val rightNow = Calendar.getInstance()
         val currentHourIn24Format = rightNow[Calendar.HOUR_OF_DAY]
         val wellcomeText = view?.findViewById<TextView>(R.id.welcome_text)

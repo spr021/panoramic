@@ -8,8 +8,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.panoramic.app.MainActivity
+import com.example.panoramic.remote.model.SendPhoneBody
+import com.example.panoramic.remote.model.SendPhoneDto
 import com.example.panoramic.remote.model.SendSmsBody
 import com.example.panoramic.remote.model.SendSmsCodeDto
+import com.example.panoramic.remote.service.SendPhoneService
 import com.example.panoramic.remote.service.SendSmsCodeService
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,6 +30,9 @@ class ForgetpasswordSMSViewModel : ViewModel() {
     val requestResponse: LiveData<Boolean>
         get() = _requestResponse
 
+    private val _requestResponseResend = MutableLiveData<Boolean>()
+    val requestResponseResend: LiveData<Boolean>
+        get() = _requestResponseResend
 
     private val timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
 
@@ -45,7 +51,7 @@ class ForgetpasswordSMSViewModel : ViewModel() {
     }
 
     fun onInputFillFinish(code: String, cookie: String?) {
-            val body = SendSmsBody(cookie, code)
+        val body = SendSmsBody(cookie, code)
         val retrofit = Retrofit.Builder()
             .baseUrl(MainActivity.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -68,8 +74,28 @@ class ForgetpasswordSMSViewModel : ViewModel() {
         })
     }
 
-    fun onResendCodeClick() {
-        //send reuqest for resend sms code
+    fun onResendCodeClick(cookie: String?, phone: String?) {
+        val body = SendPhoneBody(cookie, phone)
+        val retrofit = Retrofit.Builder()
+            .baseUrl(MainActivity.BaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(SendPhoneService::class.java)
+        val call = service.sendPhoneNumber(body)
+        call.enqueue(object : Callback<SendPhoneDto> {
+            override fun onResponse(
+                call: Call<SendPhoneDto>,
+                response: Response<SendPhoneDto>
+            ) {
+                if (response.code() == 200) {
+                    _requestResponseResend.value = response.body().message_sent
+                }
+            }
+
+            override fun onFailure(call: Call<SendPhoneDto>, t: Throwable) {
+                Log.i("SendPhoneDto", t.toString())
+            }
+        })
     }
 
     override fun onCleared() {
@@ -85,6 +111,6 @@ class ForgetpasswordSMSViewModel : ViewModel() {
         private const val ONE_SECOND = 1000L
 
         // Total time for the SMS
-        private const val COUNTDOWN_TIME = 180000L
+        private const val COUNTDOWN_TIME = 120000L
     }
 }

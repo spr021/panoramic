@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.panoramic.app.MainActivity
-import com.example.panoramic.remote.model.ProductInquiryDto
 import com.example.panoramic.remote.model.SendPhoneBody
 import com.example.panoramic.remote.model.SendPhoneDto
 import com.example.panoramic.remote.service.SendPhoneService

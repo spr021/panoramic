@@ -28,6 +28,10 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
         val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
         viewModel.getUserInfo(cookie)
 
+        binding.uploadProfilePictuer.setOnClickListener {
+            //upload  photo
+        }
+
         binding.changePassword.setOnClickListener {
             val newFragment = ChangePasswordDialogFragment()
             newFragment.show(requireFragmentManager(), "ChangingPassword")

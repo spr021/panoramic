@@ -247,6 +247,12 @@
         <action
             android:id="@+id/action_forgetpasswordSMSFragment_to_newPasswordFragment"
             app:destination="@id/newPasswordFragment" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_forgetpasswordSMSFragment_to_forgetpasswordPhoneFragment"
+            app:destination="@id/forgetpasswordPhoneFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgetpasswordPhoneFragment"

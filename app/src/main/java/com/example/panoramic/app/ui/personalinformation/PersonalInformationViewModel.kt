@@ -38,5 +38,9 @@ class PersonalInformationViewModel: ViewModel() {
             }
         })
     }
+
+    fun uploadProfilePhoto() {
+
+    }
 }
 
