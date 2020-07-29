@@ -38,10 +38,10 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/upload_profile_pictuer"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginEnd="55dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="50dp"
                 android:src="@drawable/upload_photo_layout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -1,7 +1,6 @@
 package com.example.panoramic.app.ui.singup
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -12,10 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.CustomToast
-import com.example.panoramic.app.ui.forgetpassword.ForgetpasswordSMSFragmentArgs
-import com.example.panoramic.app.ui.home.HomeFragmentArgs
 import com.example.panoramic.app.ui.singup.viewmodel.SMSViewModel
-import com.example.panoramic.databinding.FragmentForgetpasswordSmsBinding
 import com.example.panoramic.databinding.FragmentSmsBinding
 
 class SMSFragment : Fragment(R.layout.fragment_sms) {
@@ -44,22 +40,11 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
                 binding.resend.apply {
                     visibility = View.VISIBLE
                     setOnClickListener {
-                        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(context)
-                        alertDialogBuilder.setMessage("آیا شماره تلفن را صحیح وارد کردید ؟  ${args.phoneNumber}")
-                        alertDialogBuilder.setPositiveButton("تایید") { _, _ ->
-                            viewModel.onResendCodeClick(
-                                cookie,
-                                args.phoneNumber
-                            )
-                        }
-                        alertDialogBuilder.setNegativeButton("اصلاح") { _, _ ->
-                            findNavController().navigate(
-                                R.id.action_forgetpasswordSMSFragment_to_forgetpasswordPhoneFragment
-                            )
-                        }
-
-                        val alertDialog: AlertDialog = alertDialogBuilder.create()
-                        alertDialog.show()
+                        val newFragment = ConfirmPhoneNumberDialog()
+                        val phoneNumber = Bundle()
+                        phoneNumber.putString("PhoneNumber", args.phoneNumber);
+                        newFragment.arguments = phoneNumber
+                        newFragment.show(requireFragmentManager(), "ConfirmPhoneNumber")
                     }
                 }
             }
@@ -130,7 +115,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         }
         viewModel.requestResponse.observe(viewLifecycleOwner, Observer {
             if (it) {
-                findNavController().navigate(R.id.action_forgetpasswordSMSFragment_to_newPasswordFragment)
+                findNavController().navigate(R.id.action_SMSFragment_to_singup1Fragment)
             } else {
                 CustomToast(this.requireActivity(), "کد وارد شده اشتباه است", R.color.red)
                 binding.phoneButton.isEnabled = false

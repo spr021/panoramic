@@ -41,7 +41,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
         binding.login.setOnClickListener {
-            if(isOnline(context)){
+            if (isOnline(context)) {
+                binding.progressBar.visibility = View.VISIBLE
                 loginUser()
             } else {
                 val errorText = view.findViewById<TextView>(R.id.message)
@@ -59,36 +60,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 .navigate(R.id.action_loginFragment_to_forgetpasswordPhoneFragment)
         }
 
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        getCurrentData()
-    }
-
-    private fun getCurrentData() {
-        val sharedPref = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)
-        val retrofit = Retrofit.Builder()
-            .baseUrl(MainActivity.BaseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val service = retrofit.create(CookieService::class.java)
-        val call = service.getCookie()
-        call.enqueue(object : Callback<CookieResponseDto> {
-            override fun onResponse(
-                call: Call<CookieResponseDto>,
-                response: Response<CookieResponseDto>
-            ) {
-                if (response.code() == 200) {
-                    sharedPref!!.edit().putString("COOKIE", response.body().cookie).apply()
-
-                }
-            }
-
-            override fun onFailure(call: Call<CookieResponseDto>, t: Throwable) {
-            }
-        })
     }
 
     private fun loginUser() {
@@ -137,11 +108,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         })
     }
 
-    fun Fragment.hideKeyboard() {
+    private fun Fragment.hideKeyboard() {
         view?.let { activity?.hideKeyboard(it) }
     }
 
-    fun Context.hideKeyboard(view: View) {
+    private fun Context.hideKeyboard(view: View) {
         val inputMethodManager =
             getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)

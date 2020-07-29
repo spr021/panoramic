@@ -26,8 +26,8 @@ class HomeViewModel(args: HomeFragmentArgs) : ViewModel() {
     private val _args = MutableLiveData<Array<String?>>()
     val args: LiveData<Array<String?>>
         get() = _args
-    private val _userInfo = MutableLiveData<UserInfoDto?>()
-    val userInfo: LiveData<UserInfoDto?>?
+    private val _userInfo = MutableLiveData<UserInfoDto>()
+    val userInfo: LiveData<UserInfoDto>
         get() = _userInfo
 
     init {
@@ -52,12 +52,11 @@ class HomeViewModel(args: HomeFragmentArgs) : ViewModel() {
             override fun onResponse(call: Call<UserInfoDto>, response: Response<UserInfoDto>) {
                 if (response.code() == 200) {
                     _userInfo.value = response.body()
-                    Log.i("sasa", _userInfo.value.toString())
                 }
             }
 
             override fun onFailure(call: Call<UserInfoDto>, t: Throwable) {
-
+                Log.i("onFailure_UserInfoDto", t.toString())
             }
         })
     }

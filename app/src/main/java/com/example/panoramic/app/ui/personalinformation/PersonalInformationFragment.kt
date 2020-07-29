@@ -2,9 +2,12 @@ package com.example.panoramic.app.ui.personalinformation
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.databinding.FragmentPersonalInformationBinding
 
@@ -31,6 +34,17 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
         binding.uploadProfilePictuer.setOnClickListener {
             //upload  photo
         }
+
+        binding.logout.setOnClickListener {
+            viewModel.userInfo?.observe(viewLifecycleOwner, Observer {
+                viewModel.logout(it!!.id, cookie!!)
+            })
+        }
+        viewModel.userLogout?.observe(viewLifecycleOwner, Observer {
+            if(it) {
+                findNavController().navigate(R.id.action_personal_information_to_loginFragment)
+            }
+        })
 
         binding.changePassword.setOnClickListener {
             val newFragment = ChangePasswordDialogFragment()

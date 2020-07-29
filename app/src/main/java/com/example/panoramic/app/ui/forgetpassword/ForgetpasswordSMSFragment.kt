@@ -1,7 +1,6 @@
 package com.example.panoramic.app.ui.forgetpassword
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -41,22 +40,11 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
                 binding.resend.apply {
                     visibility = View.VISIBLE
                     setOnClickListener {
-                        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(context)
-                        alertDialogBuilder.setMessage("آیا شماره تلفن را صحیح وارد کردید ؟  ${args.phoneNumber}")
-                        alertDialogBuilder.setPositiveButton("تایید") { _, _ ->
-                            viewModel.onResendCodeClick(
-                                cookie,
-                                args.phoneNumber
-                            )
-                        }
-                        alertDialogBuilder.setNegativeButton("اصلاح") { _, _ ->
-                            findNavController().navigate(
-                                R.id.action_forgetpasswordSMSFragment_to_forgetpasswordPhoneFragment
-                            )
-                        }
-
-                        val alertDialog: AlertDialog = alertDialogBuilder.create()
-                        alertDialog.show()
+                        val newFragment = ConfirmPhoneNumberDialog()
+                        val phoneNumber = Bundle()
+                        phoneNumber.putString("PhoneNumber", args.phoneNumber);
+                        newFragment.arguments = phoneNumber
+                        newFragment.show(requireFragmentManager(), "ConfirmPhoneNumber")
 
                     }
                 }

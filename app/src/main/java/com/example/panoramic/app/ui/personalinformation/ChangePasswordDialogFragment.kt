@@ -1,6 +1,7 @@
 package com.example.panoramic.app.ui.personalinformation
 
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -10,9 +11,18 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
+import com.example.panoramic.app.ui.forgetpassword.viewmodel.ForgetpasswordSMSViewModel
 
 class ChangePasswordDialogFragment : DialogFragment()  {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,9 +39,6 @@ class ChangePasswordDialogFragment : DialogFragment()  {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        view?.findViewById<Button>(R.id.confirm)?.setOnClickListener {
-            // send request for changing password
-        }
         return dialog
     }
 }

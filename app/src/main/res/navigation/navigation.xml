@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_navigation"
     tools:ignore="UnusedNavigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -49,12 +49,19 @@
             android:name="confirmSuccess"
             app:argType="boolean"
             android:defaultValue="false" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/personal_information"
         android:name="com.example.panoramic.app.ui.personalinformation.PersonalInformationFragment"
         android:label="fragment_personal_information"
-        tools:layout="@layout/fragment_personal_information" />
+        tools:layout="@layout/fragment_personal_information" >
+        <action
+            android:id="@+id/action_personal_information_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/awards_guide"
         android:name="com.example.panoramic.app.ui.awards.AwardsGuide"
@@ -166,6 +173,9 @@
         <argument
             android:name="phoneNumber"
             app:argType="string" />
+        <action
+            android:id="@+id/action_SMSFragment_to_phoneFragment"
+            app:destination="@id/phoneFragment" />
     </fragment>
     <fragment
         android:id="@+id/singup1Fragment"
@@ -363,4 +373,8 @@
             android:id="@+id/action_questionFragment_to_moviesFragment"
             app:destination="@id/moviesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.panoramic.app.SplashFragment"
+        android:label="SplashFragment" />
 </navigation>
