@@ -87,10 +87,10 @@
             android:background="@drawable/login_singup_button"
             android:text="@string/singup_button"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@+id/login"
+            app:layout_constraintEnd_toStartOf="@id/login"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="@+id/password"
-            app:layout_constraintTop_toTopOf="@+id/login" />
+            app:layout_constraintTop_toTopOf="@id/login" />
 
         <TextView
             android:id="@+id/forget_password"
@@ -125,7 +125,7 @@
             app:layout_constraintBottom_toTopOf="@+id/forget_password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login" />
+            app:layout_constraintTop_toBottomOf="@id/login" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -12,13 +12,12 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RegisterProductViewModel(args: RegisterProductFragmentArgs) : ViewModel() {
+class RegisterProductViewModel(val args: RegisterProductFragmentArgs) : ViewModel() {
 
-    val args = args
-
-    private val _productInfo = MutableLiveData<ProductInquiryDto?>()
-    val productInfo: LiveData<ProductInquiryDto?>?
+    private val _productInfo = MutableLiveData<ProductInquiryDto>()
+    val productInfo: LiveData<ProductInquiryDto>
         get() = _productInfo
+
 
 
     fun getProductInfo(
@@ -42,9 +41,7 @@ class RegisterProductViewModel(args: RegisterProductFragmentArgs) : ViewModel() 
                     _productInfo.value = response.body()
                 }
             }
-
             override fun onFailure(call: Call<ProductInquiryDto>, t: Throwable) {
-                //CustomToast(Activity(), "خطا در برقراری ارتباط", R.color.red)
             }
         })
     }

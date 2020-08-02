@@ -1,5 +1,6 @@
 package com.example.panoramic.app.ui.score
 
+import android.content.Context
 import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.View
@@ -8,43 +9,39 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.panoramic.R
-import com.example.panoramic.data.entity.ScoreEntity
+
 import com.example.panoramic.databinding.FragmentScoreBinding
+import com.example.panoramic.remote.model.Item
 
 class ScoreFragment : Fragment(R.layout.fragment_score) {
 
     private var fragmentScoreBinding: FragmentScoreBinding? = null
     private val viewModel: ScoreViewModel by viewModels()
-    lateinit var recyclerViewInformation: ScoreEntity
-    private val mNicolasCageMovies = listOf(
-        ScoreEntity(
-            "PA32BA1633",
-            "0139006908248281",
-            120,
-            "1390/3/12",
-            "13:24",
-            true
-        )
-    )
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentScoreBinding.bind(view)
         fragmentScoreBinding = binding
+        binding.scoreViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
-        val viewStateObserver = Observer<ScoreEntity> { viewState ->
-            recyclerViewInformation = viewState
-        }
+        sharedElementEnterTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
 
-        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
+            .getString("COOKIE", "")
+        viewModel.getSellsProduct(cookie)
 
-        binding.scoreRecyclerview.apply {
-            layoutManager = LinearLayoutManager(activity)
-            adapter = ScoreAdabter(mNicolasCageMovies)
-        }
+        viewModel.productListSuccess.observe(viewLifecycleOwner, Observer {
+            if (it) {
+                binding.scoreRecyclerview.apply {
+                    layoutManager = LinearLayoutManager(activity)
+                    adapter = ScoreAdabter(viewModel.productList)
+                }
+            }
 
-        viewModel.viewState.observe(viewLifecycleOwner, viewStateObserver)
-        viewModel.request()
+        })
 
     }
 

@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_homeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_personal_information"
+            app:destination="@id/personal_information" />
     </fragment>
     <fragment
         android:id="@+id/personal_information"
@@ -60,7 +63,11 @@
         tools:layout="@layout/fragment_personal_information" >
         <action
             android:id="@+id/action_personal_information_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/awards_guide"
@@ -69,7 +76,7 @@
         tools:layout="@layout/fragment_awards_guide" />
     <fragment
         android:id="@+id/top_seller"
-        android:name="com.example.panoramic.app.ui.topseller.TopSeller"
+        android:name="com.example.panoramic.app.ui.topseller.TopSellerFragment"
         android:label="fragment_top_seller"
         tools:layout="@layout/fragment_top_seller" />
     <fragment
@@ -86,7 +93,11 @@
             android:id="@+id/action_registerProductFragment_to_conformationFragment"
             app:destination="@id/conformationFragment"
             app:popUpTo="@id/conformationFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_registerProductFragment_to_barcodeFragment"
             app:destination="@id/barcodeFragment" />
@@ -130,10 +141,18 @@
             android:id="@+id/action_conformationFragment_to_registerProductFragment"
             app:destination="@id/registerProductFragment"
             app:popUpTo="@id/registerProductFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_conformationFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <argument
             android:name="modelNumber"
             app:argType="string" />
@@ -169,13 +188,21 @@
         tools:layout="@layout/fragment_sms">
         <action
             android:id="@+id/action_SMSFragment_to_singup1Fragment"
-            app:destination="@id/singup1Fragment" />
+            app:destination="@id/singup1Fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <argument
             android:name="phoneNumber"
             app:argType="string" />
         <action
             android:id="@+id/action_SMSFragment_to_phoneFragment"
-            app:destination="@id/phoneFragment" />
+            app:destination="@id/phoneFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/singup1Fragment"
@@ -184,7 +211,11 @@
         tools:layout="@layout/fragment_singup1">
         <action
             android:id="@+id/action_singup1Fragment_to_singup2Fragment"
-            app:destination="@id/singup2Fragment" />
+            app:destination="@id/singup2Fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <argument
             android:name="phoneNumber"
             app:argType="string" />
@@ -196,7 +227,11 @@
         tools:layout="@layout/fragment_singup2">
         <action
             android:id="@+id/action_singup2Fragment_to_singup3Fragment"
-            app:destination="@id/singup3Fragment" />
+            app:destination="@id/singup3Fragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <argument
             android:name="firstPageInfo"
             app:argType="string[]" />
@@ -208,7 +243,11 @@
         tools:layout="@layout/fragment_singup3">
         <action
             android:id="@+id/action_singup3Fragment_to_successSingupFragment"
-            app:destination="@id/successSingupFragment" />
+            app:destination="@id/successSingupFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <argument
             android:name="secondPageInfo"
             app:argType="string[]" />
@@ -247,7 +286,11 @@
         tools:layout="@layout/fragment_phone">
         <action
             android:id="@+id/action_phoneFragment_to_SMSFragment"
-            app:destination="@id/SMSFragment" />
+            app:destination="@id/SMSFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/forgetpasswordSMSFragment"
@@ -256,13 +299,21 @@
         tools:layout="@layout/fragment_forgetpassword_sms" >
         <action
             android:id="@+id/action_forgetpasswordSMSFragment_to_newPasswordFragment"
-            app:destination="@id/newPasswordFragment" />
+            app:destination="@id/newPasswordFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <argument
             android:name="phoneNumber"
             app:argType="string" />
         <action
             android:id="@+id/action_forgetpasswordSMSFragment_to_forgetpasswordPhoneFragment"
-            app:destination="@id/forgetpasswordPhoneFragment" />
+            app:destination="@id/forgetpasswordPhoneFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/forgetpasswordPhoneFragment"
@@ -271,7 +322,11 @@
         tools:layout="@layout/fragment_forgetpassword">
         <action
             android:id="@+id/action_forgetpasswordPhoneFragment_to_forgetpasswordSMSFragment"
-            app:destination="@id/forgetpasswordSMSFragment" />
+            app:destination="@id/forgetpasswordSMSFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/newPasswordFragment"
@@ -280,7 +335,11 @@
         tools:layout="@layout/fragment_new_password" >
         <action
             android:id="@+id/action_newPasswordFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/successSingupFragment"
@@ -289,7 +348,11 @@
         tools:layout="@layout/fragment_success_singup" >
         <action
             android:id="@+id/action_successSingupFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/announcementItemFragment"
@@ -371,7 +434,11 @@
         tools:layout="@layout/fragment_question">
         <action
             android:id="@+id/action_questionFragment_to_moviesFragment"
-            app:destination="@id/moviesFragment" />
+            app:destination="@id/moviesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/splashFragment"

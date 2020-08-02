@@ -24,10 +24,9 @@ class ForgetpasswordPhoneFragment : Fragment(R.layout.fragment_forgetpassword) {
         binding.phoneButton.setOnClickListener {
             val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
                 .getString("COOKIE", "")
-            val phoneNumber = binding.phoneInput.text.toString()
+            val phoneNumber = binding.phoneInput.text.toString().trim()
             viewModel.sendPhoneNumber(cookie, phoneNumber)
             findNavController().navigate(ForgetpasswordPhoneFragmentDirections.actionForgetpasswordPhoneFragmentToForgetpasswordSMSFragment(phoneNumber))
-
         }
     }
 

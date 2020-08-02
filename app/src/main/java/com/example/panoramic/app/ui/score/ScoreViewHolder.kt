@@ -6,7 +6,8 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.R
-import com.example.panoramic.data.entity.ScoreEntity
+
+import com.example.panoramic.remote.model.Product
 
 class ScoreViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_score, parent, false)) {
@@ -30,13 +31,13 @@ class ScoreViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         mCheckBoxTextView = itemView.findViewById(R.id.text_checkBox)
     }
 
-    fun bind(score: ScoreEntity) {
-        mModelNumberView?.text = score.modelNumber
-        mSerialNumberView?.text = score.serialNumber
-        mScoreView?.text = score.score.toString()
-        mDateAndTimeView?.text = score.date + " " + score.time
-        mCheckBoxView?.isChecked = score.register
-        mCheckBoxTextView?.text = if (score.register) register else notRegister
+    fun bind(score: Product) {
+        mModelNumberView?.text = score.model_code
+        mSerialNumberView?.text = score.serial
+        mScoreView?.text = score.score
+        mDateAndTimeView?.text = score.created_at
+        mCheckBoxView?.isChecked = score.accepted == 1
+        mCheckBoxTextView?.text = if (score.accepted == 1) register else notRegister
     }
 
 }

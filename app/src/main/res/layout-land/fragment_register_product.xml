@@ -135,8 +135,7 @@
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="start"
                 android:lineSpacingExtra="3.3sp"
-                android:text="امتیازات کالا، پس از تایید نمایندگی  پس از فروش برای
-.شما اعمال میگردد"
+                android:text="@string/guid_register_product_2"
                 android:textColor="#ffffff"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -151,13 +150,25 @@
                 android:layout_marginEnd="22dp"
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="start"
-                android:text="شما میـتوانید میزان  امتـیاز  هر دستـگاه  را  در  صفحـه
-.&quot;راهنمای جوایز&quot; مشاهده کنید"
+                android:text="@string/guid_register_product"
                 android:textColor="#ffffff"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/register_product_rolls_text_1"
                 tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/message"
+                style="@style/baseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_product_Inquiry" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/register_product_Inquiry"

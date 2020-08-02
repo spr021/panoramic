@@ -3,9 +3,9 @@ package com.example.panoramic.app.ui.personalinformation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.panoramic.data.entity.TransactionEntity
+import com.example.panoramic.remote.model.Item
 
-class TransactionHistoryAdabter(private val list: List<TransactionEntity>) : RecyclerView.Adapter<TransactionHistoryViewHolder>() {
+class TransactionHistoryAdabter(private val list: List<Item>) : RecyclerView.Adapter<TransactionHistoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionHistoryViewHolder {
         val inflater = LayoutInflater.from(parent.context)

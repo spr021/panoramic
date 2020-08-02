@@ -3,6 +3,7 @@ package com.example.panoramic.app.ui.forgetpassword
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -40,6 +41,8 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
                 binding.resend.apply {
                     visibility = View.VISIBLE
                     setOnClickListener {
+                        binding.phoneButton.isEnabled = true
+                        binding.phoneButton.setBackgroundResource(R.drawable.login_button)
                         val newFragment = ConfirmPhoneNumberDialog()
                         val phoneNumber = Bundle()
                         phoneNumber.putString("PhoneNumber", args.phoneNumber);
@@ -56,7 +59,7 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
         binding.smsInput1.apply {
             addTextChangedListener {
                 if (it.toString().trim().length == 1) {
-                    SMS += binding.smsInput1.text.toString()
+                    SMS = binding.smsInput1.text.toString()
                     binding.smsInput2.requestFocus()
 
                 }
@@ -112,6 +115,7 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
         }
 
         binding.phoneButton.setOnClickListener {
+            Log.i("sms", SMS.toString())
             viewModel.onInputFillFinish(SMS.toString(), cookie)
         }
         viewModel.requestResponse.observe(viewLifecycleOwner, Observer {
@@ -128,13 +132,6 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
                 binding.smsInput5.text = null
             }
         })
-        viewModel.requestResponseResend.observe(viewLifecycleOwner, Observer {
-            if (it) {
-                binding.phoneButton.isEnabled = true
-                binding.phoneButton.setBackgroundResource(R.drawable.login_button)
-            }
-        })
-
     }
 
     private fun clearInputFocus(binding: FragmentForgetpasswordSmsBinding, numberInput: Int) {

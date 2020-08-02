@@ -30,7 +30,7 @@
         tools:ignore="RtlHardcoded,TextFields" />
 
     <EditText
-        android:id="@+id/new_password"
+        android:id="@+id/new_password_change"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
@@ -52,7 +52,7 @@
         tools:ignore="RtlHardcoded,TextFields" />
 
     <EditText
-        android:id="@+id/repeat_new_password"
+        android:id="@+id/repeat_new_password_change"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
@@ -70,7 +70,7 @@
         android:textColorHint="@color/textInputColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_password"
+        app:layout_constraintTop_toBottomOf="@id/new_password_change"
         tools:ignore="RtlHardcoded,TextFields" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -78,13 +78,42 @@
         android:layout_width="106dp"
         android:layout_height="45dp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/login_button"
         android:text="ثبت"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repeat_new_password" />
+        app:layout_constraintTop_toBottomOf="@id/repeat_new_password_change" />
+
+    <TextView
+        android:id="@+id/message"
+        style="@style/baseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/red"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirm"
+        tools:text="فیلد خالی" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="106dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/login_button"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repeat_new_password_change" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

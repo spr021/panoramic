@@ -45,7 +45,7 @@ class ConformationFragment : Fragment(R.layout.fragment_conformation) {
 
         //go to edite information
         binding.editingInformationButton.setOnClickListener {
-            clearSharedPreferences(Activity(), "REGISTER_PRODUCT")
+            //clearSharedPreferences(Activity(), "REGISTER_PRODUCT")
             findNavController().navigate(R.id.action_conformationFragment_to_registerProductFragment)
         }
         //click for register product

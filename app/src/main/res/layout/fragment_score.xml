@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="scoreViewModel"
+            type="com.example.panoramic.app.ui.score.ScoreViewModel" />
+    </data>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,7 +43,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="end"
-                android:text="محمد نظامی پور"
+                android:text="@{scoreViewModel.userInfo.name + scoreViewModel.userInfo.last_name}"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/total_score"
@@ -64,7 +71,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="end"
-                android:text="320"
+                android:text="@{scoreViewModel.userInfo.score_total}"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/total_score"
@@ -102,7 +109,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="center|end"
-                android:text="3,200,000"
+                android:text="درست شود"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/total_pay_month"

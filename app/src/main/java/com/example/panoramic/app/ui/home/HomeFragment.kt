@@ -52,6 +52,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 extras
             )
         }
+        binding.profilePictuer.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_personal_information)
+        }
         binding.registerNewProduct.setOnClickListener {
             view.findNavController().navigate(R.id.action_homeFragment_to_registerProductFragment)
         }
@@ -102,7 +105,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val currentHourIn24Format = rightNow[Calendar.HOUR_OF_DAY]
         val wellcomeText = view?.findViewById<TextView>(R.id.welcome_text)
         when (currentHourIn24Format) {
-            in 5..10 -> wellcomeText!!.text = "صبح به خیر"
+            in 4..10 -> wellcomeText!!.text = "صبح به خیر"
             in 10..15 -> wellcomeText!!.text = "ظهر به خیر"
             in 15..19 -> wellcomeText!!.text = "عصر به خیر"
             else -> wellcomeText!!.text = "شب به خیر"

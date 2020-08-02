@@ -22,18 +22,9 @@ class AnnouncementItemFragment : Fragment(R.layout.fragment_announcement_item) {
 
         val binding = FragmentAnnouncementItemBinding.bind(view)
         fragmentAnnouncementItemBinding = binding
-
-
-        Picasso.get()
-            .load(viewModel.args.image)
-            .placeholder(R.drawable.placeholder_image)
-            .into(binding.imageCover)
-
-        binding.title.text = viewModel.args.title
-        binding.text.text = viewModel.args.text
+        binding.announcementViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
     }
-
-
     override fun onDestroyView() {
         fragmentAnnouncementItemBinding = null
         super.onDestroyView()

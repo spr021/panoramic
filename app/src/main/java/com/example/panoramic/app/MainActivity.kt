@@ -36,6 +36,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
+
+
     private lateinit var navController: NavController
 
     private lateinit var binding: ActivityMainBinding
@@ -46,24 +48,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //Getting the Navigation Controller
         navController = Navigation.findNavController(this, R.id.fragment)
-        Log.i("sasasasa", "1")
         val cookie =
             getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", null)
         if (cookie != null) {
-            Log.i("sasasasa", "2")
             getUserInfo(cookie)
             userInfo.observe(this, Observer {
                 if (it) {
-                    Log.i("sasasasa", "3")
                     val navGraph = navController.graph
                     navGraph.startDestination = R.id.homeFragment
                     navController.graph = navGraph
 
                 } else {
-                    Log.i("sasasasa", "4")
                     val navGraph = navController.graph
                     navGraph.startDestination = R.id.loginFragment
                     navController.graph = navGraph
@@ -71,7 +70,6 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         } else {
-            Log.i("sasasasa", "5")
             getCurrentData()
         }
 
@@ -130,7 +128,9 @@ class MainActivity : AppCompatActivity() {
             ) {
                 if (response.code() == 200) {
                     sharedPref!!.edit().putString("COOKIE", response.body().cookie).apply()
-
+                    val navGraph = navController.graph
+                    navGraph.startDestination = R.id.loginFragment
+                    navController.graph = navGraph
                 }
             }
 

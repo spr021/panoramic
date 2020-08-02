@@ -1,21 +1,15 @@
 package com.example.panoramic.app.ui.awards
 
+import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.view.marginBottom
-import androidx.core.view.marginTop
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.panoramic.R
-import com.example.panoramic.app.CustomToast
 import com.example.panoramic.app.SlideView
 import com.example.panoramic.data.entity.AwardGuideEntity
 
@@ -413,7 +407,13 @@ class AwardsGuide : Fragment(R.layout.fragment_awards_guide), OnAwardItemClickLi
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<RecyclerView>(R.id.award_recyclerview).apply {
-            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
+            val orientation = resources.configuration.orientation
+            layoutManager = if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            } else {
+                StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+            }
             adapter = AwardsGuideAdabter(mNicolasCageMovies, this@AwardsGuide)
 
         }

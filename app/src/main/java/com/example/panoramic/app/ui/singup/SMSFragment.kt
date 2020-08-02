@@ -55,7 +55,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         binding.smsInput1.apply {
             addTextChangedListener {
                 if (it.toString().trim().length == 1) {
-                    SMS += binding.smsInput1.text.toString()
+                    SMS = binding.smsInput1.text.toString()
                     binding.smsInput2.requestFocus()
 
                 }

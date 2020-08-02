@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.R
 import com.example.panoramic.data.entity.TopSellerEntity
+import com.example.panoramic.remote.model.Rank
 import com.squareup.picasso.Picasso
 
 class TopSellerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
@@ -28,15 +29,15 @@ class TopSellerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         mStateView = itemView.findViewById(R.id.state)
     }
 
-    fun bind(person: TopSellerEntity) {
+    fun bind(person: Rank) {
         mRankView?.text = person.rank.toString()
         Picasso.get()
-            .load(person.profileImg)
+            .load(person.prof_pic)
             .into(mImageView)
         mNmaeView?.text = person.name
-        mScoreView?.text = person.totalScore.toString()
-        mShopNmaeView?.text = person.shopName
-        mStateView?.text = person.state
+        mScoreView?.text = person.score
+        mShopNmaeView?.text = person.shop_name
+        //mStateView?.text = person.state
     }
 
 }

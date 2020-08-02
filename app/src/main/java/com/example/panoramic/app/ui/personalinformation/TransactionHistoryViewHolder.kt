@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.R
-import com.example.panoramic.data.entity.TransactionEntity
+import com.example.panoramic.remote.model.Item
 
 class TransactionHistoryViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_transaction, parent, false)) {
@@ -22,11 +22,11 @@ class TransactionHistoryViewHolder(inflater: LayoutInflater, parent: ViewGroup) 
         mPaidView = itemView.findViewById(R.id.paid_value)
     }
 
-    fun bind(transaction: TransactionEntity) {
+    fun bind(transaction: Item) {
         mDateView?.text = transaction.date
-        mTrackingCodeView?.text = transaction.trackingcode
-        mScoreView?.text = transaction.score.toString()
-        mPaidView?.text = transaction.paid
+        mTrackingCodeView?.text = transaction.code
+        mScoreView?.text = transaction.price
+        mPaidView?.text = transaction.score_price
     }
 
 }
