@@ -1,5 +1,6 @@
 package com.example.panoramic.app.ui.singup
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,9 +9,19 @@ import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
+import com.example.panoramic.app.MainActivity
 import com.example.panoramic.databinding.FragmentSingup2Binding
+import com.example.panoramic.remote.model.StateDto
+import com.example.panoramic.remote.service.CityService
+import com.example.panoramic.remote.service.StateService
 import com.wajahatkarim3.easyvalidation.core.view_ktx.minLength
 import com.wajahatkarim3.easyvalidation.core.view_ktx.nonEmpty
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 
 class Singup2Fragment : Fragment(R.layout.fragment_singup2) {
 
@@ -21,6 +32,20 @@ class Singup2Fragment : Fragment(R.layout.fragment_singup2) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentSingup2Binding.bind(view)
         fragmentSingup2Binding = binding
+
+        //drop down list for state
+        getState()
+        binding.stateItem.setOnItemClickListener { _, _, position, _ ->
+            binding.cityItem.text = null
+            getCity(position + 2)
+        }
+
+        //drop down list for marital status
+        val cityAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.list_item_singup, listOf("مجرد", "متاهل")
+        )
+        (binding.cityItem as? AutoCompleteTextView)?.setAdapter(cityAdapter)
 
         //drop down list for marital status
         val maritalStatusAdapter = ArrayAdapter(
@@ -67,7 +92,7 @@ class Singup2Fragment : Fragment(R.layout.fragment_singup2) {
             age.setOnClickListener {
                 ageLayout.error = null
             }
-            val city = binding.cityValue
+            val city = binding.cityItem
             val cityLayout = binding.city
             city.nonEmpty {
                 flag += 1
@@ -75,6 +100,15 @@ class Singup2Fragment : Fragment(R.layout.fragment_singup2) {
             }
             city.setOnClickListener {
                 cityLayout.error = null
+            }
+            val state = binding.stateItem
+            val stateLayout = binding.state
+            state.nonEmpty {
+                flag += 1
+                stateLayout.error = "انتخاب استان ضروری است"
+            }
+            state.setOnClickListener {
+                stateLayout.error = null
             }
             val homeAddress = binding.homeAddressValue
             val homeAddressLayout = binding.homeAddress
@@ -164,6 +198,64 @@ class Singup2Fragment : Fragment(R.layout.fragment_singup2) {
                 )
             }
         }
+    }
+
+    fun getState() {
+        val sharedPref = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)
+        val cookie = sharedPref!!.getString("COOKIE", "")
+        val retrofit = Retrofit.Builder()
+            .baseUrl(MainActivity.BaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(StateService::class.java)
+        val call = service.getState(cookie!!)
+        call.enqueue(object : Callback<StateDto> {
+            override fun onResponse(
+                call: Call<StateDto>,
+                response: Response<StateDto>
+            ) {
+                if (response.code() == 200) {
+                    val stateAdapter = ArrayAdapter(
+                        requireContext(),
+                        R.layout.list_item_singup, response.body().items
+                    )
+                    (view?.findViewById(R.id.state_item) as? AutoCompleteTextView)?.setAdapter(stateAdapter)
+                }
+            }
+
+            override fun onFailure(call: Call<StateDto>, t: Throwable) {
+
+            }
+        })
+    }
+
+    fun getCity(state: Int) {
+        val sharedPref = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)
+        val cookie = sharedPref!!.getString("COOKIE", "")
+        val retrofit = Retrofit.Builder()
+            .baseUrl(MainActivity.BaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(CityService::class.java)
+        val call = service.getCity(cookie!!, state)
+        call.enqueue(object : Callback<StateDto> {
+            override fun onResponse(
+                call: Call<StateDto>,
+                response: Response<StateDto>
+            ) {
+                if (response.code() == 200) {
+                    val cityAdapter = ArrayAdapter(
+                        requireContext(),
+                        R.layout.list_item_singup, response.body().items
+                    )
+                    (view?.findViewById(R.id.city_item) as? AutoCompleteTextView)?.setAdapter(cityAdapter)
+                }
+            }
+
+            override fun onFailure(call: Call<StateDto>, t: Throwable) {
+
+            }
+        })
     }
 
     override fun onDestroyView() {

@@ -5,7 +5,8 @@ data class ScoreDto(
     val last_name: String,
     val name: String,
     val score_total: String,
-    val success: Boolean
+    val success: Boolean,
+    val prof_pic: String
 )
 
 data class Product(

@@ -38,8 +38,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:inputType="number"
-                    android:singleLine="true"
                     android:maxLength="10"
+                    android:singleLine="true"
                     android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -53,9 +53,9 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="15dp"
                 android:gravity="right"
-                app:errorEnabled="true"
                 android:hint="@string/age"
                 android:textColorHint="@color/white"
+                app:errorEnabled="true"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toStartOf="@+id/national_id"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -68,37 +68,70 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:maxLength="2"
                     android:inputType="number"
+                    android:maxLength="2"
                     android:singleLine="true"
                     android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/state"
+                style="@style/ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="23dp"
+                android:gravity="right"
+                android:hint="@string/state"
+                android:textColorHint="@color/white"
+                app:hintTextAppearance="@style/hintStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/city"
+                app:layout_constraintTop_toBottomOf="@+id/national_id"
+                tools:ignore="MissingConstraints,RtlHardcoded">
+
+                <AutoCompleteTextView
+                    android:id="@+id/state_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:inputType="none"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/city"
-                style="@style/SingupTextInputLayoutStyle"
-                android:layout_width="match_parent"
+                style="@style/ExposedDropdownMenu"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="23dp"
+                android:layout_marginEnd="15dp"
                 android:gravity="right"
                 android:hint="@string/regen"
                 android:textColorHint="@color/white"
                 app:hintTextAppearance="@style/hintStyle"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/state"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/national_id"
                 tools:ignore="MissingConstraints,RtlHardcoded">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/city_value"
+                <AutoCompleteTextView
+                    android:id="@+id/city_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
+                    android:inputType="none"
                     android:singleLine="true"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    tools:ignore="LabelFor" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -139,8 +172,8 @@
                 android:layout_marginEnd="23dp"
                 android:gravity="right"
                 android:hint="@string/home_zip"
-                app:errorEnabled="true"
                 android:textColorHint="@color/white"
+                app:errorEnabled="true"
                 app:hintTextAppearance="@style/hintStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -179,9 +212,9 @@
                     android:id="@+id/home_phone_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="11"
                     android:gravity="right"
                     android:inputType="phone"
+                    android:maxLength="11"
                     android:singleLine="true"
                     android:textColor="@color/white" />
 

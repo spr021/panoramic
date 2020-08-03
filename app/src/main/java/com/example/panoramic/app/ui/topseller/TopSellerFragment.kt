@@ -2,6 +2,7 @@ package com.example.panoramic.app.ui.topseller
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -47,10 +48,11 @@ class TopSellerFragment : Fragment(R.layout.fragment_top_seller) {
             activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
         viewModel.getRankList(cookie)
         viewModel.getList.observe(viewLifecycleOwner, Observer {
+
             if (it.success) {
                 view.findViewById<RecyclerView>(R.id.top_seller_recyclerview).apply {
                     layoutManager = LinearLayoutManager(activity)
-                    adapter = TopSellerAdabter(it.items)
+                    adapter = TopSellerAdabter(it.rank)
                 }
             }
         })

@@ -78,9 +78,8 @@
     <string name="shop_address">آدرس فروشگاه</string>
     <string name="age">سن</string>
     <string name="education">تحصیلات</string>
-    <string name="regen">استان</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="regen">شهر</string>
     <string name="guid_register_product">شما میـتوانید میزان امتـیاز هر دستـگاه را در صفحـه .\"راهنمای جوایز\" مشاهده کنید</string>
     <string name="guid_register_product_2">امتیازات کالا، پس از تایید نمایندگی پس از فروش برای .شما اعمال میگردد</string>
+    <string name="state">استان</string>
 </resources>

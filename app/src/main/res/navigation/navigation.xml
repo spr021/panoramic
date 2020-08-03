@@ -218,7 +218,8 @@
             app:popExitAnim="@anim/fade_out"/>
         <argument
             android:name="phoneNumber"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="0900" />
     </fragment>
     <fragment
         android:id="@+id/singup2Fragment"

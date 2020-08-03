@@ -1,7 +1,7 @@
 package com.example.panoramic.remote.model
 
 data class TopTenSellerDto(
-    val items: List<Rank>,
+    val rank: List<Rank>,
     val success: Boolean
 )
 
