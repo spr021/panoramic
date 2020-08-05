@@ -127,7 +127,7 @@ class ChangePasswordDialogFragment : DialogFragment() {
                 response: Response<ChangePasswordDto>
             ) {
                 if (response.code() == 200) {
-                    _changePassword.value = response.body().success
+                    _changePassword.value = response.body()!!.success
                     view?.findViewById<ProgressBar>(R.id.progressBar)!!.visibility = View.GONE
                     view?.findViewById<Button>(R.id.confirm)!!.visibility = View.VISIBLE
                 }

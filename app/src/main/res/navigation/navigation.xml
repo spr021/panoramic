@@ -13,7 +13,11 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_scoreFragment"
-            app:destination="@id/scoreFragment" />
+            app:destination="@id/scoreFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_homeFragment_to_registerProductFragment"
             app:destination="@id/registerProductFragment"
@@ -55,6 +59,9 @@
         <action
             android:id="@+id/action_homeFragment_to_personal_information"
             app:destination="@id/personal_information" />
+        <action
+            android:id="@+id/action_homeFragment_to_scoreFragment2"
+            app:destination="@id/scoreFragment" />
     </fragment>
     <fragment
         android:id="@+id/personal_information"
@@ -218,8 +225,7 @@
             app:popExitAnim="@anim/fade_out"/>
         <argument
             android:name="phoneNumber"
-            app:argType="string"
-            android:defaultValue="0900" />
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/singup2Fragment"

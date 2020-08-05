@@ -64,7 +64,7 @@ class SMSViewModel : ViewModel() {
                 response: Response<SendSmsCodeDto>
             ) {
                 if (response.code() == 200) {
-                    _requestResponse.value = response.body().success
+                    _requestResponse.value = response.body()!!.success
                 }
             }
 
@@ -88,7 +88,7 @@ class SMSViewModel : ViewModel() {
                 response: Response<SendPhoneDto>
             ) {
                 if (response.code() == 200) {
-                    _requestResponseResend.value = response.body().message_sent
+                    _requestResponseResend.value = response.body()!!.message_sent
                 }
             }
 

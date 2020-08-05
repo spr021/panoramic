@@ -115,7 +115,7 @@ class SMSFragment : Fragment(R.layout.fragment_sms) {
         }
         viewModel.requestResponse.observe(viewLifecycleOwner, Observer {
             if (it) {
-                findNavController().navigate(R.id.action_SMSFragment_to_singup1Fragment)
+                findNavController().navigate(SMSFragmentDirections.actionSMSFragmentToSingup1Fragment(args.phoneNumber))
             } else {
                 CustomToast(this.requireActivity(), "کد وارد شده اشتباه است", R.color.red)
                 binding.phoneButton.isEnabled = false

@@ -43,7 +43,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/yekanweb_regular"
                 android:gravity="end"
-                android:text="@{scoreViewModel.userInfo.name + scoreViewModel.userInfo.last_name}"
+                android:text="@{scoreViewModel.userInfo.name + ' ' + scoreViewModel.userInfo.last_name}"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/total_score"
@@ -60,7 +60,7 @@
                 android:text="مجموع امتیازات :"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/total_pay_month"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/profile_pictuer_score"
                 app:layout_constraintTop_toBottomOf="@+id/score_name" />
 
@@ -88,33 +88,6 @@
                 app:layout_constraintTop_toTopOf="@+id/total_score"
                 app:srcCompat="@drawable/coin" />
 
-            <TextView
-                android:id="@+id/total_pay_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/yekanweb_regular"
-                android:gravity="end"
-                android:text="پرداختی شما تا آخر ماه :"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/profile_pictuer_score"
-                app:layout_constraintTop_toBottomOf="@+id/total_score" />
-
-            <TextView
-                android:id="@+id/total_money"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/yekanweb_regular"
-                android:gravity="center|end"
-                android:text="درست شود"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/total_pay_month"
-                app:layout_constraintEnd_toStartOf="@+id/total_pay_month" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -124,6 +97,15 @@
             android:layout_marginTop="85dp"
             android:background="@drawable/score_recyclerview"
             tools:listitem="@layout/list_item_score" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:indeterminateTint="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </FrameLayout>
 </layout>

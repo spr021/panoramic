@@ -21,8 +21,6 @@ class NewPasswordViewModel : ViewModel() {
         get() = _requestResponse
 
     fun sendNewPassword(password: String, cookie: String?) {
-        Log.i("www", "3")
-        Log.i("eee", password)
         val body = SendNewPasswordBody(cookie, password)
         val retrofit = Retrofit.Builder()
             .baseUrl(MainActivity.BaseUrl)
@@ -36,14 +34,12 @@ class NewPasswordViewModel : ViewModel() {
                 response: Response<SendNewPasswordDto>
             ) {
                 if (response.code() == 200) {
-                    Log.i("www", "4")
-                    _requestResponse.value = response.body().success
+                    _requestResponse.value = response.body()!!.success
                 }
             }
 
             override fun onFailure(call: Call<SendNewPasswordDto>, t: Throwable) {
                 Log.i("SendPhoneDto", t.toString())
-                Log.i("www", "5")
             }
         })
     }

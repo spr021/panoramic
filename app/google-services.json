@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "5659463619",
+    "firebase_url": "https://panoramic-9d16e.firebaseio.com",
+    "project_id": "panoramic-9d16e",
+    "storage_bucket": "panoramic-9d16e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5659463619:android:b0c1f3d96c4278946ab776",
+        "android_client_info": {
+          "package_name": "com.example.panoramic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5659463619-fphed4b7hbvcjb6qa9lnc9gbl2cg30q2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx34EZUmlF1snQu6WnPbAvyqM3OWN3mX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5659463619-fphed4b7hbvcjb6qa9lnc9gbl2cg30q2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

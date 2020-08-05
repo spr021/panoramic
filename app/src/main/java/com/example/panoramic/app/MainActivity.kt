@@ -1,31 +1,32 @@
 package com.example.panoramic.app
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
-import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.ui.home.HomeFragment
-import com.example.panoramic.app.ui.login.LoginFragment
+import com.example.panoramic.app.ui.score.ScoreFragment
 import com.example.panoramic.databinding.ActivityMainBinding
 import com.example.panoramic.remote.model.CookieResponseDto
 import com.example.panoramic.remote.model.UserInfoDto
 import com.example.panoramic.remote.service.CookieService
 import com.example.panoramic.remote.service.UserInfoService
+import com.google.firebase.messaging.FirebaseMessagingService
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,7 +36,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
-
 
 
     private lateinit var navController: NavController
@@ -49,11 +49,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //Getting the Navigation Controller
         navController = Navigation.findNavController(this, R.id.fragment)
+        createNotificationChannel()
+
         val cookie =
             getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", null)
+//        val fragmentManager: FragmentManager = supportFragmentManager
+//        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+
+
         if (cookie != null) {
             getUserInfo(cookie)
             userInfo.observe(this, Observer {
@@ -61,6 +68,12 @@ class MainActivity : AppCompatActivity() {
                     val navGraph = navController.graph
                     navGraph.startDestination = R.id.homeFragment
                     navController.graph = navGraph
+//                    if (navigation == "Product") {
+//                        val scoreFragment = ScoreFragment()
+//                        fragmentTransaction.replace(R.id.fragment, scoreFragment)
+//                        fragmentTransaction.commit()
+//                    }
+
 
                 } else {
                     val navGraph = navController.graph
@@ -77,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         //Setting the navigation controller to Bottom Nav
         bottom_navigation.setupWithNavController(navController)
 
-        fun hideBottomNavigation(){
+        fun hideBottomNavigation() {
             bottom_navigation?.visibility = View.GONE
         }
 
@@ -127,7 +140,7 @@ class MainActivity : AppCompatActivity() {
                 response: Response<CookieResponseDto>
             ) {
                 if (response.code() == 200) {
-                    sharedPref!!.edit().putString("COOKIE", response.body().cookie).apply()
+                    sharedPref!!.edit().putString("COOKIE", response.body()?.cookie).apply()
                     val navGraph = navController.graph
                     navGraph.startDestination = R.id.loginFragment
                     navController.graph = navGraph
@@ -149,7 +162,7 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object : Callback<UserInfoDto> {
             override fun onResponse(call: Call<UserInfoDto>, response: Response<UserInfoDto>) {
                 if (response.code() == 200) {
-                    _userInfo.value = response.body().success
+                    _userInfo.value = response.body()?.success
                 }
             }
 
@@ -157,6 +170,24 @@ class MainActivity : AppCompatActivity() {
                 Log.i("onFailure_UserInfoDto", t.toString())
             }
         })
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            // Create the Confirm Product Channel
+            val confirmProductChannel = NotificationChannel("1", "Confirm Product", importance)
+            confirmProductChannel.description = "When a product is registered by the customer"
+
+            // Create the Notification Channel
+            val notificationChannel = NotificationChannel("2", "Notification", importance)
+            notificationChannel.description = "When add Movie or Announcement info"
+
+            val notificationManager =
+                getSystemService(FirebaseMessagingService.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(confirmProductChannel)
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
     }
 
 

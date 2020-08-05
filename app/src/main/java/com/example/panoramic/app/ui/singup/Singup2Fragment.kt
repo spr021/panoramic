@@ -217,7 +217,7 @@ class Singup2Fragment : Fragment(R.layout.fragment_singup2) {
                 if (response.code() == 200) {
                     val stateAdapter = ArrayAdapter(
                         requireContext(),
-                        R.layout.list_item_singup, response.body().items
+                        R.layout.list_item_singup, response.body()!!.items
                     )
                     (view?.findViewById(R.id.state_item) as? AutoCompleteTextView)?.setAdapter(stateAdapter)
                 }
@@ -246,7 +246,7 @@ class Singup2Fragment : Fragment(R.layout.fragment_singup2) {
                 if (response.code() == 200) {
                     val cityAdapter = ArrayAdapter(
                         requireContext(),
-                        R.layout.list_item_singup, response.body().items
+                        R.layout.list_item_singup, response.body()!!.items
                     )
                     (view?.findViewById(R.id.city_item) as? AutoCompleteTextView)?.setAdapter(cityAdapter)
                 }

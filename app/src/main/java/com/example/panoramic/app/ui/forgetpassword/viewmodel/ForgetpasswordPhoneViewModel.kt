@@ -38,7 +38,7 @@ class ForgetpasswordPhoneViewModel : ViewModel() {
                 response: Response<SendPhoneDto>
             ) {
                 if (response.code() == 200) {
-                    _requestResponse.value = response.body().message_sent
+                    _requestResponse.postValue(response.body()!!.message_sent)
                 }
             }
 

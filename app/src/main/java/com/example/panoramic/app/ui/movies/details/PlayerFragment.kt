@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.panoramic.app.ui.movies.details
 
 import android.annotation.SuppressLint
@@ -36,7 +38,7 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
         super.onViewCreated(view, savedInstanceState)
 
         //set player LANDSCAPE
-        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        Log.i("exoplayssssser", "1")
 
         args = PlayerFragmentArgs.fromBundle(requireArguments())
 
@@ -65,6 +67,7 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
 
     override fun onStart() {
         super.onStart()
+
         if (Util.SDK_INT > 23) {
             initializePlayer()
         }
@@ -93,19 +96,21 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
     }
 
     private fun initializePlayer() {
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         if (player == null) {
+            Log.i("exoplayssssser", "2")
             val trackSelector = DefaultTrackSelector()
             trackSelector.setParameters(
                 trackSelector.buildUponParameters().setMaxVideoSizeSd()
             )
-            player = ExoPlayerFactory.newSimpleInstance(activity, trackSelector)
+            player = ExoPlayerFactory.newSimpleInstance(requireContext(), trackSelector)
         }
         playerView?.player = player
         val uri: Uri = Uri.parse(args.video)
         val mediaSource = buildMediaSource(uri)
         player!!.playWhenReady = playWhenReady
         player!!.seekTo(currentWindow, playbackPosition)
-        player!!.addListener(playbackStateListener)
+        player!!.addListener(this.playbackStateListener!!)
         player!!.prepare(mediaSource, false, false)
     }
 
@@ -114,7 +119,7 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
             playbackPosition = player!!.currentPosition
             currentWindow = player!!.currentWindowIndex
             playWhenReady = player!!.playWhenReady
-            player!!.removeListener(playbackStateListener)
+            player!!.removeListener(this.playbackStateListener!!)
             player!!.release()
             player = null
         }
@@ -122,7 +127,7 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
 
     private fun buildMediaSource(uri: Uri): MediaSource {
         val dataSourceFactory: DataSource.Factory =
-            DefaultDataSourceFsubmit_buttonactory1(activity, Util.getUserAgent(context, "Panoramic"))
+            DefaultDataSourceFsubmit_buttonactory1(activity, Util.getUserAgent(requireContext(), "Panoramic"))
         return ProgressiveMediaSource.Factory(dataSourceFactory)
             .createMediaSource(uri)
     }
@@ -150,9 +155,10 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
             }
             Log.d("TAG", "changed state to $stateString playWhenReady: $playWhenReady")
             if (playbackState == ExoPlayer.STATE_ENDED) {
+                activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                 view?.findNavController()?.navigate(R.id.action_playerFragment_to_questionFragment)
                 //set player PORTRAIT
-                activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
             }
         }
     }

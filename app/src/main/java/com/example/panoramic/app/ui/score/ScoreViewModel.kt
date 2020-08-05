@@ -22,15 +22,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ScoreViewModel : ViewModel() {
 
-    private val _productListSuccess = MutableLiveData<Boolean>()
-    val productListSuccess: LiveData<Boolean>
-        get() = _productListSuccess
-
     private val _userInfo = MutableLiveData<ScoreDto>()
     val userInfo: LiveData<ScoreDto>
         get() = _userInfo
 
-    lateinit var productList: List<Product>
+    init {
+        _userInfo.value = ScoreDto(null, "", "", "", false, null)
+    }
 
     fun getSellsProduct(cookie: String?) {
         val retrofit = Retrofit.Builder()
@@ -45,10 +43,7 @@ class ScoreViewModel : ViewModel() {
                 response: Response<ScoreDto>
             ) {
                 if (response.code() == 200) {
-                    _userInfo.value = response.body()
-                    productList = response.body().items
-                    _productListSuccess.value = response.body().success
-
+                    _userInfo.postValue(response.body())
                 }
             }
 

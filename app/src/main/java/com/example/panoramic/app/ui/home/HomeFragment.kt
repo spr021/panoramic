@@ -40,6 +40,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
         viewModel.getUserInfo(cookie)
 
+        val action =
+            activity?.getSharedPreferences("ACTION", Context.MODE_PRIVATE)!!.getString("ACTION", "")
+
+        if (action == "Product") {
+            findNavController().navigate(R.id.action_homeFragment_to_scoreFragment2)
+            activity?.getSharedPreferences("ACTION", Context.MODE_PRIVATE)!!.edit().clear()
+                .apply()
+        }
+
         activity?.getSharedPreferences("REGISTER_PRODUCT", Context.MODE_PRIVATE)!!.edit().clear()
             .apply()
 

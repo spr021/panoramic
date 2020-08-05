@@ -35,6 +35,11 @@ class Singup1Fragment : Fragment(R.layout.fragment_singup1) {
             name.setOnClickListener {
                 nameLayout.error = null
             }
+            name.setOnFocusChangeListener { view, b ->
+                if (b) {
+                    nameLayout.error = null
+                }
+            }
             val family = binding.familyValue
             val familyLayout = binding.family
             family.nonEmpty {
@@ -61,7 +66,7 @@ class Singup1Fragment : Fragment(R.layout.fragment_singup1) {
             val shopNameLayout = binding.shopName
             shopName.nonEmpty {
                 flag += 1
-                shopNameLayout.error = "انتخاب نلم فروشگاه ضروری است"
+                shopNameLayout.error = "انتخاب نام فروشگاه ضروری است"
             }
             shopName.setOnClickListener {
                 shopNameLayout.error = null

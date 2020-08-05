@@ -99,9 +99,9 @@ class TransactionHistoryDialogFragment : DialogFragment()  {
                 response: Response<TransactionDto>
             ) {
                 if (response.code() == 200) {
-                    Log.i("ddd", response.body().items.toString())
-                    transactionList = response.body().items
-                    _transactionSuccess.value = response.body().success
+                    Log.i("ddd", response.body()!!.items.toString())
+                    transactionList = response.body()!!.items
+                    _transactionSuccess.value = response.body()!!.success
                     view?.findViewById<ProgressBar>(R.id.progressBar)!!.visibility = View.GONE
                 }
             }

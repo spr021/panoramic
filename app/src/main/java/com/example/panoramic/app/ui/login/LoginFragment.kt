@@ -81,7 +81,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     response: Response<LoginResponseDto>
                 ) {
                     if (response.code() == 200) {
-                        if (response.body().success) {
+                        if (response.body()!!.success) {
                             view!!.findNavController()
                                 .navigate(R.id.action_loginFragment_to_homeFragment)
                         } else {

@@ -58,7 +58,7 @@ class Singup3ViewModel : ViewModel() {
         call.enqueue(object : Callback<SingUpDto> {
             override fun onResponse(call: Call<SingUpDto>, response: Response<SingUpDto>) {
                 if (response.code() == 200) {
-                    _requestResponse.value = response.body().success
+                    _requestResponse.value = response.body()!!.success
                 }
             }
 

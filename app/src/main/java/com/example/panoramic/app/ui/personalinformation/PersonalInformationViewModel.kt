@@ -55,7 +55,7 @@ class PersonalInformationViewModel: ViewModel() {
         call.enqueue(object : Callback<LogoutResponseDto> {
             override fun onResponse(call: Call<LogoutResponseDto>, response: Response<LogoutResponseDto>) {
                 if (response.code() == 200) {
-                    _userLogout.value = response.body().success
+                    _userLogout.value = response.body()!!.success
                     Log.i("sasa", _userInfo.value.toString())
                 }
             }
