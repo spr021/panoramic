@@ -12,7 +12,9 @@ interface LoginService {
     fun loginUser(
         @Query("username") username: String,
         @Query("password") password: String,
-        @Query("cookie") cookie: String
+        @Query("cookie") cookie: String,
+        @Query("notification_token") notification_token: String,
+        @Query("mac_address") mac_address: String
     ): Call<LoginResponseDto>
 }
 

@@ -14,18 +14,18 @@ class TopSellerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_topseller, parent, false)) {
     private var mRankView: TextView? = null
     private var mImageView: ImageView? = null
-    private var mNmaeView: TextView? = null
+    private var mNameView: TextView? = null
     private var mScoreView: TextView? = null
-    private var mShopNmaeView: TextView? = null
+    private var mShopNameView: TextView? = null
     private var mStateView: TextView? = null
 
 
     init {
         mRankView = itemView.findViewById(R.id.rank_number)
         mImageView = itemView.findViewById(R.id.profile_pictuer)
-        mNmaeView = itemView.findViewById(R.id.name)
+        mNameView = itemView.findViewById(R.id.name)
         mScoreView = itemView.findViewById(R.id.total_score_value)
-        mShopNmaeView = itemView.findViewById(R.id.shop_name)
+        mShopNameView = itemView.findViewById(R.id.shop_name)
         mStateView = itemView.findViewById(R.id.state)
     }
 
@@ -34,9 +34,9 @@ class TopSellerViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         Picasso.get()
             .load(person.prof_pic)
             .into(mImageView)
-        mNmaeView?.text = person.name
+        mNameView?.text = person.name
         mScoreView?.text = person.score
-        mShopNmaeView?.text = person.shop_name
+        mShopNameView?.text = person.shop_name
         //mStateView?.text = person.state
     }
 

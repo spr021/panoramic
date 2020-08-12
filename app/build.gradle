@@ -88,5 +88,7 @@ dependencies {
     //firebase notification
     implementation 'com.google.firebase:firebase-analytics:17.4.4'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
+    //lottie animation
+    implementation 'com.airbnb.android:lottie:3.4.1'
 
 }

@@ -78,9 +78,13 @@
     </fragment>
     <fragment
         android:id="@+id/awards_guide"
-        android:name="com.example.panoramic.app.ui.awards.AwardsGuide"
+        android:name="com.example.panoramic.app.ui.awards.AwardsGuideFragment"
         android:label="fragment_awards_guide"
-        tools:layout="@layout/fragment_awards_guide" />
+        tools:layout="@layout/fragment_awards_guide" >
+        <action
+            android:id="@+id/action_awards_guide_to_rulesFragment"
+            app:destination="@id/rulesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/top_seller"
         android:name="com.example.panoramic.app.ui.topseller.TopSellerFragment"
@@ -334,6 +338,10 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out"/>
+        <argument
+            android:name="button_navigation"
+            app:argType="boolean"
+            android:defaultValue="true" />
     </fragment>
     <fragment
         android:id="@+id/newPasswordFragment"
@@ -375,12 +383,18 @@
         <argument
             android:name="image"
             app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/movieItemFragment"
         android:name="com.example.panoramic.app.ui.movies.details.MovieItemFragment"
         android:label="fragment_movie_item"
         tools:layout="@layout/fragment_movie_item" >
+        <action
+            android:id="@+id/action_movieItemFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
         <argument
             android:name="title"
             app:argType="string" />
@@ -393,13 +407,9 @@
         <argument
             android:name="video"
             app:argType="string" />
-        <action
-            android:id="@+id/action_movieItemFragment_to_playerFragment"
-            app:destination="@id/playerFragment" />
         <argument
-            android:name="seenVideo"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/playerFragment"
@@ -451,4 +461,9 @@
         android:id="@+id/splashFragment"
         android:name="com.example.panoramic.app.SplashFragment"
         android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.example.panoramic.app.ui.awards.RulesFragment"
+        android:label="fragment_rules"
+        tools:layout="@layout/fragment_rules" />
 </navigation>

@@ -2,6 +2,7 @@ package com.example.panoramic.app.ui.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -13,8 +14,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.CustomToast
 import com.example.panoramic.databinding.FragmentHomeBinding
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
+
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -34,6 +37,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.homeViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
+        viewModel.userInfo.observe(viewLifecycleOwner, Observer {
+            if(it.success){
+                binding.loading.visibility = View.GONE
+            }
+        })
+
         setWellcomeText()
 
         val cookie =
@@ -42,6 +51,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         val action =
             activity?.getSharedPreferences("ACTION", Context.MODE_PRIVATE)!!.getString("ACTION", "")
+
 
         if (action == "Product") {
             findNavController().navigate(R.id.action_homeFragment_to_scoreFragment2)

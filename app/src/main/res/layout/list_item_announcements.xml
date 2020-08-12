@@ -36,9 +36,9 @@
         android:textColor="#000"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/list_image"
+        app:layout_constraintEnd_toStartOf="@id/list_image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/list_image"
+        app:layout_constraintTop_toTopOf="@id/list_image"
         tools:ignore="NestedWeights,RtlHardcoded" />
 
     <TextView
@@ -53,8 +53,8 @@
         tools:text="تاریخ انتشار"
         android:textColor="@color/textInputColor"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/list_image"
-        app:layout_constraintEnd_toStartOf="@+id/list_image"
+        app:layout_constraintBottom_toBottomOf="@id/list_image"
+        app:layout_constraintEnd_toStartOf="@id/list_image"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlHardcoded,SmallSp" />
 

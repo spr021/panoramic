@@ -6,16 +6,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.panoramic.app.MainActivity
 import com.example.panoramic.remote.model.LogoutResponseDto
+import com.example.panoramic.remote.model.UploadPhotoDto
 import com.example.panoramic.remote.model.UserInfoDto
 import com.example.panoramic.remote.service.LogoutService
+import com.example.panoramic.remote.service.UploadPhotoService
 import com.example.panoramic.remote.service.UserInfoService
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class PersonalInformationViewModel: ViewModel() {
+
+class PersonalInformationViewModel : ViewModel() {
     private val _userInfo = MutableLiveData<UserInfoDto?>()
     val userInfo: LiveData<UserInfoDto?>?
         get() = _userInfo
@@ -53,7 +59,10 @@ class PersonalInformationViewModel: ViewModel() {
         val service = retrofit.create(LogoutService::class.java)
         val call = service.logoutUser(userId, cookie)
         call.enqueue(object : Callback<LogoutResponseDto> {
-            override fun onResponse(call: Call<LogoutResponseDto>, response: Response<LogoutResponseDto>) {
+            override fun onResponse(
+                call: Call<LogoutResponseDto>,
+                response: Response<LogoutResponseDto>
+            ) {
                 if (response.code() == 200) {
                     _userLogout.value = response.body()!!.success
                     Log.i("sasa", _userInfo.value.toString())
@@ -66,8 +75,25 @@ class PersonalInformationViewModel: ViewModel() {
         })
     }
 
-    fun uploadProfilePhoto() {
+    fun uploadImage(cookie: String, photo: ByteArray?) {
+        val cookie =
+            RequestBody.create(MediaType.parse("multipart/form-data"), cookie)
+        val requestFile =
+            RequestBody.create(MediaType.parse("image/jpeg"), photo)
+        val body =
+            MultipartBody.Part.createFormData("image", "image.jpg", requestFile)
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl(MainActivity.BaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val retrofitInterface = retrofit.create(UploadPhotoService::class.java)
 
+        val call: Call<UploadPhotoDto> = retrofitInterface.updatePhoto(body, cookie)
+        call.enqueue(object : Callback<UploadPhotoDto> {
+            override fun onResponse(call: Call<UploadPhotoDto>, response: Response<UploadPhotoDto>) { if (response.code() == 200) { } }
+            override fun onFailure(call: Call<UploadPhotoDto>, t: Throwable) {}
+        })
     }
+
 }
 

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.R
 import com.example.panoramic.app.ui.movies.OnMoviesItemClickListener
 import com.example.panoramic.data.entity.MoviesEntity
+import com.example.panoramic.remote.model.Movie
 import com.squareup.picasso.Picasso
 
 class MoviesViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
@@ -24,22 +25,22 @@ class MoviesViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
 
     init {
-        mTitleView = itemView.findViewById(R.id.list_title)
+        mTitleView = itemView.findViewById(R.id.list_title_movie)
         mTimeView = itemView.findViewById(R.id.list_time)
-        mImageView = itemView.findViewById(R.id.list_image)
+        mImageView = itemView.findViewById(R.id.list_image_movie)
         mSeenView = itemView.findViewById(R.id.list_checkBox)
         mCheckBoxTextView = itemView.findViewById(R.id.list_checkBox_text)
     }
 
-    fun bind(movie: MoviesEntity, action: OnMoviesItemClickListener) {
+    fun bind(movie: Movie, action: OnMoviesItemClickListener) {
         mTitleView?.text = movie.title
         mTimeView?.text = movie.time
         Picasso.get()
-            .load(movie.image)
+            .load(movie.film_pic)
             .placeholder(R.drawable.placeholder_image)
             .into(mImageView)
-        mSeenView?.isChecked = movie.seen
-        mCheckBoxTextView?.text = if (movie.seen) seen else notSeen
+        mSeenView?.isChecked = movie.seen == 1
+        mCheckBoxTextView?.text = if (movie.seen == 1) seen else notSeen
 
         itemView.setOnClickListener {
             action.onItemClick(movie, adapterPosition)

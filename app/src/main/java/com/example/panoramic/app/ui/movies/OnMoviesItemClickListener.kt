@@ -1,7 +1,7 @@
 package com.example.panoramic.app.ui.movies
 
-import com.example.panoramic.data.entity.MoviesEntity
+import com.example.panoramic.remote.model.Movie
 
 interface OnMoviesItemClickListener {
-    fun onItemClick(moviesEntity: MoviesEntity, position: Int)
+    fun onItemClick(moviesEntity: Movie, position: Int)
 }

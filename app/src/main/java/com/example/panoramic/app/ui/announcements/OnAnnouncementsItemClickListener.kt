@@ -1,7 +1,7 @@
 package com.example.panoramic.app.ui.announcements
 
-import com.example.panoramic.data.entity.AnnouncementsEntity
+import com.example.panoramic.remote.model.Notif
 
 interface OnAnnouncementsItemClickListener {
-    fun onItemClick(announcementsEntity: AnnouncementsEntity, position: Int)
+    fun onItemClick(announcementsEntity: Notif, position: Int)
 }

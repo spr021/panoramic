@@ -187,7 +187,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="PA-43SA2643"
+                    android:text="افه شود"
                     android:textSize="@dimen/home_item_frame_text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/last_registered_product"
                     app:layout_constraintEnd_toStartOf="@+id/last_registered_product"
@@ -259,7 +259,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="3"
+                    android:text="@{homeViewModel.userInfo.unseen_film}"
                     android:textSize="@dimen/home_item_frame_text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/number_of_unseen_videos"
                     app:layout_constraintEnd_toStartOf="@+id/number_of_unseen_videos"
@@ -330,7 +330,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/yekanweb_regular"
-                    android:text="5"
+                    android:text="@{homeViewModel.userInfo.unseen_notification}"
                     android:textSize="@dimen/home_item_frame_text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/unread_notices"
                     app:layout_constraintEnd_toStartOf="@+id/unread_notices"
@@ -339,6 +339,47 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/unread_notices" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <!--
+            <TextView
+                android:id="@+id/textView"
+                style="@style/baseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="90dp"
+                android:text="Loading"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            -->
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

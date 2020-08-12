@@ -1,7 +1,9 @@
 package com.example.panoramic.app.ui.movies.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -9,9 +11,11 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.panoramic.R
+import com.example.panoramic.app.ui.announcements.home.AnnouncementsAdabter
 import com.example.panoramic.app.ui.movies.OnMoviesItemClickListener
 import com.example.panoramic.data.entity.MoviesEntity
 import com.example.panoramic.databinding.FragmentMoviesBinding
+import com.example.panoramic.remote.model.Movie
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_movie_item.*
 
@@ -44,28 +48,33 @@ class MoviesFragment : Fragment(R.layout.fragment_movies), OnMoviesItemClickList
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentMoviesBinding.bind(view)
         fragmentMoviesBinding = binding
-        val viewStateObserver = Observer<MoviesEntity> { viewState ->
-            recyclerViewInformation = viewState
-        }
 
-        binding.moviesRecyclerview.apply {
-            layoutManager = LinearLayoutManager(activity)
-            adapter = MoviesAdabter(mNicolasCageMovies, this@MoviesFragment)
-        }
+        //get movie list
+        val cookie =
+            activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
+        viewModel.getMovieList(cookie)
 
-        viewModel.viewState.observe(viewLifecycleOwner, viewStateObserver)
-        viewModel.request()
+        viewModel.viewState.observe(viewLifecycleOwner, Observer {
+            if (it.success) {
+                view.findViewById<ConstraintLayout>(R.id.loading).visibility = View.GONE
+                binding.moviesRecyclerview.apply {
+                    layoutManager = LinearLayoutManager(activity)
+                    adapter = MoviesAdabter(it.items, this@MoviesFragment)
+                }
+            }
+        })
 
     }
 
-    override fun onItemClick(moviesEntity: MoviesEntity, position: Int) {
+    override fun onItemClick(movie: Movie, position: Int) {
         //val extras = FragmentNavigatorExtras(image_cover to "image_cover")
         findNavController().navigate(
             MoviesFragmentDirections.actionMoviesFragmentToMovieItemFragment(
-                moviesEntity.title,
-                moviesEntity.image,
-                moviesEntity.text,
-                moviesEntity.video
+                movie.title,
+                movie.film_pic,
+                movie.text,
+                movie.link,
+                movie.id
             )
         )
     }

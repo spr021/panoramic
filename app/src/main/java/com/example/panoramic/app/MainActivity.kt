@@ -9,8 +9,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -19,8 +18,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.panoramic.R
-import com.example.panoramic.app.ui.home.HomeFragment
-import com.example.panoramic.app.ui.score.ScoreFragment
 import com.example.panoramic.databinding.ActivityMainBinding
 import com.example.panoramic.remote.model.CookieResponseDto
 import com.example.panoramic.remote.model.UserInfoDto
@@ -84,6 +81,13 @@ class MainActivity : AppCompatActivity() {
             })
         } else {
             getCurrentData()
+        }
+
+        if (intent.extras != null) {
+            for (key in intent.extras!!.keySet()) {
+                val value = intent.extras!!.getString(key)
+                Log.i("GGGGGGGGGGGGG", "Key: $key Value: $value")
+            }
         }
 
 

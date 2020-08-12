@@ -1,5 +1,6 @@
 package com.example.panoramic.app.ui.announcements.details
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -27,6 +28,11 @@ class AnnouncementItemFragment : Fragment(R.layout.fragment_announcement_item) {
         fragmentAnnouncementItemBinding = binding
         binding.announcementViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
+
+        val cookie =
+            activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
+        viewModel.seenAnnouncements(cookie, viewModel.args.id)
     }
 
     override fun onDestroyView() {

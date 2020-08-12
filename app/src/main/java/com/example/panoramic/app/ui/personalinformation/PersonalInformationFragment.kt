@@ -1,8 +1,9 @@
 package com.example.panoramic.app.ui.personalinformation
 
+import android.app.Activity.RESULT_OK
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -10,6 +11,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.databinding.FragmentPersonalInformationBinding
+import java.io.ByteArrayOutputStream
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.io.InputStream
 
 
 @Suppress("DEPRECATION")
@@ -28,11 +33,22 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
         binding.personalViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
+        viewModel.userInfo?.observe(viewLifecycleOwner, Observer {
+            if (it!!.success) {
+                binding.loading.visibility = View.GONE
+            }
+        })
+
+        val cookie =
+            activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
         viewModel.getUserInfo(cookie)
 
         binding.uploadProfilePictuer.setOnClickListener {
-            //upload  photo
+            val intent = Intent()
+                .setType("*/*")
+                .setAction(Intent.ACTION_GET_CONTENT)
+
+            startActivityForResult(Intent.createChooser(intent, "Select a file"), 111)
         }
 
         binding.logout.setOnClickListener {
@@ -41,7 +57,7 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
             })
         }
         viewModel.userLogout?.observe(viewLifecycleOwner, Observer {
-            if(it) {
+            if (it) {
                 findNavController().navigate(R.id.action_personal_information_to_loginFragment)
             }
         })
@@ -57,6 +73,35 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
         }
 
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == RESULT_OK && requestCode == 111) {
+            try {
+                val `is`: InputStream =
+                    requireContext().contentResolver.openInputStream(data?.data!!)!!
+                val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
+                    .getString("COOKIE", "")
+                viewModel.uploadImage(cookie!!, getBytes(`is`))
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    @Throws(IOException::class)
+    fun getBytes(`is`: InputStream): ByteArray? {
+        val byteBuff = ByteArrayOutputStream()
+        val buffSize = 1024
+        val buff = ByteArray(buffSize)
+        var len = 0
+        while (`is`.read(buff).also { len = it } != -1) {
+            byteBuff.write(buff, 0, len)
+        }
+        return byteBuff.toByteArray()
+    }
+
 
     override fun onDestroyView() {
         fragmentPersonalInformationBinding = null

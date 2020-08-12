@@ -38,7 +38,6 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
         super.onViewCreated(view, savedInstanceState)
 
         //set player LANDSCAPE
-        Log.i("exoplayssssser", "1")
 
         args = PlayerFragmentArgs.fromBundle(requireArguments())
 
@@ -46,23 +45,6 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
 
         playbackStateListener = PlaybackStateListener()
 
-
-        /*view.findViewById<VideoView>(R.id.video).apply {
-            setVideoURI(Uri.parse(args.video))
-            start()
-            setOnCompletionListener() {
-                val seenVideo = true
-                view.findNavController().navigate(
-                    PlayerFragmentDirections.actionPlayerFragmentToMovieItemFragment(
-                        args.title,
-                        args.image,
-                        args.text,
-                        args.video,
-                        seenVideo
-                    )
-                )
-            }
-        }*/
     }
 
     override fun onStart() {

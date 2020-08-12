@@ -84,7 +84,7 @@ fun isOnline(context: Context?): Boolean {
 @BindingAdapter("imageUrl")
 fun bindImage(view: ImageView, imageUrl: String?) {
     imageUrl.let {
-        val imgUri = imageUrl?.toUri()?.buildUpon()?.scheme("https")?.build()
+        val imgUri = imageUrl?.toUri()?.buildUpon()?.scheme("http")?.build()
         Picasso.get()
             .load(imgUri)
             .error(R.drawable.home_person_icon)

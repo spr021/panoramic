@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.app.ui.movies.OnMoviesItemClickListener
 import com.example.panoramic.data.entity.MoviesEntity
+import com.example.panoramic.remote.model.Movie
 
-class MoviesAdabter(private val list: List<MoviesEntity>, private var clickListener: OnMoviesItemClickListener) : RecyclerView.Adapter<MoviesViewHolder>() {
+class MoviesAdabter(private val list: List<Movie>, private var clickListener: OnMoviesItemClickListener) : RecyclerView.Adapter<MoviesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
         val inflater = LayoutInflater.from(parent.context)

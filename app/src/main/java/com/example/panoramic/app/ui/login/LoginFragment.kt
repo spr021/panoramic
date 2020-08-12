@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -20,12 +21,15 @@ import com.example.panoramic.remote.model.CookieResponseDto
 import com.example.panoramic.remote.model.LoginResponseDto
 import com.example.panoramic.remote.service.CookieService
 import com.example.panoramic.remote.service.LoginService
+import com.google.firebase.iid.FirebaseInstanceId
 import com.wajahatkarim3.easyvalidation.core.view_ktx.nonEmpty
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.net.NetworkInterface
+import java.util.*
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -64,6 +68,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun loginUser() {
+        val notificationToken = FirebaseInstanceId.getInstance().token
         val username = fragmentLoginBinding!!.username.text.toString().trim()
         val password = fragmentLoginBinding!!.password.text.toString().trim()
         if(username.nonEmpty() && password.nonEmpty()) {
@@ -74,7 +79,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val service = retrofit.create(LoginService::class.java)
-            val call = service.loginUser(username, password, cookie!!)
+            val call = service.loginUser(username, password, cookie!!, notificationToken!!, getMACAddress())
             call.enqueue(object : Callback<LoginResponseDto> {
                 override fun onResponse(
                     call: Call<LoginResponseDto>,
@@ -114,6 +119,25 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val inputMethodManager =
             getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    private fun getMACAddress(): String {
+        try {
+            val all: List<NetworkInterface> = Collections.list(NetworkInterface.getNetworkInterfaces())
+            for (nif in all) {
+                if (nif.name != "wlan0") continue
+                val macBytes: ByteArray = nif.hardwareAddress ?: return ""
+                val sb = StringBuilder(18)
+                for (b in macBytes) {
+                    if (sb.isNotEmpty())
+                        sb.append(':')
+                    sb.append(String.format("%02x", b))
+                }
+                return sb.toString()
+            }
+        } catch (ex: Exception) {
+        }
+        return "02:00:00:00:00:00"
     }
 
     override fun onDestroyView() {

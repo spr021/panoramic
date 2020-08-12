@@ -1,5 +1,6 @@
 package com.example.panoramic.app.ui.announcements.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.example.panoramic.R
 import com.example.panoramic.app.ui.announcements.OnAnnouncementsItemClickListener
 import com.example.panoramic.app.ui.movies.OnMoviesItemClickListener
 import com.example.panoramic.data.entity.AnnouncementsEntity
+import com.example.panoramic.remote.model.Notif
 import com.squareup.picasso.Picasso
 
 class AnnouncementsViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
@@ -27,18 +29,14 @@ class AnnouncementsViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         mSeenView = itemView.findViewById(R.id.notification)
     }
 
-    fun bind(announcement: AnnouncementsEntity, action: OnAnnouncementsItemClickListener) {
+    fun bind(announcement: Notif, action: OnAnnouncementsItemClickListener) {
         mTitleView?.text = announcement.title
         mDateView?.text = announcement.date
         Picasso.get()
-            .load(announcement.image)
+            .load(announcement.pic)
             .placeholder(R.drawable.placeholder_image)
             .into(mImageView)
-        mSeenView?.visibility = if (announcement.seen) {
-            View.VISIBLE
-        } else {
-            View.GONE
-        }
+        mSeenView?.visibility = if (announcement.seen == 1) { View.GONE } else { View.VISIBLE }
 
         itemView.setOnClickListener {
             action.onItemClick(announcement, adapterPosition)

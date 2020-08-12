@@ -103,7 +103,6 @@ class Singup3Fragment : Fragment(R.layout.fragment_singup3) {
         viewModel.requestResponse.observe(viewLifecycleOwner, Observer {
             Log.i("responce", viewModel.requestResponse.toString())
             if (it) {
-                Log.i("responce", viewModel.requestResponse.toString())
                 findNavController().navigate(R.id.action_singup3Fragment_to_successSingupFragment)
             }
         })

@@ -8,9 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.panoramic.R
-import com.example.panoramic.app.CustomToast
-import com.example.panoramic.app.SlideView
-import com.example.panoramic.data.entity.AwardGuideEntity
+import com.example.panoramic.remote.model.Items
 import com.squareup.picasso.Picasso
 
 class AwardsGuideViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
@@ -20,6 +18,13 @@ class AwardsGuideViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     private var mImageView: ImageView? = null
     private var mScoreView: TextView? = null
     private var mArrow: ImageView? = null
+    private var mSize: TextView? = null
+    private var mType: TextView? = null
+    private var mPanel: TextView? = null
+    private var mHtmi: TextView? = null
+    private var mUsb: TextView? = null
+    private var mOs: TextView? = null
+    private var mPrice: TextView? = null
     private var viewList: List<View>? = null
 
 
@@ -29,33 +34,49 @@ class AwardsGuideViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         mImageView = itemView.findViewById(R.id.tv_image)
         mScoreView = itemView.findViewById(R.id.score)
         mArrow = itemView.findViewById(R.id.arrows)
+        mSize = itemView.findViewById(R.id.size_value)
+        mType = itemView.findViewById(R.id.type_value)
+        mPanel = itemView.findViewById(R.id.panel_type_value)
+        mHtmi = itemView.findViewById(R.id.HTMI_value)
+        mUsb = itemView.findViewById(R.id.USB_value)
+        mOs = itemView.findViewById(R.id.OS_value)
+        mPrice = itemView.findViewById(R.id.price_value)
         viewList = listOf(
-            itemView.findViewById<TextView>(R.id.size),
-            itemView.findViewById<TextView>(R.id.size_value),
-            itemView.findViewById<TextView>(R.id.type),
-            itemView.findViewById<TextView>(R.id.type_value),
-            itemView.findViewById<TextView>(R.id.panel_type),
-            itemView.findViewById<TextView>(R.id.panel_type_value),
-            itemView.findViewById<TextView>(R.id.HTMI),
-            itemView.findViewById<TextView>(R.id.HTMI_value),
-            itemView.findViewById<TextView>(R.id.USB),
-            itemView.findViewById<TextView>(R.id.USB_value),
-            itemView.findViewById<TextView>(R.id.OS),
-            itemView.findViewById<TextView>(R.id.OS_value),
-            itemView.findViewById<View>(R.id.line_breaker),
-            itemView.findViewById<TextView>(R.id.price),
-            itemView.findViewById<TextView>(R.id.price_value)
+            itemView.findViewById(R.id.size),
+            itemView.findViewById(R.id.size_value),
+            itemView.findViewById(R.id.type),
+            itemView.findViewById(R.id.type_value),
+            itemView.findViewById(R.id.panel_type),
+            itemView.findViewById(R.id.panel_type_value),
+            itemView.findViewById(R.id.HTMI),
+            itemView.findViewById(R.id.HTMI_value),
+            itemView.findViewById(R.id.USB),
+            itemView.findViewById(R.id.USB_value),
+            itemView.findViewById(R.id.OS),
+            itemView.findViewById(R.id.OS_value),
+            itemView.findViewById(R.id.line_breaker),
+            itemView.findViewById(R.id.price),
+            itemView.findViewById(R.id.price_value)
         )
     }
 
-    fun bind(product: AwardGuideEntity, action: OnAwardItemClickListener) {
-        mModelView?.text = product.modelNumber
+    fun bind(product: Items, action: OnAwardItemClickListener) {
+        mModelView?.text = product.model_name
         mInchView?.text = product.size.toString()
-        Picasso.get()
-            .load(product.image)
-            .placeholder(R.drawable.placeholder_image)
-            .into(mImageView)
+        if(product.prof_pic.isNotEmpty()) {
+            Picasso.get()
+                .load(product.prof_pic)
+                .placeholder(R.drawable.placeholder_image)
+                .into(mImageView)
+        }
         mScoreView?.text = product.score.toString()
+        mSize?.text = product.size.toString()
+        mType?.text = product.type
+        mPanel?.text = product.panel
+        mHtmi?.text = product.hdmi_ports.toString()
+        mUsb?.text = product.usb_ports.toString()
+        mOs?.text = product.android_version
+        mPrice?.text = product.price.toString()
 
         mArrow!!.visibility = View.VISIBLE
         viewList!!.map { view ->

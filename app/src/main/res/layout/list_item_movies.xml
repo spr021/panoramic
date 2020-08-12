@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:id="@+id/list_title"
+        android:id="@+id/list_title_movie"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -20,10 +20,10 @@
         android:textColor="#000"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/list_image"
+        app:layout_constraintEnd_toStartOf="@id/list_image_movie"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/list_checkBox_text"
-        app:layout_constraintTop_toTopOf="@+id/list_image"
+        app:layout_constraintTop_toTopOf="@id/list_image_movie"
         tools:ignore="NestedWeights,RtlHardcoded" />
 
     <TextView
@@ -38,14 +38,14 @@
         android:text="تاریخ انتشار"
         android:textColor="@color/textInputColor"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/list_image"
-        app:layout_constraintEnd_toStartOf="@+id/list_image"
+        app:layout_constraintBottom_toBottomOf="@id/list_image_movie"
+        app:layout_constraintEnd_toStartOf="@id/list_image_movie"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/list_checkBox_text"
         tools:ignore="RtlHardcoded" />
 
     <ImageView
-        android:id="@+id/list_image"
+        android:id="@+id/list_image_movie"
         android:transitionName="image_cover"
         android:layout_width="150dp"
         android:layout_height="match_parent"

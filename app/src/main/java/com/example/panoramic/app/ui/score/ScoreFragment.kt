@@ -26,8 +26,6 @@ class ScoreFragment : Fragment(R.layout.fragment_score) {
         binding.scoreViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        binding.progressBar.visibility = View.VISIBLE
-
         sharedElementEnterTransition =
             TransitionInflater.from(context).inflateTransition(android.R.transition.move)
 
@@ -37,7 +35,8 @@ class ScoreFragment : Fragment(R.layout.fragment_score) {
 
         viewModel.userInfo.observe(viewLifecycleOwner, Observer {
             if (it.success!!) {
-                binding.progressBar.visibility = View.GONE
+
+                binding.loading.visibility = View.GONE
                 binding.scoreRecyclerview.apply {
                     layoutManager = LinearLayoutManager(activity)
                     adapter = ScoreAdabter(it.items!!)

@@ -1,19 +1,13 @@
 package com.example.panoramic.app.ui.movies.details
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.panoramic.R
-import com.example.panoramic.app.CustomToast
 import com.example.panoramic.databinding.FragmentMovieItemBinding
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.toast_fragment_home.*
 
 class MovieItemFragment : Fragment(R.layout.fragment_movie_item) {
 

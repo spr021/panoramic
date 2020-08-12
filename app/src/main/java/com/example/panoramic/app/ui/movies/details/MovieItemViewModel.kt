@@ -2,6 +2,5 @@ package com.example.panoramic.app.ui.movies.details
 
 import androidx.lifecycle.ViewModel
 
-class MovieItemViewModel(args: MovieItemFragmentArgs) : ViewModel() {
-    val args = args
+class MovieItemViewModel(val args: MovieItemFragmentArgs) : ViewModel() {
 }
