@@ -76,6 +76,15 @@
                             <option name="y" value="2851" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_awards_guide_to_rulesFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -386,8 +395,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1955" />
-                            <option name="y" value="2179" />
+                            <option name="x" value="2149" />
+                            <option name="y" value="2191" />
                           </Point>
                         </option>
                         <option name="myPositions">

@@ -76,10 +76,11 @@ fun clearSharedPreferences(context: Activity, name: String){
 
 @Suppress("DEPRECATION")
 fun isOnline(context: Context?): Boolean {
-    val connMgr = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    val networkInfo: NetworkInfo? = connMgr.activeNetworkInfo
+    val connMgr = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+    val networkInfo: NetworkInfo? = connMgr?.activeNetworkInfo
     return networkInfo?.isConnected == true
 }
+
 
 @BindingAdapter("imageUrl")
 fun bindImage(view: ImageView, imageUrl: String?) {

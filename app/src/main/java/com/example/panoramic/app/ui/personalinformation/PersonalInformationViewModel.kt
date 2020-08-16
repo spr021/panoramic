@@ -1,6 +1,9 @@
 package com.example.panoramic.app.ui.personalinformation
 
+import android.content.Context
+import android.net.Uri
 import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +22,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
 
 
 class PersonalInformationViewModel : ViewModel() {
@@ -75,23 +79,35 @@ class PersonalInformationViewModel : ViewModel() {
         })
     }
 
-    fun uploadImage(cookie: String, photo: ByteArray?) {
+    @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    fun uploadImage(cookiee: String, uri: Uri, context: Context?) {
+        val file = File(uri.path)
+
         val cookie =
-            RequestBody.create(MediaType.parse("multipart/form-data"), cookie)
+            RequestBody.create(MediaType.parse("multipart/form-data"), cookiee)
         val requestFile =
-            RequestBody.create(MediaType.parse("image/jpeg"), photo)
+            RequestBody.create(MediaType.parse(context?.contentResolver?.getType(uri)), file)
         val body =
-            MultipartBody.Part.createFormData("image", "image.jpg", requestFile)
+            MultipartBody.Part.createFormData("photo", file.name, requestFile)
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(MainActivity.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val retrofitInterface = retrofit.create(UploadPhotoService::class.java)
-
         val call: Call<UploadPhotoDto> = retrofitInterface.updatePhoto(body, cookie)
         call.enqueue(object : Callback<UploadPhotoDto> {
-            override fun onResponse(call: Call<UploadPhotoDto>, response: Response<UploadPhotoDto>) { if (response.code() == 200) { } }
-            override fun onFailure(call: Call<UploadPhotoDto>, t: Throwable) {}
+            override fun onResponse(
+                call: Call<UploadPhotoDto>,
+                response: Response<UploadPhotoDto>
+            ) {
+                if (response.code() == 200) {
+                    Log.v("Upload", "success")
+                }
+            }
+
+            override fun onFailure(call: Call<UploadPhotoDto>, t: Throwable) {
+                Log.e("Upload error:", t.toString())
+            }
         })
     }
 

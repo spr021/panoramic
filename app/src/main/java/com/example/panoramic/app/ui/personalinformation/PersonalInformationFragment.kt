@@ -44,11 +44,12 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
         viewModel.getUserInfo(cookie)
 
         binding.uploadProfilePictuer.setOnClickListener {
-            val intent = Intent()
-                .setType("*/*")
-                .setAction(Intent.ACTION_GET_CONTENT)
 
-            startActivityForResult(Intent.createChooser(intent, "Select a file"), 111)
+                val intent = Intent()
+                    .setType("image/*")
+                    .setAction(Intent.ACTION_GET_CONTENT)
+
+                startActivityForResult(Intent.createChooser(intent, "Select a file"), 111)
         }
 
         binding.logout.setOnClickListener {
@@ -79,11 +80,11 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
 
         if (resultCode == RESULT_OK && requestCode == 111) {
             try {
-                val `is`: InputStream =
-                    requireContext().contentResolver.openInputStream(data?.data!!)!!
+//                val `is`: InputStream =
+//                    requireContext().contentResolver.openInputStream(data?.data!!)!!
                 val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
                     .getString("COOKIE", "")
-                viewModel.uploadImage(cookie!!, getBytes(`is`))
+                viewModel.uploadImage(cookie!!, data?.data!!, context)
             } catch (e: IOException) {
                 e.printStackTrace()
             }

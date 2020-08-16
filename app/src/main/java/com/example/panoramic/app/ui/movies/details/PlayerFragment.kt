@@ -1,4 +1,4 @@
-@file:Suppress("DEPRECATION")
+
 
 package com.example.panoramic.app.ui.movies.details
 
@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.panoramic.R
@@ -36,8 +37,6 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //set player LANDSCAPE
 
         args = PlayerFragmentArgs.fromBundle(requireArguments())
 
@@ -77,23 +76,30 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun initializePlayer() {
+        Log.i("ppplayer", "1")
         activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        if (player == null) {
-            Log.i("exoplayssssser", "2")
-            val trackSelector = DefaultTrackSelector()
-            trackSelector.setParameters(
-                trackSelector.buildUponParameters().setMaxVideoSizeSd()
-            )
-            player = ExoPlayerFactory.newSimpleInstance(requireContext(), trackSelector)
+        Log.i("ppplayer", "2")
+        try {
+            if (player == null) {
+                val trackSelector = DefaultTrackSelector()
+                trackSelector.setParameters(
+                    trackSelector.buildUponParameters().setMaxVideoSizeSd()
+                )
+                player = ExoPlayerFactory.newSimpleInstance(requireContext(), trackSelector)
+                playerView?.player = player
+                val uri: Uri = Uri.parse(args.video)
+                val mediaSource = buildMediaSource(uri)
+                player!!.playWhenReady = playWhenReady
+                player!!.seekTo(currentWindow, playbackPosition)
+                player!!.addListener(this.playbackStateListener!!)
+                player!!.prepare(mediaSource, false, false)
+            }
+        } catch (e: Throwable) {
+            Log.i("initializePlayer", e.toString())
         }
-        playerView?.player = player
-        val uri: Uri = Uri.parse(args.video)
-        val mediaSource = buildMediaSource(uri)
-        player!!.playWhenReady = playWhenReady
-        player!!.seekTo(currentWindow, playbackPosition)
-        player!!.addListener(this.playbackStateListener!!)
-        player!!.prepare(mediaSource, false, false)
+
     }
 
     private fun releasePlayer() {
@@ -108,39 +114,49 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
     }
 
     private fun buildMediaSource(uri: Uri): MediaSource {
-        val dataSourceFactory: DataSource.Factory =
-            DefaultDataSourceFsubmit_buttonactory1(activity, Util.getUserAgent(requireContext(), "Panoramic"))
-        return ProgressiveMediaSource.Factory(dataSourceFactory)
-            .createMediaSource(uri)
+        val dataSourceFactory: DataSource.Factory = DefaultDataSourceFsubmit_buttonactory1(
+            activity,
+            Util.getUserAgent(requireContext(), "Panoramic")
+        )
+        return ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
     }
 
 
     @SuppressLint("InlinedApi")
     private fun hideSystemUi() {
-        playerView!!.systemUiVisibility = (
-                   View.SYSTEM_UI_FLAG_LOW_PROFILE
-                or View.SYSTEM_UI_FLAG_FULLSCREEN
-                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+        try {
+            playerView!!.systemUiVisibility = (
+                    View.SYSTEM_UI_FLAG_LOW_PROFILE
+                            or View.SYSTEM_UI_FLAG_FULLSCREEN
+                            or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+        } catch (e: Throwable){
+            Log.i("hideSystemUi", e.toString())
+        }
+
     }
 
     inner class PlaybackStateListener : Player.EventListener {
         override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-            val stateString: String = when (playbackState) {
-                ExoPlayer.STATE_IDLE -> "ExoPlayer.STATE_IDLE"
-                ExoPlayer.STATE_BUFFERING -> "ExoPlayer.STATE_BUFFERING"
-                ExoPlayer.STATE_READY -> "ExoPlayer.STATE_READY"
-                ExoPlayer.STATE_ENDED -> "ExoPlayer.STATE_ENDED"
-                else -> "UNKNOWN_STATE"
-            }
-            Log.d("TAG", "changed state to $stateString playWhenReady: $playWhenReady")
-            if (playbackState == ExoPlayer.STATE_ENDED) {
-                activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                view?.findNavController()?.navigate(R.id.action_playerFragment_to_questionFragment)
-                //set player PORTRAIT
+            when (playbackState) {
+                ExoPlayer.STATE_IDLE -> {
+                }
+                ExoPlayer.STATE_BUFFERING -> {
+                    view?.findViewById<ProgressBar>(R.id.progressBar)?.visibility = View.VISIBLE
+                }
+                ExoPlayer.STATE_READY -> {
+                    view?.findViewById<ProgressBar>(R.id.progressBar)?.visibility = View.GONE
+                }
+                ExoPlayer.STATE_ENDED -> {
+                    activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                    view?.findNavController()
+                        ?.navigate(R.id.action_playerFragment_to_moviesFragment)
+                    //set player PORTRAIT
 
+                }
+                else -> "UNKNOWN_STATE"
             }
         }
     }

@@ -12,7 +12,7 @@ interface UploadPhotoService {
     @Multipart
     @POST("Photo")
     fun updatePhoto(
-        @Part photo: MultipartBody.Part?,
-        @Part("cookie") cookie: RequestBody?
+        @Part photo: MultipartBody.Part,
+        @Part("cookie") cookie: RequestBody
     ): Call<UploadPhotoDto>
 }

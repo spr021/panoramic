@@ -83,12 +83,12 @@ class MainActivity : AppCompatActivity() {
             getCurrentData()
         }
 
-        if (intent.extras != null) {
-            for (key in intent.extras!!.keySet()) {
-                val value = intent.extras!!.getString(key)
-                Log.i("GGGGGGGGGGGGG", "Key: $key Value: $value")
-            }
-        }
+//        if (intent.extras != null) {
+//            for (key in intent.extras!!.keySet()) {
+//                val value = intent.extras!!.getString(key)
+//                Log.i("GGGGGGGGGGGGG", "Key: $key Value: $value")
+//            }
+//        }
 
 
         //Setting the navigation controller to Bottom Nav
