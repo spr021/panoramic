@@ -1,9 +1,7 @@
 package com.example.panoramic.app.ui.personalinformation
 
 import android.content.Context
-import android.net.Uri
 import android.util.Log
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -33,6 +31,10 @@ class PersonalInformationViewModel : ViewModel() {
     private val _userLogout = MutableLiveData<Boolean>()
     val userLogout: LiveData<Boolean>?
         get() = _userLogout
+
+    private val _uploadPhoto = MutableLiveData<Boolean>()
+    val uploadPhoto: LiveData<Boolean>?
+        get() = _uploadPhoto
 
     fun getUserInfo(cookie: String?) {
         val retrofit = Retrofit.Builder()
@@ -80,34 +82,35 @@ class PersonalInformationViewModel : ViewModel() {
     }
 
     @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
-    fun uploadImage(cookiee: String, uri: Uri, context: Context?) {
-        val file = File(uri.path)
+    fun uploadImage(cookiie: String, file: File, context: Context?) {
 
-        val cookie =
-            RequestBody.create(MediaType.parse("multipart/form-data"), cookiee)
-        val requestFile =
-            RequestBody.create(MediaType.parse(context?.contentResolver?.getType(uri)), file)
-        val body =
-            MultipartBody.Part.createFormData("photo", file.name, requestFile)
+        val mFile: RequestBody = RequestBody.create(MediaType.parse("image/*"), file)
+        val fileToUpload =
+            MultipartBody.Part.createFormData("photo", file.name, mFile)
+        val cookie: RequestBody =
+            RequestBody.create(MediaType.parse("multipart/form-data"), cookiie)
+
+        //val cookie =
+        //    RequestBody.create(MediaType.parse("multipart/form-data"), cookie)
+
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(MainActivity.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val retrofitInterface = retrofit.create(UploadPhotoService::class.java)
-        val call: Call<UploadPhotoDto> = retrofitInterface.updatePhoto(body, cookie)
+
+        val call: Call<UploadPhotoDto> = retrofitInterface.updatePhoto(fileToUpload, cookie)
         call.enqueue(object : Callback<UploadPhotoDto> {
             override fun onResponse(
                 call: Call<UploadPhotoDto>,
                 response: Response<UploadPhotoDto>
             ) {
                 if (response.code() == 200) {
-                    Log.v("Upload", "success")
+                    Log.i("sasasasasasas", "sasasasassa")
+                    _uploadPhoto.postValue(response.body()!!.success)
                 }
             }
-
-            override fun onFailure(call: Call<UploadPhotoDto>, t: Throwable) {
-                Log.e("Upload error:", t.toString())
-            }
+            override fun onFailure(call: Call<UploadPhotoDto>, t: Throwable) {}
         })
     }
 

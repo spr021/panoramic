@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import com.example.panoramic.R
+import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.toast_fragment_home.view.*
 
@@ -90,8 +91,10 @@ fun bindImage(view: ImageView, imageUrl: String?) {
             .load(imgUri)
             .error(R.drawable.home_person_icon)
             .placeholder(R.drawable.home_person_icon)
+            .memoryPolicy(MemoryPolicy.NO_CACHE)
             .into(view)
     }
 }
+
 
 
