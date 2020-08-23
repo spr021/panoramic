@@ -3,6 +3,7 @@
 package com.example.panoramic.app.ui.movies.details
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
@@ -11,6 +12,13 @@ import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.panoramic.R
+import com.example.panoramic.app.MainActivity
+import com.example.panoramic.remote.model.SendAnnouncementBody
+import com.example.panoramic.remote.model.SendAnnouncementDto
+import com.example.panoramic.remote.model.SendMovieBody
+import com.example.panoramic.remote.model.SendMovieDto
+import com.example.panoramic.remote.service.AnnouncementsSeenService
+import com.example.panoramic.remote.service.MovieSeenService
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.Player
@@ -22,6 +30,11 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.util.Log
 import com.google.android.exoplayer2.util.Util
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory as DefaultDataSourceFsubmit_buttonactory1
 
 
@@ -150,6 +163,9 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
                     view?.findViewById<ProgressBar>(R.id.progressBar)?.visibility = View.GONE
                 }
                 ExoPlayer.STATE_ENDED -> {
+                    val cookie =
+                        activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
+                    seenMovie(cookie, args.id)
                     activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                     view?.findNavController()
                         ?.navigate(R.id.action_playerFragment_to_moviesFragment)
@@ -159,6 +175,23 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
                 else -> "UNKNOWN_STATE"
             }
         }
+    }
+
+    fun seenMovie(cookie: String?, id: Int) {
+        val body = SendMovieBody(
+            id,
+            cookie!!
+        )
+        val retrofit = Retrofit.Builder()
+            .baseUrl(MainActivity.BaseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(MovieSeenService::class.java)
+        val call = service.seenMovieItem(body)
+        call.enqueue(object : Callback<SendMovieDto> {
+            override fun onResponse(call: Call<SendMovieDto>, response: Response<SendMovieDto>) {}
+            override fun onFailure(call: Call<SendMovieDto>, t: Throwable) {}
+        })
     }
 
     private fun pausePlayer() {
@@ -174,6 +207,6 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
     override fun onDestroy() {
         super.onDestroy()
         //set player PORTRAIT
-        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
     }
 }

@@ -55,13 +55,25 @@
             android:defaultValue="false" />
         <action
             android:id="@+id/action_homeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_homeFragment_to_personal_information"
-            app:destination="@id/personal_information" />
+            app:destination="@id/personal_information"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
         <action
             android:id="@+id/action_homeFragment_to_scoreFragment2"
-            app:destination="@id/scoreFragment" />
+            app:destination="@id/scoreFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/personal_information"
@@ -83,7 +95,11 @@
         tools:layout="@layout/fragment_awards_guide" >
         <action
             android:id="@+id/action_awards_guide_to_rulesFragment"
-            app:destination="@id/rulesFragment" />
+            app:destination="@id/rulesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/top_seller"
@@ -437,6 +453,9 @@
         <action
             android:id="@+id/action_playerFragment_to_moviesFragment"
             app:destination="@id/moviesFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
 
     </fragment>
     <fragment
@@ -470,7 +489,11 @@
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"

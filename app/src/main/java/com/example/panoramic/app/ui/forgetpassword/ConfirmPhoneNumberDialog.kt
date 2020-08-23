@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.ui.forgetpassword.viewmodel.ForgetpasswordSMSViewModel
+import com.example.panoramic.app.ui.singup.SMSFragment
 
 
 class ConfirmPhoneNumberDialog : DialogFragment()  {
@@ -42,14 +43,15 @@ class ConfirmPhoneNumberDialog : DialogFragment()  {
                 cookie,
                 phoneNumber
             )
+            (parentFragment as ForgetpasswordSMSFragment).onDismiss()
             dialog?.dismiss()
         }
 
         view.findViewById<Button>(R.id.edit).setOnClickListener {
-            dialog?.dismiss()
             findNavController().navigate(
                 R.id.action_forgetpasswordSMSFragment_to_forgetpasswordPhoneFragment
             )
+            dialog?.dismiss()
         }
 
     }

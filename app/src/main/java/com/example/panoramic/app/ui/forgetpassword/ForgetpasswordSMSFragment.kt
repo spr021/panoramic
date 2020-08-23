@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -33,7 +34,7 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
 
         val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
             .getString("COOKIE", "")
-
+        viewModel.timer.start()
         viewModel.currentTimeString.observe(viewLifecycleOwner, Observer {
             binding.timer.text = "$it تا ارسال مجدد کد "
             if (it == "00:00") {
@@ -47,8 +48,7 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
                         val phoneNumber = Bundle()
                         phoneNumber.putString("PhoneNumber", args.phoneNumber);
                         newFragment.arguments = phoneNumber
-                        newFragment.show(requireFragmentManager(), "ConfirmPhoneNumber")
-
+                        newFragment.show(childFragmentManager, "ConfirmPhoneNumber")
                     }
                 }
             }
@@ -115,7 +115,6 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
         }
 
         binding.phoneButton.setOnClickListener {
-            Log.i("sms", SMS.toString())
             viewModel.onInputFillFinish(SMS.toString(), cookie)
         }
         viewModel.requestResponse.observe(viewLifecycleOwner, Observer {
@@ -130,6 +129,12 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
                 binding.smsInput3.text = null
                 binding.smsInput4.text = null
                 binding.smsInput5.text = null
+            }
+        })
+        viewModel.requestResponseResend.observe(viewLifecycleOwner, Observer {
+            if (it) {
+                binding.phoneButton.isEnabled = true
+                binding.phoneButton.setBackgroundResource(R.drawable.login_button)
             }
         })
     }
@@ -154,5 +159,12 @@ class ForgetpasswordSMSFragment : Fragment(R.layout.fragment_forgetpassword_sms)
     override fun onDestroyView() {
         fragmentForgetPasswordSMSBinding = null
         super.onDestroyView()
+    }
+
+    fun onDismiss() {
+        view?.findViewById<TextView>(R.id.resend)!!.visibility = View.GONE
+        view?.findViewById<TextView>(R.id.timer)!!.visibility = View.VISIBLE
+        viewModel.timer.cancel()
+        viewModel.timer.start()
     }
 }

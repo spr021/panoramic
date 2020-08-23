@@ -35,6 +35,7 @@ class AwardsGuideFragment : Fragment(R.layout.fragment_awards_guide), OnAwardIte
         val binding = FragmentAwardsGuideBinding.bind(view)
         awardsGuideBinding = binding
         viewModel = ViewModelProviders.of(this).get(AwardsGuideViewModel::class.java)
+        
 
         val cookie =
             activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!.getString("COOKIE", "")
@@ -42,6 +43,7 @@ class AwardsGuideFragment : Fragment(R.layout.fragment_awards_guide), OnAwardIte
 
         viewModel.viewState.observe(viewLifecycleOwner, Observer {
             if (it.success) {
+                binding.loading.visibility = View.GONE
                 view.findViewById<RecyclerView>(R.id.award_recyclerview).apply {
 
                     val orientation = resources.configuration.orientation

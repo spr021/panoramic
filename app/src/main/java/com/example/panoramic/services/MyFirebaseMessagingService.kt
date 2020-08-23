@@ -33,13 +33,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
 
-        Log.i("DDDDD notif", remoteMessage.data.toString())
         val intent = Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
         if (remoteMessage.data["action"] != null) {
-            Log.i("DDDDDDDDDD", remoteMessage.data.toString())
             intent.putExtra("action",remoteMessage.data["action"])
-//            val sharedPref = getSharedPreferences("ACTION", Context.MODE_PRIVATE)
-//            sharedPref!!.edit().putString("ACTION", remoteMessage.data["action"]).apply()
         }
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
         val defaultSoundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)

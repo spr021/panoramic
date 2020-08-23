@@ -18,26 +18,13 @@ class MovieItemFragment : Fragment(R.layout.fragment_movie_item) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModelFactory =
-            MovieItemViewModelFactory(
-                MovieItemFragmentArgs.fromBundle(
-                    requireArguments()
-                )
-            )
+        viewModelFactory = MovieItemViewModelFactory(MovieItemFragmentArgs.fromBundle(requireArguments()))
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MovieItemViewModel::class.java)
 
         val binding = FragmentMovieItemBinding.bind(view)
         fragmentMovieItemBinding = binding
-
-
-        Picasso.get()
-            .load(viewModel.args.image)
-            .placeholder(R.drawable.placeholder_image)
-            .into(binding.imageCover)
-
-        binding.title.text = viewModel.args.title
-        binding.text.text = viewModel.args.text
-
+        binding.movieViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         binding.imageCover.setOnClickListener {
             view.findNavController().navigate(
@@ -45,7 +32,8 @@ class MovieItemFragment : Fragment(R.layout.fragment_movie_item) {
                     viewModel.args.title,
                     viewModel.args.image,
                     viewModel.args.text,
-                    viewModel.args.video
+                    viewModel.args.video,
+                    viewModel.args.id
                 )
             )
         }

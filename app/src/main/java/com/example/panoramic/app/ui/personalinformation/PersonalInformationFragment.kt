@@ -54,16 +54,18 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
             val intent = Intent()
                 .setType("image/*")
                 .setAction(Intent.ACTION_PICK)
-
+Log.i("Uploadddd", "1")
             startActivityForResult(intent, 200)
         }
 
         viewModel.uploadPhoto?.observe(viewLifecycleOwner, Observer {
             if (it){
+                Log.i("Uploadddd", "2")
                 binding.profilePictuerScore.setImageDrawable(null)
                 binding.profilePictuerScore.setImageURI(uri)
                 CustomToast(requireActivity(), "آپلود عکس با موفقیت انجام شد", R.color.green)
             } else {
+                Log.i("Uploadddd", "3")
                 CustomToast(requireActivity(), "آپلود عکس انجام نشد", R.color.red)
             }
         })
@@ -98,6 +100,7 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        Log.i("Uploadddd", "4")
         EasyPermissions.onRequestPermissionsResult(
             requestCode,
             permissions,
@@ -114,6 +117,7 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
         super.onActivityResult(requestCode, resultCode, data)
 
         if (resultCode == RESULT_OK && requestCode == 200) {
+            Log.i("Uploadddd", "5")
             try {
                 uri = data?.data!!
                 if (EasyPermissions.hasPermissions(
@@ -121,6 +125,7 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
                         Manifest.permission.READ_EXTERNAL_STORAGE
                     )
                 ) {
+                    Log.i("Uploadddd", "9")
                     val filePath = getRealPathFromURIPath(uri, requireActivity())
                     val file = File(filePath)
                     // check image size under 1 MG
@@ -133,6 +138,7 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
                         CustomToast(requireActivity(), "حجم فایل باید کمتر از یک مگابایت باید", R.color.red)
                     }
                 } else {
+                    Log.i("Uploadddd", "10")
                     EasyPermissions.requestPermissions(
                         this,
                         "برای اپلود عکس جدید نیاز به اجازه ی شما هست",
@@ -147,17 +153,26 @@ class PersonalInformationFragment : Fragment(R.layout.fragment_personal_informat
     }
 
     override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
-        Log.d("onPermissionsDenied", "Permission has been denied");
+        Log.d("onPermissionsDenied", "Permission has been denied")
+        Log.i("Uploadddd", "11")
     }
 
     @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
         try {
+            Log.i("Uploadddd", "12")
             val filePath = getRealPathFromURIPath(uri, requireActivity())
             val file = File(filePath)
-            val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
-                .getString("COOKIE", "")
-            viewModel.uploadImage(cookie!!, file, context)
+            // check image size under 1 MG
+            val length: Long = file.length()
+            if(length <= 1000000) {
+                val cookie = activity?.getSharedPreferences("COOKIE", Context.MODE_PRIVATE)!!
+                    .getString("COOKIE", "")
+                viewModel.uploadImage(cookie!!, file, context)
+            } else {
+                Log.i("Uploadddd", "13")
+                CustomToast(requireActivity(), "حجم فایل باید کمتر از یک مگابایت باید", R.color.red)
+            }
         }catch (e: Throwable){
         }
 

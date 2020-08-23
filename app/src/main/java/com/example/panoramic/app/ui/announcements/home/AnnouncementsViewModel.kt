@@ -4,11 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.panoramic.app.MainActivity
-import com.example.panoramic.data.entity.AnnouncementsEntity
 import com.example.panoramic.remote.model.AnnouncementsDto
-import com.example.panoramic.remote.model.TopTenSellerDto
 import com.example.panoramic.remote.service.AnnouncementsService
-import com.example.panoramic.remote.service.TopTenSellerService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

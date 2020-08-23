@@ -98,7 +98,7 @@ class PersonalInformationViewModel : ViewModel() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val retrofitInterface = retrofit.create(UploadPhotoService::class.java)
-
+        Log.i("Uploadddd", "6")
         val call: Call<UploadPhotoDto> = retrofitInterface.updatePhoto(fileToUpload, cookie)
         call.enqueue(object : Callback<UploadPhotoDto> {
             override fun onResponse(
@@ -106,11 +106,14 @@ class PersonalInformationViewModel : ViewModel() {
                 response: Response<UploadPhotoDto>
             ) {
                 if (response.code() == 200) {
-                    Log.i("sasasasasasas", "sasasasassa")
+                    Log.i("Uploadddd", "7")
                     _uploadPhoto.postValue(response.body()!!.success)
                 }
             }
-            override fun onFailure(call: Call<UploadPhotoDto>, t: Throwable) {}
+            override fun onFailure(call: Call<UploadPhotoDto>, t: Throwable) {
+                Log.i("Uploadddd", "8")
+                Log.i("Uploadddd", t.toString())
+            }
         })
     }
 

@@ -1,8 +1,9 @@
 package com.example.panoramic.app.ui.login
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.net.ConnectivityManager
+import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,16 +11,13 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.panoramic.R
 import com.example.panoramic.app.MainActivity
 import com.example.panoramic.app.isOnline
 import com.example.panoramic.databinding.FragmentLoginBinding
-import com.example.panoramic.remote.model.CookieResponseDto
 import com.example.panoramic.remote.model.LoginResponseDto
-import com.example.panoramic.remote.service.CookieService
 import com.example.panoramic.remote.service.LoginService
 import com.google.firebase.iid.FirebaseInstanceId
 import com.wajahatkarim3.easyvalidation.core.view_ktx.nonEmpty
@@ -102,12 +100,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     val errorText = view?.findViewById<TextView>(R.id.message)
                     errorText?.text = "دوباره تلاش کنید"
                     errorText?.visibility = View.VISIBLE
+                    view?.findViewById<ProgressBar>(R.id.progressBar)!!.visibility = View.GONE
                 }
             })
         } else {
             val errorText = view?.findViewById<TextView>(R.id.message)
             errorText?.text = "نام کاربری و رمز عبور را وارد کنید"
             errorText?.visibility = View.VISIBLE
+            view?.findViewById<ProgressBar>(R.id.progressBar)!!.visibility = View.GONE
         }
     }
 

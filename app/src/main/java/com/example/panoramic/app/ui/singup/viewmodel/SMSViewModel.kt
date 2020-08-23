@@ -34,7 +34,7 @@ class SMSViewModel : ViewModel() {
     val requestResponseResend: LiveData<Boolean>
         get() = _requestResponseResend
 
-    private val timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
+    val timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
 
         override fun onTick(millisUntilFinished: Long) {
             _currentTime.value = millisUntilFinished / ONE_SECOND
@@ -43,7 +43,7 @@ class SMSViewModel : ViewModel() {
         override fun onFinish() {
             _currentTime.value = DONE
         }
-    }.start()
+    }
 
     // The String version of the current time
     val currentTimeString = Transformations.map(currentTime) { time ->

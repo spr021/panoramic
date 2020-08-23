@@ -5,11 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.panoramic.app.MainActivity
-import com.example.panoramic.remote.model.SendPhoneBody
-import com.example.panoramic.remote.model.SendPhoneDto
 import com.example.panoramic.remote.model.SingUpBody
 import com.example.panoramic.remote.model.SingUpDto
-import com.example.panoramic.remote.service.SendPhoneService
 import com.example.panoramic.remote.service.SingUpService
 import retrofit2.Call
 import retrofit2.Callback
